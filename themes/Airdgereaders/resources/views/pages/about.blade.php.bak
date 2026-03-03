@@ -1,0 +1,66 @@
+@extends('layouts.public', ['title' => 'Browse Fields'])
+
+@push('meta')
+    <meta name="description" content="Publish your research works on the largest academia library, gain recognition and earn through our premium program at ReadProjectTopics.com."/>
+    <meta property="title" content="ReadProjectTopics.com – Project Topics and Materials, Research Materials, Academic Documents">
+    
+    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, project topics for university students, Nigerian project topics, free project topics, complete project materials PDF">
+
+    <meta property="og:title" content="ReadProjectTopics.com – Project Topics, Research Materials, Academic Documents">
+    <meta property="og:description" content="Publish your research works on the largest academia library, gain recognition and earn through our premium program at ReadProjectTopics.com.">
+    <meta property="og:url" content="https://readprojecttopics.com/">
+@endpush
+
+@push('css')
+@endpush
+
+@section('content')
+<div class="ereaders-main-section ereaders-counterfull">
+    <div class="container" style="width: 100%">
+
+        <div class="row">
+
+            <!-- LEFT SIDE -->
+            <div class="col-md-8">
+                <div class="ereaders-about-us">
+
+                    <h2><span class="ereaders-color">ABOUT US</span></h2>
+
+                    <p>
+                        ReadProjectTopics is No.1 largest final year academic resource platform. .
+Our online library provides access to thousands of project topics and materials, thesis, and dissertations. Search unlimited departmental topics using keywords and download complete project materials instantly. You can also publish your research, get citations, and grow your academic presence.
+                    </p>
+
+                    <h2><span class="ereaders-color">BENEFITS</span></h2>
+
+                    <ol>
+                        <li>Sharing your research helps other scholars build on existing knowledge in your field.</li>
+                        <li>Your published works contribute to improved understanding of important research questions.</li>
+                        <li>A strong portfolio of published work supports academic promotions and career advancement.</li>
+                        <li>Publishing establishes you as an expert in your field of study.</li>
+                        <li>The writing and publishing process clarifies your research goals, data interpretation, and comparison with existing works.</li>
+                        <li>Publication preserves your research permanently in academic databases.</li>
+                    </ol>
+
+                    <a href="https://readprojecttopics.com/resources/fields" class="ereaders-simple-btn ereaders-bgcolor">
+                        Browse Faculties<i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE IMAGE -->
+            <div class="col-md-4">
+                <figure class="ereaders-about-thumb">
+                    <img src="{{ theme_asset('extra-images/about-thumb-img3.jpg') }}" alt="" class="two">
+                    <img src="{{ theme_asset('extra-images/about-thumb-img5.jpg') }}" style="top: 30%" alt="" class="four">
+                </figure>
+            </div>
+
+           
+
+        </div>
+
+    </div>
+</div>
+@endsection
+

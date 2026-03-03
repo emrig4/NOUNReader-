@@ -1,0 +1,44 @@
+/**
+ * Vue.js Dependency Loader for PDF Components
+ * Ensures Vue is loaded before vue-pdf-embed components
+ */
+(function() {
+    'use strict';
+    
+    // Wait for Vue to be available
+    function waitForVue() {
+        if (typeof window.Vue !== 'undefined') {
+            console.log('✅ Vue.js is loaded - PDF components can now initialize');
+            return true;
+        }
+        return false;
+    }
+    
+    // Initialize PDF components when Vue is ready
+    function initPdfComponents() {
+        if (waitForVue()) {
+            // Only load PDF components if they exist and Vue is available
+            if (window.Vue && typeof window.Vue.component === 'function') {
+                // PDF components will automatically load when script is included
+                console.log('✅ PDF components initialization ready');
+            }
+        } else {
+            // Retry in 100ms
+            setTimeout(initPdfComponents, 100);
+        }
+    }
+    
+    // Override Vue.component to ensure dependency check
+    const originalVueComponent = window.Vue?.component;
+    if (window.Vue) {
+        window.Vue.component = function(componentName, options) {
+            console.log(`🔧 Vue component registered: ${componentName}`);
+            return originalVueComponent?.call(this, componentName, options);
+        };
+    }
+    
+    // Start initialization
+    initPdfComponents();
+    
+    console.log('✅ Vue PDF Fix loaded successfully');
+})();

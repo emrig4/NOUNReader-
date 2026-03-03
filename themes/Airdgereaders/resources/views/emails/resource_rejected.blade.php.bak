@@ -1,0 +1,37 @@
+@component('mail::message')
+# Document Review Update
+
+Hello {{ $resource->user->first_name }},
+
+Thank you for submitting your document for review. After careful consideration, our admin team was not able to approve your submission at this time.
+
+**Document Details:**
+- **Title:** {{ $resource->title }}
+- **Submitted on:** {{ $resource->submitted_at ? $resource->submitted_at->format('F d, Y \a\t g:i A') : 'N/A' }}
+- **Status:** Needs Revision
+
+**Reason for Decision:**
+
+{{ $reason ?? 'Please contact support for more information.' }}
+
+---
+
+**What Can You Do?**
+
+1. Review the feedback provided above
+2. Make the necessary changes to your document
+3. Resubmit your document for another review
+
+@component('mail::button', ['url' => route('resources.submit')])
+Submit a New Document
+@endcomponent
+
+If you have any questions about this decision or need further clarification, please don't hesitate to contact our support team.
+
+Best regards,
+readprojecttopics Team
+
+---
+This is an automated message. Please do not reply to this email.
+@endcomponent
+

@@ -1,0 +1,139 @@
+@extends('layouts.public', ['title' => 'Browse Fields'])
+
+@push('meta')
+    <meta name="description" content="Publish your research works on the largest academia library, gain recognition and also earn through our premium program."/>
+    <meta property="title" content="ReadProjectTopics.com – Project Topics, Research Materials, Final Year Papers">
+    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, project topics for university students, Nigerian project topics, free project topics, complete project materials PDF">
+    <meta property="og:title" content="ReadProjectTopics.com – Project Topics, Research Materials, Final Year Papers">
+    <meta property="og:description" content="Publish your research works on the largest academia library, gain recognition and also earn through our premium program.">
+@endpush
+
+@push('css')
+@endpush
+
+@section('content')
+
+<!-- Main Section -->
+<div class="ereaders-main-section ereaders-counterfull">
+    <div class="container" style="width: 100%">
+
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <img src="{{ theme_asset('extra-images/privacy.png') }}" alt="Privacy Policy" class="mx-auto">
+            </div>
+
+            <div class="col-md-3"></div>
+
+            <div class="col-md-8">
+                <div class="ereaders-about-us">
+
+                    <h4><span class="ereaders-color">Personal Information</span></h4>
+                    <p>
+                        At ReadProjectTopics, one of our main priorities is the privacy of our visitors.
+                        This Privacy Policy document explains the types of information collected and recorded
+                        by ReadProjectTopics and how we use it. If you have additional questions or need more
+                        information about our Privacy Policy, please contact us.
+                    </p>
+                    <p>
+                        This Privacy Policy applies only to our online activities and is valid for
+                        visitors to our website regarding the information they share and/or collect
+                        on ReadProjectTopics.com. This policy does not apply to information collected offline
+                        or via channels other than this website.
+                    </p>
+
+                    <h4><span class="ereaders-color">Consent</span></h4>
+                    <p>
+                        By using our website (<a href="https://projectandmaterials.com/">https://projectandmaterials.com/</a>), you hereby consent to our Privacy Policy and agree to its terms.
+                    </p>
+
+                    <h4><span class="ereaders-color">Information we collect</span></h4>
+                    <p>
+                        The personal information that you are asked to provide, and the reasons you are asked
+                        to provide it, will be made clear at the point we request it. If you contact us directly,
+                        we may receive additional information such as your name, email, phone number,
+                        the content of your message, and any attachments you may send.
+                    </p>
+                    <p>
+                        When you register for an account, we may request your contact information such as:
+                        name, company name, address, email address, and phone number.
+                    </p>
+
+                    <h4><span class="ereaders-color">How we use your information</span></h4>
+                    <p>We use collected information to:</p>
+                    <ul>
+                        <li>Provide, operate, and maintain our website</li>
+                        <li>Improve and personalize user experience</li>
+                        <li>Understand and analyze website usage</li>
+                        <li>Develop new services, features, and functionality</li>
+                        <li>Communicate with users for customer service and updates</li>
+                        <li>Send emails</li>
+                        <li>Detect and prevent fraud</li>
+                    </ul>
+
+                    <h4><span class="ereaders-color">Log Files</span></h4>
+                    <p>
+                        ReadProjectTopics follows a standard procedure of using log files. These log
+                        visitors when they visit the website. The information collected includes:
+                        IP addresses, browser type, ISP, date/time stamp, referring pages, and clicks.
+                        None of this is linked to personally identifiable information.
+                    </p>
+
+                    <h4><span class="ereaders-color">Cookies and Web Beacons</span></h4>
+                    <p>
+                        Like most websites, ReadProjectTopics uses cookies to store visitors’ preferences
+                        and the pages they access. This information is used to enhance user experience.
+                    </p>
+
+                    <h4><span class="ereaders-color">Google DoubleClick DART Cookie</span></h4>
+                    <p>
+                        Google uses DART cookies to serve ads to visitors based on their activities across
+                        websites. Users may opt out by visiting Google’s ad policy:
+                        <a href="https://policies.google.com/technologies/ads">Google Ads Policy</a>.
+                    </p>
+
+                    <h4><span class="ereaders-color">Advertising Partners Privacy Policies</span></h4>
+                    <p>
+                        Third-party ad networks may use technologies like cookies, JavaScript, or web beacons
+                        for advertising on ReadProjectTopics. These automatically receive your IP address.
+                        ReadProjectTopics has no access or control over these cookies.
+                    </p>
+
+                    <h4><span class="ereaders-color">CCPA Privacy Rights</span></h4>
+                    <p>
+                        California users have rights to request disclosure, deletion, or opt-out of sale of data.
+                        To exercise any CCPA rights, please contact us.
+                    </p>
+
+                    <h4><span class="ereaders-color">GDPR Data Protection Rights</span></h4>
+                    <p>You are entitled to the following rights:</p>
+                    <ul>
+                        <li>The right to access your stored data</li>
+                        <li>The right to rectification</li>
+                        <li>The right to erasure</li>
+                        <li>The right to restrict processing</li>
+                        <li>The right to object to processing</li>
+                        <li>The right to data portability</li>
+                    </ul>
+                    <p>
+                        If you make a request, we will respond within one month. Contact us to exercise these rights.
+                    </p>
+
+                    <h4><span class="ereaders-color">Children's Information</span></h4>
+                    <p>
+                        ReadProjectTopics does not knowingly collect personal information from children under 13.
+                        If you believe your child has provided such information, please contact us so we can
+                        remove it promptly.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-2"></div>
+
+        </div>
+    </div>
+</div>
+
+@endsection
+

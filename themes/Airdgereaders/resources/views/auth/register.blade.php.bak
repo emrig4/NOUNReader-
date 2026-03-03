@@ -1,0 +1,78 @@
+@extends('layouts.auth')
+@push('css')
+<link href="{{ asset('themes/airdgereaders/css/auth.css') }}" rel="stylesheet">
+@endpush
+
+@section('content')
+    <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
+        <div class="loginbox bg-white">
+            <div class="loginbox-title">SIGN IN</div>
+            <div class="loginbox-social">
+                <div class="social-title ">Connect with Your Social Accounts</div>
+                <div class="social-buttons">
+                    <a href="" class="button-facebook">
+                        <i class="social-icon fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="button-twitter">
+                        <i class="social-icon fa fa-twitter"></i>
+                    </a>
+                    <a href="" class="button-google">
+                        <i class="social-icon fa fa-google-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="loginbox-or">
+                <div class="or-line"></div>
+                <div class="or">OR</div>
+            </div>
+            <form method="post" action="{{ route('register') }}" class="register-form">
+                @csrf()
+                <div class="loginbox-textbox">
+                    <x-jet-validation-errors class="mb-4" />
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="text" class="form-control" required="" name="last_name" placeholder="Last Name">
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="text" class="form-control" required="" name="first_name" placeholder="First Name">
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="text" class="form-control" required="" name="email" placeholder="Email">
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="password" autocomplete="new-password" required="" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="password" autocomplete="new-password" required="" class="form-control" name="password_confirmation" placeholder="Confirm Password ">
+                </div>
+                <div class="loginbox-submit">
+                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                        <div class="mt-4">
+                            <x-jet-label for="terms">
+                                <div class="flex" >
+                                    <x-jet-checkbox required name="terms" id="terms"/>
+
+                                    <div class="ml-2">
+                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                        ]) !!}
+                                    </div>
+                                </div>
+                            </x-jet-label>
+                        </div>
+                    @endif
+                </div>
+                <div class="loginbox-submit">
+                    <input type="submit" class="btn btn-primary btn-block" value="Register">
+                </div>
+            </form>
+            <div class="loginbox-signup">
+                <p class="text-sm">Already have an account ? <span><a href="/login" class="text-sm ">Login Here</a></span></p>
+            </div>
+        </div>
+        <div class="logobox">
+           <img src="{{ asset('themes/airdgereaders/images/logo.png') }}">
+        </div>
+    </div>
+@endsection

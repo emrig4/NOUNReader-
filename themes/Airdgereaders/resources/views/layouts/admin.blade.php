@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="google-site-verification" content="kxif4mNzcVplMsLcmLHjvyQV5XVbC6UPmpV3rYgMShk" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>readprojecttopics - Admin</title>
+
+    <!-- Generics -->
+    <link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="32x32">
+    <link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="128x128">
+    <link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="192x192">
+
+    <!-- Android -->
+    <link rel="shortcut icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="196x196">
+
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="152x152">
+    <link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="167x167">
+    <link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico')}}" sizes="180x180">
+
+  <link rel="stylesheet" href="{{ theme_asset('admin/assets/css/style.css')}}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link href="{{ theme_asset('css/typography.css') }}" rel="stylesheet"> -->
+
+  @stack('css')
+  @notifyCss
+</head>
+
+<body>
+
+    <!-- Top Bar  -->
+    @include('admin.partials.header')
+
+    <!-- Menu Bar -->
+    @include('admin.partials.sidebar')
+
+    <!-- Workspace  -->
+    <main class="workspace overflow-hidden">
+
+
+        <div class="lg:-mx-4">
+            @yield('content')
+        </div>
+
+        <!-- Footer  -->
+        @include('admin.partials.footer')
+    </main>
+
+    <!-- Scripts -->
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="{{ theme_asset('admin/assets/js/vendor.js')}}"></script>
+    <script src="{{ theme_asset('admin/assets/js/Chart.min.js')}}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+    <script src="{{ theme_asset('admin/assets/js/script.js')}}"></script>
+
+    @stack('js')
+    <x:notify-messages />
+    @notifyJs
+
+    <!-- Browser Navigation Loader - Shows favicon spinner during navigation -->
+    <script src="{{ asset('js/minimal-browser-loader.js') }}" defer></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,15 @@
+{
+    "name": "Setting",
+    "alias": "setting",
+    "description": "Site wide settings module",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\Setting\\Providers\\SettingServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "helpers.php"
+    ],
+    "requires": []
+}

@@ -1,0 +1,1119 @@
+[2026-03-01 00:45:15] production.INFO: PDF locked (no preview, no S3 read): development-of-an-internet-protocol-traceback-scheme-for-denial-of-service-attack-source-detection  
+[2026-03-01 00:46:03] production.INFO: PDF locked (no preview, no S3 read): implementation-of-information-resource-development-policy-in-academic-libraries-in-kaduna-state  
+[2026-03-01 00:46:07] production.INFO: PDF locked (no preview, no S3 read): metacognitive-skills-development-strategies-for-improving-academic-performance-of-building  
+[2026-03-01 00:47:11] production.INFO: PDF locked (no preview, no S3 read): modelling-of-energy-requirement-demand-for-tillage-operations-in-maize-production  
+[2026-03-01 00:47:43] production.INFO: PDF locked (no preview, no S3 read): assessment-of-sawdust-activated-carbon-sac-in-the-treatment-of-aquaculture-effluent  
+[2026-03-01 01:20:19] production.INFO: PDF locked (no preview, no S3 read): an-assessment-of-the-effectiveness-of-parliamentary-bureaucracy-in-the-nigerian-national-assembly-a  
+[2026-03-01 01:20:23] production.INFO: PDF locked (no preview, no S3 read): records-management-practices-computer-literacy-skills-and-job-performance-of-registry-staff-of  
+[2026-03-01 02:00:35] production.ERROR: Application error occurred {"exception_class":"Facade\\Ignition\\Exceptions\\ViewException","message":"Trying to get property 'profile_photo_url' of non-object (View: [PATH_REDACTED][PATH_REDACTED][PATH_REDACTED][PATH_REDACTED]/profile.blade.php)","code":0,"file":"profile.blade.php","line":37,"url":"https://pamdev.online/a/ashelo-simon-anda","method":"GET","user_id":"guest","ip":"3.220.148.166"} 
+[2026-03-01 02:00:35] production.ERROR: Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) {"view":{"view":"/home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1432618503 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#2833</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1432618503\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","author":"<pre class=sf-dump id=sf-dump-318420229 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Modules\\Resource\\Models\\ResourceAuthor</span> {<a class=sf-dump-ref>#2844</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"16 characters\">resource_authors</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13723</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"17 characters\">ashelo-simon-anda</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"17 characters\">Ashelo Simon ANDA</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13625</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:34:49</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:34:49</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13723</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"17 characters\">ashelo-simon-anda</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"17 characters\">Ashelo Simon ANDA</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13625</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:34:49</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:34:49</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>user</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-318420229\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) at /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php:37)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Trying to get property 'profile_photo_url' of non-object at /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php:35)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php(35): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+"} 
+[2026-03-01 02:04:31] production.INFO: PDF locked (no preview, no S3 read): the-activity-of-hisbah-in-crime-control-in-goronyo-local-government  
+[2026-03-01 02:04:39] production.INFO: PDF locked (no preview, no S3 read): the-contribution-of-hausa-or-fulani-scholars-to-the-development-of-islam-in-ilorin-metropolis  
+[2026-03-01 02:17:03] production.INFO: User logged in successfully (2022 style) {"user_id":1,"email":"emrig4@gmail.com"} 
+[2026-03-01 02:21:07] production.INFO: PDF locked (no preview, no S3 read): resource-competence-and-committee-effectiveness-case-study-of-selected-committees-in-the-senate-and  
+[2026-03-01 02:27:04] production.INFO: Wallet deduction email sent successfully to: emrig4@gmail.com  
+[2026-03-01 02:27:04] production.ERROR: WalletTrait: User not found or not authenticated for credit  
+[2026-03-01 02:27:04] production.ERROR: WalletTrait: User not found or not authenticated for credit  
+[2026-03-01 02:27:04] production.WARNING: EmailNotificationService: Missing required data for read operation email  
+[2026-03-01 02:27:05] production.INFO: Full PDF served: acc419-noun-pop-2022-2-past-questions-pdf-download  
+[2026-03-01 03:08:23] production.INFO: PDF locked (no preview, no S3 read): the-politics-of-street-begging-in-nigeria-a-case-study-of-sokoto-north-local-government  
+[2026-03-01 03:08:43] production.INFO: PDF locked (no preview, no S3 read): budget-implementation-and-the-achievement-of-millennium-development-goals-mdgs-related-programmes-in  
+[2026-03-01 03:08:47] production.INFO: PDF locked (no preview, no S3 read): the-society-and-the-girl-child-in-the-bluest-eye-by-toni-morrisonand-kaine-agarys-yellow-yellow  
+[2026-03-01 03:12:45] production.ERROR: Application error occurred {"exception_class":"ParseError","message":"syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'","code":0,"file":"AuthController.php","line":206,"url":"https://pamdev.online/logout","method":"POST","user_id":"guest","ip":"105.113.40.102"} 
+[2026-03-01 03:12:45] production.ERROR: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' at /home/projtpyy/pamdev.online/app/Http/Controllers/AuthController.php:206)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}('/home/projtpyy/...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(734): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(714): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 {main}
+"} 
+[2026-03-01 03:13:15] production.ERROR: Application error occurred {"exception_class":"ParseError","message":"syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'","code":0,"file":"AuthController.php","line":206,"url":"https://pamdev.online/register","method":"GET","user_id":"guest","ip":"105.113.40.102"} 
+[2026-03-01 03:13:15] production.ERROR: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' at /home/projtpyy/pamdev.online/app/Http/Controllers/AuthController.php:206)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}('/home/projtpyy/...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(734): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(714): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 {main}
+"} 
+[2026-03-01 03:13:46] production.ERROR: Application error occurred {"exception_class":"ParseError","message":"syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'","code":0,"file":"AuthController.php","line":206,"url":"https://pamdev.online/register","method":"GET","user_id":"guest","ip":"105.113.40.102"} 
+[2026-03-01 03:13:46] production.ERROR: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' at /home/projtpyy/pamdev.online/app/Http/Controllers/AuthController.php:206)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}('/home/projtpyy/...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(734): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(714): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 {main}
+"} 
+[2026-03-01 03:15:01] production.INFO: User logged out {"user_id":1,"email":"emrig4@gmail.com"} 
+[2026-03-01 03:17:09] production.INFO: AuthController: Starting user registration (2022 style) {"email":"cccc@gmail.com"} 
+[2026-03-01 03:17:09] production.INFO: ✅ Auto-created Account and Wallets for user: 538  
+[2026-03-01 03:17:09] production.INFO: AuthController: User created {"user_id":538} 
+[2026-03-01 03:17:09] production.INFO: AuthController: Account and Wallets auto-created by User model event {"user_id":538} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: Starting auto credit process for user {"user_id":538,"user_email":"cccc@gmail.com"} 
+[2026-03-01 03:17:09] production.DEBUG: AutoCreditService: isAutoCreditEnabled check {"raw_setting":true,"result":true} 
+[2026-03-01 03:17:09] production.DEBUG: AutoCreditService: userHasReceivedAutoCredit check {"user_id":538,"exists":false} 
+[2026-03-01 03:17:09] production.DEBUG: AutoCreditService: getAutoCreditAmount check {"raw_setting":190.0,"result":190.0} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: Credit amount from settings {"user_id":538,"credit_amount":190.0} 
+[2026-03-01 03:17:09] production.DEBUG: AutoCreditService: Using existing subscription wallet {"user_id":538} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: Before increment {"user_id":538,"balance_before":"0.00","credit_to_grant":190.0} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: Using WalletTrait to credit wallet {"user_id":538,"credit_amount":190.0,"balance_before":"0.00"} 
+[2026-03-01 03:17:09] production.ERROR: WalletTrait credit error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type' at row 1 (SQL: insert into `credit_wallet_transactions` (`amount`, `ranc`, `currency`, `type`, `status`, `remark`, `credit_wallet_id`, `reference`, `updated_at`, `created_at`) values (190, 190, RNC, auto_signup, processed, Auto_signup, 541, 91209074304, 2026-03-01 03:17:09, 2026-03-01 03:17:09)) {"user_id":538,"amount":190.0,"type":"auto_signup"} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: After WalletTrait credit {"user_id":538,"new_balance":"190.00"} 
+[2026-03-01 03:17:09] production.INFO: AutoCreditService: Credit granted successfully via WalletTrait {"user_id":538,"amount":190.0,"balance_before":"0.00","balance_after":"190.00"} 
+[2026-03-01 03:17:09] production.INFO: AuthController: Auto credit process completed {"user_id":538,"credit_granted":true} 
+[2026-03-01 03:17:10] production.DEBUG: AutoCreditService: getAutoCreditAmount check {"raw_setting":190.0,"result":190.0} 
+[2026-03-01 03:17:11] production.INFO: Welcome verified user email sent successfully to: cccc@gmail.com  
+[2026-03-01 03:17:11] production.INFO: AuthController: Welcome email sent {"user_id":538} 
+[2026-03-01 03:17:11] production.INFO: AuthController: User registered successfully (2022 style) {"user_id":538,"email":"cccc@gmail.com"} 
+[2026-03-01 03:17:24] production.INFO: User logged in successfully (2022 style) {"user_id":538,"email":"cccc@gmail.com"} 
+[2026-03-01 03:32:03] production.INFO: PDF locked (no preview, no S3 read): the-role-of-legislative-committees-in-enhancing-legislative-performance-in-nigeria-a-study-of-the  
+[2026-03-01 03:32:05] production.INFO: PDF locked (no preview, no S3 read): choice-of-birthplace-and-use-of-birth-attendants-among-child-bearing-women-in-akanu-ohafia-local  
+[2026-03-01 04:04:19] production.INFO: PDF locked (no preview, no S3 read): development-of-an-improved-ergodic-capacity-of-underlay-cognitive-radio-with-imperfect-channel-state-information  
+[2026-03-01 04:04:23] production.INFO: PDF locked (no preview, no S3 read): corrosion-and-fatigue-behaviour-of-welded-austenitic-stainless-steel-in-different-environments  
+[2026-03-01 04:04:35] production.INFO: PDF locked (no preview, no S3 read): a-study-of-the-effect-of-liquid-flow-rate-pipe-size-and-pipe-orientation-on-the-liquid-hold-up-using  
+[2026-03-01 04:04:43] production.INFO: PDF locked (no preview, no S3 read): availability-and-use-of-electronic-information-resources-and-service-delivery-in-university  
+[2026-03-01 04:05:08] production.INFO: PDF locked (no preview, no S3 read): a-post-structuralist-interrogation-of-selected-works-of-chinua-achebe  
+[2026-03-01 04:05:11] production.INFO: PDF locked (no preview, no S3 read): effect-of-selected-games-on-pupils-achievement-in-reading  
+[2026-03-01 04:05:39] production.INFO: PDF locked (no preview, no S3 read): the-place-of-communication-in-an-organisation  
+[2026-03-01 04:06:35] production.INFO: PDF locked (no preview, no S3 read): the-effectiveness-of-media-and-expository-method  
+[2026-03-01 04:06:59] production.INFO: PDF locked (no preview, no S3 read): application-of-minimum-curvature-method-to-wellpath-calculations  
+[2026-03-01 04:07:39] production.INFO: PDF locked (no preview, no S3 read): development-of-family-law-awareness-programme-for-families-in-anambra-state  
+[2026-03-01 04:14:45] production.INFO: PDF locked (no preview, no S3 read): the-effect-of-study-and-time-management-skills-of-ugiv-hausa-education-students-of-usmanu-danfodiyo-university-sokoto  
+[2026-03-01 04:32:09] production.INFO: PDF locked (no preview, no S3 read): acquisition-and-organization-of-electronic-resources-for-information-service-delivery-in-university  
+[2026-03-01 04:49:51] production.INFO: PDF locked (no preview, no S3 read): national-assembly-windows-for-parliamentary-openness-and-public-participation  
+[2026-03-01 05:12:32] production.INFO: PDF locked (no preview, no S3 read): phytochemical-analysis-on-moringa-oleifera-and-azadrichta-indica-leaves  
+[2026-03-01 05:21:11] production.INFO: PDF locked (no preview, no S3 read): africa-and-the-united-nations-millennium-reforms-a-critical-appraisal  
+[2026-03-01 05:21:25] production.INFO: PDF locked (no preview, no S3 read): availability-accessibility-and-utilization-of-agricultural-research-literature-to-researchers-in  
+[2026-03-01 05:21:40] production.INFO: PDF locked (no preview, no S3 read): a-three-dimensional-numerical-simulator-for-expansion-drive-reservoirs  
+[2026-03-01 05:22:27] production.INFO: PDF locked (no preview, no S3 read): biological-studies-on-earias-insulana-boisd  
+[2026-03-01 05:22:55] production.INFO: PDF locked (no preview, no S3 read): effect-of-six-weed-management-techniques-on-weedcontrol-and-growth-and-yield-of-plantain-musa-spp  
+[2026-03-01 05:23:07] production.INFO: PDF locked (no preview, no S3 read): global-governance-and-emerging-trends-in-the-implementation-of-united-nations-security-council  
+[2026-03-01 05:23:12] production.INFO: PDF locked (no preview, no S3 read): influence-of-study-skills-on-test-anxiety-levels-and-achievement-of-senior-secondary-school-students-in-english-language  
+[2026-03-01 05:23:19] production.INFO: PDF locked (no preview, no S3 read): la-notion-de-fidelite-au-sens-appliquee-a-la-traduction-des-quatre-premiers-chapitres-de-sparing-the-rod-de-bayo-adebiyi  
+[2026-03-01 05:23:31] production.INFO: PDF locked (no preview, no S3 read): effects-of-improvised-instructional-materials-on-the-academic-performance-of-junior-secondary-school  
+[2026-03-01 05:23:36] production.INFO: PDF locked (no preview, no S3 read): preliminary-investigation-on-effects-of-burantashi-extract-on-liver-enzymes-of-albino-male-and  
+[2026-03-01 05:24:07] production.INFO: PDF locked (no preview, no S3 read): economics-of-millet-production-under-different-cropping-systems-in-borno-state-of-nigeria  
+[2026-03-01 05:24:31] production.INFO: PDF locked (no preview, no S3 read): federalism-and-national-intergration-in-nigeria-issues-and-challenges  
+[2026-03-01 05:54:28] production.INFO: PDF locked (no preview, no S3 read): effects-of-information-technology-on-the-efficiency-of-tax-administration-in-nigeria  
+[2026-03-01 05:55:36] production.INFO: PDF locked (no preview, no S3 read): assessment-of-the-implementation-of-metalwork-programme-at-the-national-technical-certificate-ntc  
+[2026-03-01 05:55:52] production.INFO: PDF locked (no preview, no S3 read): perceived-relationship-between-selected-management-practices-and-the-performance-of-marketing  
+[2026-03-01 06:34:03] production.INFO: PDF locked (no preview, no S3 read): the-problems-and-prospects-of-company-income-tax-administration-in-nigeria  
+[2026-03-01 06:45:25] production.INFO: PDF locked (no preview, no S3 read): effect-of-biological-and-heat-treatments-on-the-nutritional-phytochemical-properties-of-sesame-flour-and-sensory-acceptability-of-its-cookies  
+[2026-03-01 07:23:52] production.ERROR: Application error occurred {"exception_class":"Facade\\Ignition\\Exceptions\\ViewException","message":"Trying to get property 'profile_photo_url' of non-object (View: [PATH_REDACTED][PATH_REDACTED][PATH_REDACTED][PATH_REDACTED]/profile.blade.php)","code":0,"file":"profile.blade.php","line":37,"url":"https://www.pamdev.online/a/ajiboye-olakunle-johnson","method":"GET","user_id":"guest","ip":"17.246.19.205"} 
+[2026-03-01 07:23:52] production.ERROR: Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) {"view":{"view":"/home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1592586100 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#2846</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1592586100\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","author":"<pre class=sf-dump id=sf-dump-1371346582 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Modules\\Resource\\Models\\ResourceAuthor</span> {<a class=sf-dump-ref>#2857</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"16 characters\">resource_authors</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">19905</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"24 characters\">ajiboye-olakunle-johnson</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"24 characters\">AJIBOYE OLAKUNLE JOHNSON</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">22607</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">19905</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"24 characters\">ajiboye-olakunle-johnson</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"24 characters\">AJIBOYE OLAKUNLE JOHNSON</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">22607</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>user</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1371346582\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) at /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php:37)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Trying to get property 'profile_photo_url' of non-object at /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php:35)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php(35): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+"} 
+[2026-03-01 07:25:33] production.INFO: PDF locked (no preview, no S3 read): health-services-utilization-of-depressed-patients-attending-the-general-out-patient-department-gopd-of-jos-university-teaching-hospital-juth-jos  
+[2026-03-01 07:26:04] production.INFO: PDF locked (no preview, no S3 read): a-devs-based-ann-training-and-prediction-platform  
+[2026-03-01 07:26:13] production.INFO: PDF locked (no preview, no S3 read): effectiveness-of-corporate-reputation-management-strategies-in-selected-oil-gas-companies-in-nigeria  
+[2026-03-01 07:31:17] production.INFO: PDF locked (no preview, no S3 read): effects-of-intravenous-dexamethasone-combined-with-caudal-analgesia-on-post-operative-pain-control-in-day-case-paediatric-inguinal-herniotomy  
+[2026-03-01 07:33:30] production.INFO: PDF locked (no preview, no S3 read): assessing-the-effect-of-work-place-environment-on-employee-performance  
+[2026-03-01 07:34:00] production.ERROR: Application error occurred {"exception_class":"Facade\\Ignition\\Exceptions\\ViewException","message":"Trying to get property 'profile_photo_url' of non-object (View: [PATH_REDACTED][PATH_REDACTED][PATH_REDACTED][PATH_REDACTED]/profile.blade.php)","code":0,"file":"profile.blade.php","line":37,"url":"https://www.pamdev.online/a/ajiboye-olakunle-johnson","method":"GET","user_id":"guest","ip":"17.246.19.242"} 
+[2026-03-01 07:34:00] production.ERROR: Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) {"view":{"view":"/home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1543879304 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#2846</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1543879304\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","author":"<pre class=sf-dump id=sf-dump-1642266017 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Modules\\Resource\\Models\\ResourceAuthor</span> {<a class=sf-dump-ref>#2857</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"16 characters\">resource_authors</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">19905</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"24 characters\">ajiboye-olakunle-johnson</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"24 characters\">AJIBOYE OLAKUNLE JOHNSON</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">22607</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">19905</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"24 characters\">ajiboye-olakunle-johnson</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"24 characters\">AJIBOYE OLAKUNLE JOHNSON</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">22607</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-26 00:18:26</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>user</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1642266017\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) at /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php:37)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Trying to get property 'profile_photo_url' of non-object at /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php:35)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php(35): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+"} 
+[2026-03-01 07:36:53] production.INFO: PDF locked (no preview, no S3 read): knowledge-attitude-and-use-of-micronutrient-supplements-among-pregnant-women-in-some-selected-health-facilties-in-enugu-state-nigeria  
+[2026-03-01 07:41:08] production.INFO: PDF locked (no preview, no S3 read): nutritive-value-of-african-locust-bean-parkia-biglobosa-pulp-in-egg-type-chicken-diet  
+[2026-03-01 07:45:58] production.INFO: PDF locked (no preview, no S3 read): appraisal-of-the-implementation-of-entrepreneurship-curriculum-in-federal-college-of-education  
+[2026-03-01 07:46:39] production.INFO: PDF locked (no preview, no S3 read): bibliometric-analysis-of-postgraduate-research-reports-in-library-and-information-science-in  
+[2026-03-01 07:46:55] production.INFO: PDF locked (no preview, no S3 read): development-of-an-optimal-extracted-feature-classification-scheme-in-voice-recognition-system-using-dynamic-cuckoo-search-algorithm  
+[2026-03-01 07:47:27] production.INFO: PDF locked (no preview, no S3 read): consumer-awareness-and-perception-of-national-health-insurance-scheme-nhis-healthcare-services-in  
+[2026-03-01 07:48:04] production.INFO: PDF locked (no preview, no S3 read): audience-perception-of-the-punch-newspaper-cartoons-a-study-of-caritas-university  
+[2026-03-01 07:48:39] production.INFO: PDF locked (no preview, no S3 read): mother-tongue-influence-in-the-teaching-and-learning-of-the-english-segmental-phonemes-in-secondary  
+[2026-03-01 08:09:24] production.INFO: PDF locked (no preview, no S3 read): strategies-for-achieving-an-eco-friendly-fabric-dyeing-system-in-itoku-cluster-in-ogun-state-nigeria  
+[2026-03-01 08:15:02] production.INFO: PDF locked (no preview, no S3 read): the-impact-of-effective-planning-on-the-growth-of-nigeria-companies-a-case-study-of-delta-steel-company-ovwian-aladja  
+[2026-03-01 08:19:46] production.INFO: PDF locked (no preview, no S3 read): influence-of-information-and-communication-technology-applications-on-office-education-programme-in  
+[2026-03-01 08:37:05] production.INFO: PDF locked (no preview, no S3 read): foliar-epidermal-studies-of-the-genus-pterocarpus-jacq-in-nigeria  
+[2026-03-01 08:37:38] production.INFO: PDF locked (no preview, no S3 read): assessment-of-anthropometric-dietary-pattern-and-micronutrient-status-of-school-children-aged-6-15  
+[2026-03-01 08:38:55] production.INFO: PDF locked (no preview, no S3 read): solid-waste-management-of-achara-layout-area-of-enugu-city  
+[2026-03-01 08:39:23] production.INFO: PDF locked (no preview, no S3 read): development-of-a-data-rate-based-sleep-mode-algorithm-for-energy-savings-in-an-lte-heterogeneous-network-for-a-pico  
+[2026-03-01 08:40:27] production.INFO: PDF locked (no preview, no S3 read): influence-of-advertising-messages-on-consumer-patronage-of-ariel-detergent  
+[2026-03-01 08:41:15] production.INFO: PDF locked (no preview, no S3 read): an-improved-framework-for-electronic-banking-security  
+[2026-03-01 08:41:39] production.INFO: PDF locked (no preview, no S3 read): effects-of-vasoconstrictor-on-arterial-blood-pressure-during-minor-oral-surgical-procedures-in-akth-kano  
+[2026-03-01 08:41:47] production.INFO: PDF locked (no preview, no S3 read): production-of-antimicrobial-soap-using-a-blend-of-moringa-oleifera-oil-and-ricinus-communis-castor-oil  
+[2026-03-01 08:41:51] production.INFO: PDF locked (no preview, no S3 read): effects-of-bottom-up-and-top-down-reading-strategies-on-students-reading-comprehension-achievement  
+[2026-03-01 08:42:03] production.INFO: PDF locked (no preview, no S3 read): indoor-recreation-centre-aba-a-study-of-daylighting-in-public-spaces  
+[2026-03-01 08:47:51] production.INFO: PDF locked (no preview, no S3 read): influence-of-metacognition-and-self-efficacy-belief-on-senior-secondary-school-students-academic-achievement-in-biology  
+[2026-03-01 08:47:52] production.INFO: PDF locked (no preview, no S3 read): assessment-of-the-effect-of-political-participation-on-service-delivery-in-selected-local  
+[2026-03-01 09:52:31] production.INFO: PDF locked (no preview, no S3 read): the-impact-of-credit-management-on-the-profitability-of-a-manufacturing-firm  
+[2026-03-01 09:52:52] production.INFO: PDF locked (no preview, no S3 read): acquisition-and-organization-of-electronic-resources-for-information-service-delivery-in-university  
+[2026-03-01 10:23:07] production.ERROR: Application error occurred {"exception_class":"Facade\\Ignition\\Exceptions\\ViewException","message":"Trying to get property 'profile_photo_url' of non-object (View: [PATH_REDACTED][PATH_REDACTED][PATH_REDACTED][PATH_REDACTED]/profile.blade.php)","code":0,"file":"profile.blade.php","line":37,"url":"https://pamdev.online/a/abdu-adamu-umar","method":"GET","user_id":"guest","ip":"3.94.199.128"} 
+[2026-03-01 10:23:07] production.ERROR: Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) {"view":{"view":"/home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-474091234 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#2846</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-474091234\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","author":"<pre class=sf-dump id=sf-dump-861478270 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Modules\\Resource\\Models\\ResourceAuthor</span> {<a class=sf-dump-ref>#2857</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"16 characters\">resource_authors</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13897</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"15 characters\">abdu-adamu-umar</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"15 characters\">ABDU ADAMU UMAR</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13799</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:35:03</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:35:03</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13897</span>\"
+    \"<span class=sf-dump-key>username</span>\" => \"<span class=sf-dump-str title=\"15 characters\">abdu-adamu-umar</span>\"
+    \"<span class=sf-dump-key>fullname</span>\" => \"<span class=sf-dump-str title=\"15 characters\">ABDU ADAMU UMAR</span>\"
+    \"<span class=sf-dump-key>resource_id</span>\" => \"<span class=sf-dump-str title=\"5 characters\">13799</span>\"
+    \"<span class=sf-dump-key>is_lead</span>\" => \"<span class=sf-dump-str>1</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:35:03</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-12-25 23:35:03</span>\"
+    \"<span class=sf-dump-key>firstname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>lastname</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>middlename</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>user</span>\" => <span class=sf-dump-const>null</span>
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-861478270\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Trying to get property 'profile_photo_url' of non-object (View: /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php) at /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php:37)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/themes/Airdgereaders/resources/views/account/profile.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Trying to get property 'profile_photo_url' of non-object at /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php:35)
+[stacktrace]
+#0 /home/projtpyy/pamdev.online/storage/framework/views/2db1966134513ebca3214614df3c83491254917f.php(35): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/projtpyy/...', 35, Array)
+#1 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(107): require('/home/projtpyy/...')
+#2 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('/home/projtpyy/...', Array)
+#4 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('/home/projtpyy/...', Array)
+#5 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(61): Livewire\\CompilerEngineForIgnition->evaluatePath('/home/projtpyy/...', Array)
+#6 /home/projtpyy/pamdev.online/vendor/facade/ignition/src/Views/Engines/CompilerEngine.php(37): Illuminate\\View\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#7 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/ComponentConcerns/RendersLivewireComponents.php(35): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('/home/projtpyy/...', Array)
+#8 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(139): Livewire\\CompilerEngineForIgnition->get('/home/projtpyy/...', Array)
+#9 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(122): Illuminate\\View\\View->getContents()
+#10 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/View.php(91): Illuminate\\View\\View->renderContents()
+#11 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\\View\\View->render()
+#12 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(789): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/AuthenticateSession.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\AuthenticateSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#27 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#35 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#36 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#37 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#38 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /home/projtpyy/pamdev.online/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 /home/projtpyy/pamdev.online/app/Http/Middleware/ForceHttps.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ForceHttps->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /home/projtpyy/pamdev.online/app/Http/Middleware/S3CacheMiddleware.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\S3CacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /home/projtpyy/pamdev.online/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /home/projtpyy/pamdev.online/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /home/projtpyy/pamdev.online/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /home/projtpyy/pamdev.online/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+"} 
+[2026-03-01 10:44:33] production.INFO: PDF locked (no preview, no S3 read): staff-needs-and-training-programmes-of-the-national-library-of-nigeria-in-the-information-age  
+[2026-03-01 10:44:56] production.INFO: PDF locked (no preview, no S3 read): influence-of-availability-and-utilization-of-school-facilities-on-academic-performance-of-junior  
+[2026-03-01 10:45:28] production.INFO: PDF locked (no preview, no S3 read): training-and-development-of-employees-as-panacea-for-productivity  
+[2026-03-01 11:39:43] production.INFO: PDF locked (no preview, no S3 read): transmission-and-absorption-measurements-of-high-energy-electrons-with-metallic-and-insulating-foils  
+[2026-03-01 11:40:27] production.INFO: PDF locked (no preview, no S3 read): a-contrastive-analysis-of-english-and-tiv-sentence-structures  
+[2026-03-01 11:40:35] production.INFO: PDF locked (no preview, no S3 read): genetic-diversity-of-five-populations-of-the-nigerian-local-breeds-of-goat-using-random-amplified-polymorphic-dna-rapd-markers  
+[2026-03-01 11:40:39] production.INFO: PDF locked (no preview, no S3 read): impact-of-cooperative-learning-strategy-on-students-achievement-and-retention-of-social-studies  
+[2026-03-01 11:40:47] production.INFO: PDF locked (no preview, no S3 read): effect-of-guided-discovery-learning-on-students-achievement-in-final-account-in-financial-accounting  
+[2026-03-01 12:39:59] production.INFO: PDF locked (no preview, no S3 read): a-history-of-district-and-local-government-administration-in-the-northern-districts-of-zazzau  
+[2026-03-01 12:40:31] production.INFO: PDF locked (no preview, no S3 read): an-investigation-of-the-contributions-of-microfinance-banking-institution-to-capital-formation-in  
+[2026-03-01 12:40:52] production.INFO: PDF locked (no preview, no S3 read): corrosion-behaviour-of-low-carbon-steel-used-in-oil-and-gas-aboveground-storage-tanks  
+[2026-03-01 12:41:47] production.INFO: PDF locked (no preview, no S3 read): enterprise-resource-planning-and-procurement-processes-efficiency-in-four-selected-oil-and-gas  
+[2026-03-01 12:42:17] production.INFO: PDF locked (no preview, no S3 read): decentralized-e-voting-system-using-blockchain-technology  
+[2026-03-01 12:42:47] production.INFO: PDF locked (no preview, no S3 read): aj-ayer-and-the-elimination-of-metaphysics  
+[2026-03-01 13:56:04] production.INFO: PDF locked (no preview, no S3 read): legislative-coalitions-as-tools-of-national-development-a-study-of-the-legislative-network-for  
+[2026-03-01 13:56:55] production.INFO: PDF locked (no preview, no S3 read): effects-of-concept-mapping-strategy-on-reflective-thinking-and-academic-performance-in-mole-concept  
+[2026-03-01 13:57:22] production.INFO: PDF locked (no preview, no S3 read): management-of-national-health-insurance-scheme-nhis-in-the-public-sector-issues-problems-and-prospects  
+[2026-03-01 13:57:51] production.INFO: PDF locked (no preview, no S3 read): effects-of-peer-learning-in-the-study-of-commerce-in-senior-secondary-schools-in-delta-state  
+[2026-03-01 14:40:16] production.INFO: PDF locked (no preview, no S3 read): nigerian-federalism-and-local-government-autonomy  
+[2026-03-01 14:40:30] production.INFO: PDF locked (no preview, no S3 read): agent-based-performance-evaluation-system  
+[2026-03-01 14:41:45] production.INFO: PDF locked (no preview, no S3 read): effects-of-structural-adjustment-programme-on-accounting-principles-a-case-study-of-central-bank-f  
+[2026-03-01 14:42:07] production.INFO: PDF locked (no preview, no S3 read): parental-socio-economic-factors-affecting-academic-performance-of-students  
+[2026-03-01 15:43:07] production.INFO: PDF locked (no preview, no S3 read): the-determination-of-the-accuracy-of-vaginal-fluid-levels-of-urea-and-creatinine-in-the-clinical-diagnosis-of-rupture-of-fetal-membranes  
+[2026-03-01 15:43:15] production.INFO: PDF locked (no preview, no S3 read): a-comparative-analysis-of-the-mathematics-curricula-courses-of-secondary-schools-and-universities  
+[2026-03-01 15:44:07] production.INFO: PDF locked (no preview, no S3 read): effective-dynamic-re-mapping-algorithm-for-low-power-networkon-chip-noc  
+[2026-03-01 15:44:19] production.INFO: PDF locked (no preview, no S3 read): management-skills-and-organisational-effectiveness-using-your-organisation-as-a-case-study  
+[2026-03-01 15:45:04] production.INFO: PDF locked (no preview, no S3 read): design-and-implementation-of-an-online-voting-system  
+[2026-03-01 15:45:15] production.INFO: PDF locked (no preview, no S3 read): bituminous-stabilization-of-clay-soils-for-road-construction  
+[2026-03-01 16:42:19] production.INFO: PDF locked (no preview, no S3 read): food-hygiene-practices-among-food-handlers-in-ahmadu-bello-university-abu-zaria  
+[2026-03-01 16:44:03] production.INFO: PDF locked (no preview, no S3 read): the-effect-of-risk-management-in-the-nigerian-banking-industry  
+[2026-03-01 16:44:59] production.INFO: PDF locked (no preview, no S3 read): an-automated-broadsheet-and-secured-result-management-system  
+[2026-03-01 16:45:31] production.INFO: PDF locked (no preview, no S3 read): linguo-literary-reflections-of-feminism-in-the-works-of-ifeoma-okoye  
+[2026-03-01 16:45:39] production.INFO: PDF locked (no preview, no S3 read): disaster-management-centre-port-harcourt  
+[2026-03-01 17:47:40] production.INFO: PDF locked (no preview, no S3 read): stabilization-of-black-cotton-soil-with-iron-ore-tailing  
+[2026-03-01 17:47:42] production.INFO: PDF locked (no preview, no S3 read): the-causes-effect-and-prevention-of-fraud-in-the-banking-industry-a-case-study-of-union-bank-plc  
+[2026-03-01 17:48:24] production.INFO: PDF locked (no preview, no S3 read): exploring-methods-for-optimizing-natural-lighting-in-factory-buildings  
+[2026-03-01 17:48:50] production.INFO: PDF locked (no preview, no S3 read): using-drama-activities-in-teaching-and-learning-vocabulary-teachers-view  
+[2026-03-01 17:49:53] production.INFO: PDF locked (no preview, no S3 read): analysis-of-bush-pear-and-its-oil  
+[2026-03-01 17:50:09] production.INFO: PDF locked (no preview, no S3 read): ethno-religious-conflicts-mass-media-and-national-development-the-northern-nigeria-experience  
+[2026-03-01 17:50:36] production.INFO: PDF locked (no preview, no S3 read): effect-of-garlic-on-clinical-isolates-of-staphylococcus-aureus-and-pseudomonas-aeruginosa  
+[2026-03-01 17:50:40] production.INFO: PDF locked (no preview, no S3 read): interest-rate-deregulation-and-the-impact-on-profitability-of-commercial-banks  
+[2026-03-01 17:50:53] production.INFO: PDF locked (no preview, no S3 read): the-legal-regime-of-cyber-security-and-crime-role-of-law-enforcement-agencies-in-nigeria  
+[2026-03-01 17:51:07] production.INFO: PDF locked (no preview, no S3 read): effect-of-supplementing-rice-straw-with-pigeon-pea-forage-on-performance-of-yankasa-sheep  
+[2026-03-01 17:52:04] production.INFO: PDF locked (no preview, no S3 read): efficiency-of-resource-use-in-sesame-production-in-benue-state  
+[2026-03-01 17:52:06] production.INFO: PDF locked (no preview, no S3 read): the-effect-of-periwinkle-shell-ash-and-dust-on-the-compressive-strength-of-concrete  
+[2026-03-01 18:47:11] production.INFO: PDF locked (no preview, no S3 read): translation-of-i-u-nwadike-s-adaeze-into-english  
+[2026-03-01 18:48:03] production.INFO: PDF locked (no preview, no S3 read): production-and-characterization-of-recycled-ldpe-periwinkle-turritela-communis-shell-particulate-composite  
+[2026-03-01 18:48:11] production.INFO: PDF locked (no preview, no S3 read): corporate-survival-and-growth-strategies-in-a-competitive-business-environment  
+[2026-03-01 18:48:15] production.INFO: PDF locked (no preview, no S3 read): the-relationship-between-african-american-identity-and-rap-songs-a-study-of-selected-rap-songs-of-grandmaster-flash  
+[2026-03-01 18:48:19] production.INFO: PDF locked (no preview, no S3 read): effects-of-concept-mapping-and-cognitive-styles-on-achievement-of-students-in-integrated-science  
+[2026-03-01 18:48:27] production.INFO: PDF locked (no preview, no S3 read): biochemical-study-on-the-synergistic-effect-of-tomato-lycopersicon-esculentum-and-onion-allium-cepa  
+[2026-03-01 18:49:43] production.INFO: PDF locked (no preview, no S3 read): the-association-between-insulin-resistance-and-early-spontaneous-miscarriages-in-jos-plateau-state  
+[2026-03-01 18:49:47] production.INFO: PDF locked (no preview, no S3 read): evaluation-of-corporate-governance-in-the-nigerian-banking-industry  
+[2026-03-01 18:49:59] production.INFO: PDF locked (no preview, no S3 read): development-of-an-e-commerce-web-application-for-ordering-foods-from-restaurants  
+[2026-03-01 18:50:07] production.INFO: PDF locked (no preview, no S3 read): a-pragmatic-analysisof-the-interplay-between-context-and-illocutionary-acts-on-meaning-and  
+[2026-03-01 19:43:31] production.INFO: PDF locked (no preview, no S3 read): design-and-implementation-of-online-banking-system  
+[2026-03-01 19:44:23] production.INFO: PDF locked (no preview, no S3 read): document-and-certificate-verification-system  
+[2026-03-01 19:46:51] production.INFO: PDF locked (no preview, no S3 read): evaluation-of-robert-nozicks-entitlement-theory  
+[2026-03-01 19:46:59] production.INFO: PDF locked (no preview, no S3 read): modelling-simulation-and-control-of-a-reactive-distillation-process-for-fuel-additive-production  
+[2026-03-01 19:47:11] production.INFO: PDF locked (no preview, no S3 read): effects-of-collateral-learning-on-attitude-and-performance-in-genetics-among-convergent-and  
+[2026-03-01 20:45:23] production.INFO: PDF locked (no preview, no S3 read): credit-contorl-policies-in-finanacial-institutions-a-case-study-of-citizens-international-bank  
+[2026-03-01 20:45:27] production.INFO: PDF locked (no preview, no S3 read): performance-of-two-sunflower-helianthus-annuus-l  
+[2026-03-01 20:46:46] production.INFO: PDF locked (no preview, no S3 read): the-criminal-liability-of-corporations  
+[2026-03-01 20:47:03] production.INFO: PDF locked (no preview, no S3 read): effect-of-selected-variables-upon-students-performance-in-shorthand-transcription  
+[2026-03-01 20:48:59] production.INFO: PDF locked (no preview, no S3 read): development-of-a-modified-artificial-fish-swarm-algorithm-partial-transmit-sequence-technique-for-peak-to-average-power-ratio-reduction-in-orthogonal-frequency-division-multiplexing  
+[2026-03-01 20:49:07] production.INFO: PDF locked (no preview, no S3 read): spot-urine-proteincreatinine-ratio-versus-24-hour-urinary-protein-in-predicting-adverse-pregnancy-outcome-in-pre-eclampsia  
+[2026-03-01 21:52:51] production.INFO: PDF locked (no preview, no S3 read): childhood-disease-mapping-in-kaduna-state-using-geographic-n-systems  
+[2026-03-01 21:52:56] production.INFO: PDF locked (no preview, no S3 read): integrated-solar-and-hydraulic-jump-enhanced-waste-stabilization-pond-1  
+[2026-03-01 21:53:39] production.INFO: PDF locked (no preview, no S3 read): refining-of-palm-kernel-oil  
+[2026-03-01 21:54:15] production.INFO: PDF locked (no preview, no S3 read): utilization-of-indigenous-agricultural-knowledge-and-practices-in-mitigating-and-adapting-the  
+[2026-03-01 21:55:51] production.INFO: PDF locked (no preview, no S3 read): assessment-of-heavy-metals-and-ph-of-soil-water-and-some-vegetables-in-selected-villages-in-rivers  
+[2026-03-01 22:41:00] production.INFO: PDF locked (no preview, no S3 read): pulsestream-a-personal-healthcare-monitory-application  
+[2026-03-01 22:41:11] production.INFO: PDF locked (no preview, no S3 read): oral-versus-vaginal-misoprostol-for-labour-induction-at-term-at-the-ahmadu-bello-university-teaching  
+[2026-03-01 22:42:03] production.INFO: PDF locked (no preview, no S3 read): modelling-and-control-of-multi-process-system-using-bond-graph-and-decentralized-model-predictive-controltechnique  
+[2026-03-01 22:42:11] production.INFO: PDF locked (no preview, no S3 read): assessment-of-the-contributory-pension-scheme-in-the-nigerian-armed-forces  
+[2026-03-01 22:42:23] production.INFO: PDF locked (no preview, no S3 read): the-geology-of-amuro-and-environs-1  
+[2026-03-01 22:42:43] production.INFO: PDF locked (no preview, no S3 read): colonialism-violence-and-emancipation-in-frantz-fanon-a-critical-appraisal  
+[2026-03-01 22:42:56] production.INFO: PDF locked (no preview, no S3 read): a-supply-chain-management-software-for-poultry-farming  
+[2026-03-01 22:42:59] production.INFO: PDF locked (no preview, no S3 read): impact-of-organizational-culture-on-performances-of-universities-in-ogun-state  
+[2026-03-01 22:43:23] production.INFO: PDF locked (no preview, no S3 read): women-empowerment-and-community-development  
+[2026-03-01 22:43:51] production.INFO: PDF locked (no preview, no S3 read): design-and-implement-a-computerized-drug-information-management-system-drug-procurement-and  
+[2026-03-01 22:44:01] production.INFO: PDF locked (no preview, no S3 read): saving-and-saving-behavior-among-banks-customers  

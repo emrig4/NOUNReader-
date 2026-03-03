@@ -1,0 +1,39 @@
+<h2 class="ereaders-section-heading">Resource Detail</h2>
+<div class="ereaders-book-detail">
+    <!-- <p>Morbi condimentum, ex ac aliquam congue, sapien eros commodo dolor, eu semper mauris arcu non mauris. Aliquam erat volutpat. Phasellus non nisi ligula. Phasellus accumsan nunc vitae enim interdum fringilla. Integer vel elementum diam.</p> -->
+    <ul>
+        <li>
+            <h6>Field</h6>
+            <a href="{{ route('resources.fields.show', $resource->field) }}" class="capitalize">{{ $resource->field }}</a>
+        </li>
+        <li>
+            <h6>Author(s)</h6>
+            <p>
+                @foreach($resource->authors as $author)
+                    @if($author->is_lead && has_profile($author->username) )
+                        <a href="{{ route('account.profile', $author->username ) }}">{{  $author->fullname  }} | </a>
+                    @else
+                        <span>{{  $author->fullname  }} |</span>
+                    @endif
+                @endforeach
+            </p>
+        </li>
+        <li>
+            <h6>Resource Type</h6>
+            <a href="{{ route('resources.types.show', $resource->type ) }}" class="capitalize">{{ $resource->type }}</a>
+        </li>
+        <li>
+            <!-- <h6>Date Published</h6> -->
+            <!-- <p>{{ ($resource->created_at)->format('d-m-Y') }}</p> -->
+        </li>
+        <li>
+            <h6>Reviews</h6>
+            <p> {{ count($resource->reviews) }} </p>
+        </li>
+        <li>
+            <h6>Views</h6>
+            <p>{{ $resource->view_count }}</p>
+        </li>
+    </ul>
+</div>
+

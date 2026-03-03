@@ -1,0 +1,112 @@
+@extends('layouts.public', ['title' => ' ' . $resource->title ])
+@push('css')
+@endpush
+
+@push('meta')
+    <meta name="description" content="{{ mb_strimwidth($resource->overview, 0, 250, '...') }}"/>
+    <meta property="title" content="{{ ucwords($resource->title) }}">
+    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, project topics for university students, Nigerian project topics, free project topics, complete project materials PDF">
+    <meta property="og:title" content="{{ ucwords($resource->title) }}">
+    <meta property="og:description" content="{{ mb_strimwidth($resource->overview, 0, 250, '...') }}">
+@endpush
+
+@section('breadcrumb')
+    {{ Breadcrumbs::render('resource', $resource) }}
+@endsection
+
+@php
+    if($mainFile){
+        $fileContents = file_get_contents($mainFile->url());
+        $base64_encode = base64_encode($fileContents);
+    } else {
+        $base64_encode = "";
+    }
+@endphp
+
+@section('content')
+    <!--// Main Sections \\-->
+    <div class="ereaders-main-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ereaders-book-wrap">
+                        <div class="row" id="app">
+                            <div class="col-md-7 col-lg-push-5">
+                                @include('resource.partials.resource_detail', $resource)
+                            </div>
+
+                            <!-- File Preview -->
+                            <div id="style-4-scrollbar" class="col-md-5 col-lg-pull-7" style="height: 500px; overflow-y: scroll;">
+                                <vue-pdf-embed page-range="1,2" source="{!! $base64_encode !!}"></vue-pdf-embed>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-10">
+                        <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary">Read</a>
+
+                        @if($resource->price > 0 && $resource->currency)
+                            <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary">Download</a>
+                        @else
+                            <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary">Download</a>
+                        @endif
+
+                        <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn">Cite</a>
+
+                        @if(auth()->user() && is_favorite($resource->id))
+                            <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn">Unsave</a>
+                        @else
+                            <a href="{{ route('account.favorites.add', $resource->id) }}" class="ereaders-detail-btn">Save</a>
+                        @endif
+
+                        @if(auth()->user())
+                            <a data-toggle="modal" data-target="#reportresourcemodal" class="ereaders-detail-btn cursor-pointer">Report</a>
+                        @endif
+
+                        @if(auth()->user())
+                            @foreach($resource->authors as $author)
+                                @if($author->is_lead && has_profile($author->username))
+                                    @if(is_follow($author->user->id))
+                                        <a href="{{ route('account.unfollow', $resource->author()) }}" class="btn btn-secondary bg-gray-400 text-white">
+                                            Unfollow <i class="icon mx-2 text-xs text-white">| {{ $author->user->followers->count() }}</i>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('account.follow', $author->user->id) }}" class="btn btn-primary">
+                                            Follow <i class="icon mx-2 text-xs text-white">| {{ $author->user->followers->count() }}</i>
+                                        </a>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        @include('resource.partials.resource_description')
+                    </div>
+
+                    <!-- Book Info Card -->
+                    <div>
+                        @include('resource.partials.inc.info_card', ['resource' => $resource])
+                    </div>
+
+                    <!-- Reviews -->
+                    @include('resource.partials.resource_reviews', ['resource' => $resource])
+
+                    <!-- Related Resources -->
+                    @include('resource.partials.resource_related', ['related' => $resource->related()])
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12"></div>
+            </div>
+        </div>
+    </div>
+    <!--// Main Section \\-->
+@endsection
+
+@push('js')
+    <script src="{{ mix('/js/app.js') }}"></script>
+@endpush
+

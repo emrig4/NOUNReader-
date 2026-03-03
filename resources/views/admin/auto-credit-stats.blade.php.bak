@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Credit Statistics - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h2><i class="bi bi-bar-chart"></i> Auto Credit Statistics</h2>
+                <p class="text-muted">Overview of auto credit usage and performance</p>
+            </div>
+            <div class="col-md-4 text-end">
+                <a href="{{ route('admin.auto-credit.index') }}" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Back to Settings
+                </a>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-people-fill text-primary" style="font-size: 2rem;"></i>
+                        <h3 class="mt-2">{{ $stats['total_credits_granted'] }}</h3>
+                        <p class="text-muted mb-0">Total Users Credited</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-currency-dollar text-success" style="font-size: 2rem;"></i>
+                        <h3 class="mt-2">{{ number_format($stats['total_amount_credited'], 2) }}</h3>
+                        <p class="text-muted mb-0">Total RANC Credited</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-graph-up text-info" style="font-size: 2rem;"></i>
+                        <h3 class="mt-2">{{ $stats['total_credits_granted'] > 0 ? number_format($stats['total_amount_credited'] / $stats['total_credits_granted'], 2) : '0.00' }}</h3>
+                        <p class="text-muted mb-0">Average Credit Amount</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-check text-warning" style="font-size: 2rem;"></i>
+                        <h3 class="mt-2">{{ \Carbon\Carbon::now()->format('M Y') }}</h3>
+                        <p class="text-muted mb-0">Current Month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Credits Table -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-list-ul"></i> Recent Auto Credit Transactions</h5>
+            </div>
+            <div class="card-body">
+                @if($stats['recent_credits']->count() > 0)
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Reference</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($stats['recent_credits'] as $credit)
+                                    <tr>
+                                        <td>
+                                            <strong>{{ $credit->first_name }} {{ $credit->last_name }}</strong>
+                                        </td>
+                                        <td>{{ $credit->email }}</td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                +{{ number_format($credit->amount, 2) }} RANC
+                                            </span>
+                                        </td>
+                                        <td>{{ \Carbon\Carbon::parse($credit->created_at)->format('M j, Y g:i A') }}</td>
+                                        <td>
+                                            <small class="text-muted">{{ $credit->reference ?? 'N/A' }}</small>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <div class="text-center py-5">
+                        <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
+                        <h5 class="text-muted mt-3">No auto credit transactions yet</h5>
+                        <p class="text-muted">Auto credit transactions will appear here once users are registered</p>
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <!-- Export/Action Buttons -->
+        @if($stats['recent_credits']->count() > 0)
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Export Options</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Export auto credit statistics for reporting</p>
+                            <button class="btn btn-outline-success me-2" onclick="exportToCSV()">
+                                <i class="bi bi-file-earmark-spreadsheet"></i> Export CSV
+                            </button>
+                            <button class="btn btn-outline-danger" onclick="exportToPDF()">
+                                <i class="bi bi-file-earmark-pdf"></i> Export PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Quick Actions</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Manage auto credit system</p>
+                            <a href="{{ route('admin.auto-credit.index') }}" class="btn btn-outline-primary me-2">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                            <a href="{{ route('admin.credit.index') }}" class="btn btn-outline-secondary">
+                                <i class="bi bi-hand-thumbs-up"></i> Manual Credit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function exportToCSV() {
+            // Simple CSV export functionality
+            alert('CSV export functionality would be implemented here');
+        }
+
+        function exportToPDF() {
+            // Simple PDF export functionality
+            alert('PDF export functionality would be implemented here');
+        }
+
+        // Auto-refresh statistics every 5 minutes (optional)
+        setInterval(function() {
+            if (confirm('Refresh statistics?')) {
+                location.reload();
+            }
+        }, 300000); // 5 minutes
+    </script>
+</body>
+</html>

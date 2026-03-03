@@ -1,0 +1,229 @@
+@extends('layouts.admin')
+
+@section('title')
+    Review Resource - {{ $resource->title }}
+@endsection
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Resource Details</h4>
+                        <a href="{{ route('admin.resources.pending') }}" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-arrow-left"></i> Back to Pending
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Title</h6>
+                                <p>{{ $resource->title }}</p>
+                                
+                                <h6>Author</h6>
+                                <p>{{ $resource->user->first_name }} {{ $resource->user->last_name }}</p>
+                                <p><small class="text-muted">{{ $resource->user->email }}</small></p>
+                                
+                                <h6>Document Type</h6>
+                                <p>{{ ucfirst($resource->type ?? 'N/A') }}</p>
+                                
+                                <h6>Field</h6>
+                                <p>{{ ucfirst($resource->field ?? 'N/A') }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Sub Fields</h6>
+                                <p>{{ $resource->sub_fields ?? 'N/A' }}</p>
+                                
+                                <h6>Co-authors</h6>
+                                @if($resource->authors->count() > 1)
+                                    @foreach($resource->authors->where('is_lead', false) as $author)
+                                        <p>{{ $author->fullname }}</p>
+                                    @endforeach
+                                @else
+                                    <p>None</p>
+                                @endif
+                                
+                                <h6>Submitted</h6>
+                                <p>{{ $resource->submitted_at ? $resource->submitted_at->format('M d, Y H:i') : 'N/A' }}</p>
+                                
+                                @if($resource->overview)
+                                    <h6>Overview</h6>
+                                    <p>{{ Str::limit($resource->overview, 200) }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        @if($mainFile)
+                            <hr>
+                            <h6>File Information</h6>
+                            <p><strong>File:</strong> {{ basename($mainFile->path) }}</p>
+                            <p><strong>Type:</strong> {{ $mainFile->mime }}</p>
+                            @if($resource->page_count)
+                                <p><strong>Pages:</strong> {{ $resource->page_count }}</p>
+                            @endif
+                            
+                            <div class="mt-3">
+                                <a href="{{ Storage::disk('s3')->url($mainFile->path) }}" target="_blank" class="btn btn-info btn-sm">
+                                    <i class="fas fa-download"></i> Download File
+                                </a>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="convertToPdf()">
+                                    <i class="fas fa-file-pdf"></i> Convert to PDF
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                
+                <!-- Approval/Rejection Form -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4>Review Decision</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label for="admin_notes">Admin Notes (Required for rejection, optional for approval)</label>
+                                <textarea class="form-control" id="admin_notes" name="admin_notes" rows="4" 
+                                         placeholder="Add notes about your decision..."></textarea>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-success btn-lg" onclick="approveResource()">
+                                    <i class="fas fa-check"></i> Approve & Publish
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg ml-2" onclick="rejectResource()">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Resource Statistics</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Status:</strong> 
+                            <span class="badge badge-warning">Pending Review</span>
+                        </p>
+                        <p><strong>Submitted:</strong> {{ $resource->submitted_at ? $resource->submitted_at->diffForHumans() : 'N/A' }}</p>
+                        <p><strong>File Size:</strong> 
+                            @if($mainFile)
+                                {{ $mainFile->size ? number_format($mainFile->size / 1024 / 1024, 2) . ' MB' : 'Unknown' }}
+                            @else
+                                N/A
+                            @endif
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('js')
+<script>
+function approveResource() {
+    const notes = document.getElementById('admin_notes').value;
+    
+    if (confirm('Are you sure you want to approve and publish this resource?')) {
+        fetch(`/admin/resources/{{ $resource->id }}/approve`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                admin_notes: notes
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Resource approved and published successfully!');
+                window.location.href = '/admin/resources/pending';
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while approving the resource.');
+        });
+    }
+}
+
+function rejectResource() {
+    const notes = document.getElementById('admin_notes').value.trim();
+    
+    if (!notes) {
+        alert('Please add admin notes for rejection.');
+        return;
+    }
+    
+    if (confirm('Are you sure you want to reject this resource?')) {
+        fetch(`/admin/resources/{{ $resource->id }}/reject`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                admin_notes: notes
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Resource rejected successfully!');
+                window.location.href = '/admin/resources/pending';
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while rejecting the resource.');
+        });
+    }
+}
+
+function convertToPdf() {
+    if (confirm('Convert this document to PDF format?')) {
+        fetch(`/admin/resources/{{ $resource->id }}/convert-pdf`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message || 'PDF conversion functionality needs to be implemented.');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during PDF conversion.');
+        });
+    }
+}
+</script>
+@endsection
+
+@section('css')
+    <style>
+        .badge {
+            font-size: 0.75rem;
+        }
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+        }
+        .card-header h4 {
+            margin-bottom: 0;
+        }
+    </style>
+@endsection
+

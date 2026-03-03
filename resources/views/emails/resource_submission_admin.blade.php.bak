@@ -1,0 +1,28 @@
+@component('mail::message')
+# New Document Submitted for Review
+
+A new document has been submitted and is awaiting your approval.
+
+**Document Details:**
+- **Title:** {{ $resource->title }}
+- **Author:** {{ $resource->user->first_name }} {{ $resource->user->last_name }}
+- **Submitted on:** {{ $resource->submitted_at->format('F d, Y \a\t g:i A') }}
+- **Document Type:** {{ $resource->type ?? 'Document' }}
+- **Field:** {{ $resource->field ?? 'Not specified' }}
+
+**File Location:** `/documents/{{ basename($resource->files->first()->path) }}`
+
+Please review the document and convert .doc files to .pdf format if needed before approval.
+
+@component('mail::button', ['url' => route('admin.resources.show', $resource->id)])
+Review Document
+@endcomponent
+
+---
+
+To approve or reject this document, please visit the admin dashboard.
+
+Best regards,
+readprojecttopics System
+@endcomponent
+

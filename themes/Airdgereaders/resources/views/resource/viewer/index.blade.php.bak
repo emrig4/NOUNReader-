@@ -1,0 +1,102 @@
+@extends('layouts.reader', ['title' => 'Resource | ' . $resource->title ])
+@push('css')
+    <style type="text/css">
+        #viewerContainer::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #viewerContainer::-webkit-scrollbar {
+          height: 3px;
+          width: 5px;
+        }
+
+        #viewerContainer::-webkit-scrollbar-thumb {
+          background-color: #00aff0;
+          border-radius: 10px;
+        }
+
+        /*hide vue-pdf-app file input field*/
+        #pdfFileInput{
+          display: none;
+        }
+    </style>
+@endpush
+
+@section('breadcrumb')
+@endsection
+
+@php
+    // PERMANENT S3 FIX: Use Laravel Storage instead of file_get_contents
+    if($mainFile){
+        
+        $sessionRead = \Session::get($resource->slug);
+        $isLimit = $resource->preview_limit;
+        if( $sessionRead ){
+            $isLimit = 0;
+        }
+        if(!$resource->price &&  !$resource->price > 0 && !$resource->preview_limit){
+            $isLimit = 0;
+        }
+
+        // FIXED: Use Laravel Storage for S3 authentication instead of file_get_contents
+        try {
+            $file = \Storage::disk('s3')->get($mainFile->path);
+            $base64_encode = base64_encode($file);
+        } catch (\Exception $e) {
+            // Fallback: if S3 fails, set empty to prevent errors
+            $base64_encode = "";
+            $file = null;
+            \Log::warning('PDF viewer: S3 access failed for: ' . $mainFile->path);
+        }
+    }else{
+        $base64_encode = "";
+        $file = null;
+    }
+@endphp
+
+@section('content')
+    <!--// Main Section \\-->
+    <div class="ereaders-main-section" id="app">
+        <div class="col-md-12" style="height: 1200px">
+         <!--  <button class="btn btn-primary m-2" onclick="openFullscreen()">Open in Fullscreen</button> -->
+
+          <!-- confirm that $file has been fetched -->
+          @if($file)
+             <!-- if settings(viewer == 'modern') || viewer == 'classic' -->
+            <vue-pdf-air :preview_limit="{{ $isLimit }}" base64="{!! $base64_encode !!}" pdfsrc=""></vue-pdf-air>
+          @else
+            <div class="ereaders-error-text mt-20" style="width: 100%">
+                <span>Sorry! File Not Found</span>
+                <p>The Link you clicked maybe broken or the file may have been removed.</p>
+                <div class="clearfix"></div>
+                <a href="{{ redirect()->getUrlGenerator()->previous() }}" class="eraders-search-btn">Back To Homepage <i class="icon ereaders-right-arrow"></i></a>
+            </div>
+          @endif
+        </div>
+    </div>
+    <!--// Main Section \\-->
+@endsection
+
+
+@push('js')
+   
+    <script src="{{ mix('/js/app.js') }}"></script>
+
+    <!-- full screen function -->
+    <script>
+      var elem = document.getElementById("viewerContainer");
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+
+@endpush

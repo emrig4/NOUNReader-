@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="kxif4mNzcVplMsLcmLHjvyQV5XVbC6UPmpV3rYgMShk" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    @stack('meta')
+    <title>readprojecttopics - {{ (isset($title)) ? $title : '' }}</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    @notifyCss
+    <!-- Css Files -->
+    <link href="{{ theme_asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ theme_asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ theme_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ theme_asset('css/color.css') }}" rel="stylesheet">
+    <link href="{{ theme_asset('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ theme_asset('css/typography.css') }}" rel="stylesheet">
+    
+    <!-- theme -->
+    <link href="{{ theme_asset('css/theme.css') }}" rel="stylesheet">
+    @stack('css')
+
+    <style>
+    /* Scroll buttons styling */
+    .scroll-buttons {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .scroll-btn {
+        width: 50px;
+        height: 50px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .scroll-btn:hover {
+        background: #0056b3;
+        transform: scale(1.1);
+    }
+    
+    .scroll-btn:active {
+        transform: scale(0.95);
+    }
+    
+    /* Enhanced text selection protection */
+    .ereaders-main-content, iframe, embed, object {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+        -webkit-touch-callout: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+        pointer-events: auto;
+    }
+    
+    /* Enhanced iframe protection */
+    iframe, embed, object {
+        -webkit-user-drag: none !important;
+        -moz-user-drag: none !important;
+        user-drag: none !important;
+        border: none !important;
+        outline: none !important;
+    }
+    
+    /* Disable drag for all elements */
+    * {
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+        user-drag: none;
+    }
+    
+    /* Hide scroll buttons on small screens */
+    @media (max-width: 768px) {
+        .scroll-buttons {
+            right: 10px;
+        }
+        .scroll-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+    }
+    
+    /* Hide download/save elements that might appear */
+    a[download], 
+    button[download],
+    input[type="file"],
+    *[data-download] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Block common browser UI elements */
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+    </style>
+
+</head>
+<body class="ereaders-sticky">
+    <!--// Main Wrapper \\-->
+    <div class="ereaders-main-wrapper">
+
+    <!-- include header here -->
+    @include('partials.readerheader', ['title' => $title])
+
+    <!--// Main Content \\-->
+    <div class="ereaders-main-content ereaders-content-padding">
+        @yield('content')
+    </div>
+    <!--// Main Content \\-->
+
+    <!-- Scroll Up/Down Buttons -->
+    <div class="scroll-buttons">
+        <button class="scroll-btn" id="scrollUpBtn" title="Scroll Up">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+        <button class="scroll-btn" id="scrollDownBtn" title="Scroll Down">
+            <i class="fa fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- mini footer start -->
+    @include('partials.copyright')
+    <!-- mini footer end -->
+
+    <div class="clearfix"></div>
+
+    </div>
+    <!--// Main Wrapper \\-->
+
+     <!-- jQuery (necessary for JavaScript plugins) -->
+    <script type="text/javascript" src="{{ theme_asset('js/bootstrap.min.js') }}"></script>
+
+    <script>
+    // IMMEDIATE SCROLL RESET - Execute before page fully loads
+    (function() {
+        'use strict';
+        
+        // Disable browser scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Force immediate window scroll to top
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        
+        // Reset any stored scroll positions
+        sessionStorage.removeItem('scrollTop');
+        localStorage.removeItem('scrollTop');
+        
+    })();
+
+    // Enhanced security initialization
+    (function() {
+        'use strict';
+        
+        // Block direct document access
+        if (window.location !== window.parent.location && 
+            !document.referrer.includes(window.location.hostname)) {
+            // Document opened directly from external source
+            window.location.href = '/';
+            return;
+        }
+
+        // Enhanced developer tools detection
+        let devtools = {
+            open: false,
+            orientation: null
+        };
+
+        const threshold = 160;
+        setInterval(function() {
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtools.open) {
+                    devtools.open = true;
+                    // Instead of clearing page, just block content
+                    document.querySelectorAll('.ereaders-main-content').forEach(el => {
+                        el.style.filter = 'blur(20px)';
+                        el.style.pointerEvents = 'none';
+                    });
+                    console.clear();
+                    console.warn('🚫 Developer tools detected. Content access restricted.');
+                }
+            } else if (devtools.open) {
+                devtools.open = false;
+                document.querySelectorAll('.ereaders-main-content').forEach(el => {
+                    el.style.filter = 'none';
+                    el.style.pointerEvents = 'auto';
+                });
+            }
+        }, 500);
+
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // FORCE SCROLL TO TOP ON PAGE LOAD
+        function resetAllScrollPositions() {
+            // Reset window scroll
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
+            // Reset all scrollable divs
+            const scrollableElements = document.querySelectorAll('div, section, article, main, aside');
+            scrollableElements.forEach(element => {
+                if (element.scrollTop > 0) {
+                    element.scrollTop = 0;
+                }
+                if (element.scrollLeft > 0) {
+                    element.scrollLeft = 0;
+                }
+            });
+            
+            // Reset iframes
+            const iframes = document.querySelectorAll('iframe, embed, object');
+            iframes.forEach(iframe => {
+                try {
+                    // For same-origin iframes
+                    if (iframe.contentWindow) {
+                        iframe.contentWindow.scrollTo(0, 0);
+                        if (iframe.contentDocument) {
+                            iframe.contentDocument.documentElement.scrollTop = 0;
+                            iframe.contentDocument.body.scrollTop = 0;
+                        }
+                    }
+                } catch (e) {
+                    // Cross-origin iframe - can't access directly
+                    // Force iframe reload to reset position
+                    const src = iframe.src;
+                    iframe.src = '';
+                    setTimeout(() => {
+                        iframe.src = src;
+                    }, 10);
+                }
+                
+                // Reset iframe element scroll
+                iframe.scrollTop = 0;
+                iframe.scrollLeft = 0;
+            });
+        }
+        
+        // Execute scroll reset immediately
+        resetAllScrollPositions();
+        
+        // Execute again after a short delay to catch late-loading content
+        setTimeout(resetAllScrollPositions, 100);
+        setTimeout(resetAllScrollPositions, 500);
+        setTimeout(resetAllScrollPositions, 1000);
+        
+        // Comprehensive right-click and context menu blocking
+        ['contextmenu', 'auxclick', 'selectstart', 'dragstart'].forEach(event => {
+            document.addEventListener(event, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, { passive: false, capture: true });
+        });
+        
+        // Enhanced keyboard shortcut blocking
+        document.addEventListener('keydown', function(e) {
+            // Comprehensive shortcut blocking
+            const blockedKeys = [
+                // Copy/Paste/Cut operations
+                { ctrl: true, key: 'a' }, // Select all
+                { ctrl: true, key: 'c' }, // Copy
+                { ctrl: true, key: 'v' }, // Paste  
+                { ctrl: true, key: 'x' }, // Cut
+                { ctrl: true, key: 's' }, // Save
+                { ctrl: true, key: 'p' }, // Print
+                { ctrl: true, key: 'f' }, // Find
+                { ctrl: true, key: 'g' }, // Find next
+                { ctrl: true, key: 'h' }, // Replace
+                { ctrl: true, key: 'u' }, // View source
+                { ctrl: true, key: 'j' }, // Downloads
+                { ctrl: true, key: 'r' }, // Refresh
+                { ctrl: true, key: 'n' }, // New window
+                { ctrl: true, key: 't' }, // New tab
+                { ctrl: true, key: 'w' }, // Close tab
+                { ctrl: true, key: 'd' }, // Bookmark
+                
+                // Developer tools
+                { key: 'F12' },
+                { ctrl: true, shift: true, key: 'I' },
+                { ctrl: true, shift: true, key: 'J' },
+                { ctrl: true, shift: true, key: 'C' },
+                { ctrl: true, shift: true, key: 'K' },
+                
+                // Screenshot shortcuts
+                { key: 'PrintScreen' },
+                { alt: true, key: 'PrintScreen' },
+                { ctrl: true, shift: true, key: 'S' }, // Chrome screenshot
+                { meta: true, shift: true, key: '3' }, // Mac screenshot
+                { meta: true, shift: true, key: '4' }, // Mac screenshot
+                { meta: true, shift: true, key: '5' }, // Mac screenshot
+                
+                // Other potentially harmful shortcuts
+                { alt: true, key: 'F4' }, // Close window
+                { ctrl: true, key: 'F4' }, // Close tab
+                { alt: true, key: 'Tab' }, // Switch apps
+            ];
+
+            blockedKeys.forEach(blocked => {
+                const isBlocked = Object.keys(blocked).every(modifier => {
+                    if (modifier === 'key') return e.key === blocked[modifier];
+                    return e[modifier + 'Key'] === blocked[modifier];
+                });
+                
+                if (isBlocked) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Block function keys (F1-F12)
+            if (e.key.startsWith('F') && e.key.length <= 3) {
+                e.preventDefault();
+                return false;
+            }
+        }, { passive: false, capture: true });
+        
+        // Enhanced iframe security and scroll reset
+        function secureIframes() {
+            const iframes = document.querySelectorAll('iframe, embed, object');
+            iframes.forEach(iframe => {
+                // Add security attributes
+                iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+                iframe.setAttribute('referrerpolicy', 'no-referrer');
+                iframe.setAttribute('loading', 'lazy');
+                
+                // Block iframe context menu
+                iframe.addEventListener('contextmenu', e => {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Block iframe selection
+                iframe.addEventListener('selectstart', e => {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Monitor iframe load and apply protection + scroll reset
+                iframe.addEventListener('load', function() {
+                    try {
+                        if (iframe.contentWindow && iframe.contentWindow.document) {
+                            // Apply protection to iframe content
+                            iframe.contentWindow.document.addEventListener('contextmenu', e => {
+                                e.preventDefault();
+                                return false;
+                            });
+                            iframe.contentWindow.document.addEventListener('selectstart', e => {
+                                e.preventDefault();
+                                return false;
+                            });
+                            
+                            // FORCE IFRAME TO START AT TOP
+                            setTimeout(() => {
+                                iframe.contentWindow.scrollTo(0, 0);
+                                iframe.contentDocument.documentElement.scrollTop = 0;
+                                iframe.contentDocument.body.scrollTop = 0;
+                            }, 100);
+                            
+                            // Reset iframe scroll on any reload
+                            setTimeout(() => {
+                                iframe.contentWindow.scrollTo(0, 0);
+                            }, 500);
+                        }
+                    } catch (e) {
+                        // Cross-origin iframe - can't access content directly
+                        console.log('Cross-origin iframe detected - external protection applied');
+                    }
+                });
+                
+                // Ensure iframe starts at top position
+                iframe.scrollTop = 0;
+                iframe.scrollLeft = 0;
+            });
+        }
+
+        // Apply iframe security immediately and after DOM changes
+        secureIframes();
+        
+        // Monitor for dynamically added iframes and reset their scroll
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) {
+                        // Check if it's an iframe or contains iframes
+                        if (node.tagName && ['IFRAME', 'EMBED', 'OBJECT'].includes(node.tagName)) {
+                            secureIframes();
+                            // Reset new iframe scroll
+                            setTimeout(() => {
+                                node.scrollTop = 0;
+                                node.scrollLeft = 0;
+                            }, 100);
+                        } else if (node.querySelector) {
+                            const iframes = node.querySelectorAll('iframe, embed, object');
+                            if (iframes.length > 0) {
+                                secureIframes();
+                                // Reset all new iframe scrolls
+                                iframes.forEach(iframe => {
+                                    setTimeout(() => {
+                                        iframe.scrollTop = 0;
+                                        iframe.scrollLeft = 0;
+                                    }, 100);
+                                });
+                            }
+                        }
+                        
+                        // Remove any download links that might be added
+                        if (node.tagName === 'A' && node.hasAttribute('download')) {
+                            node.remove();
+                        }
+                    }
+                });
+            });
+        });
+        
+        observer.observe(document.body, { 
+            childList: true, 
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['download', 'href']
+        });
+        
+        // Unified scroll management system
+        let scrollTargets = [];
+        let primaryTarget = null;
+        
+        // Detect all possible scroll targets
+        function detectScrollTargets() {
+            const targets = [];
+            
+            // Check for iframes (document viewers)
+            const iframes = document.querySelectorAll('iframe, embed, object');
+            iframes.forEach(iframe => {
+                if (iframe.offsetHeight > 200) { // Only consider substantial iframes
+                    targets.push({
+                        element: iframe,
+                        type: 'iframe',
+                        getScrollTop: () => {
+                            try {
+                                return iframe.contentWindow ? iframe.contentWindow.pageYOffset : 0;
+                            } catch (e) {
+                                return iframe.scrollTop || 0;
+                            }
+                        },
+                        getScrollHeight: () => {
+                            try {
+                                return iframe.contentWindow ? iframe.contentWindow.document.documentElement.scrollHeight : iframe.scrollHeight;
+                            } catch (e) {
+                                return iframe.scrollHeight || 0;
+                            }
+                        },
+                        getClientHeight: () => {
+                            try {
+                                return iframe.contentWindow ? iframe.contentWindow.innerHeight : iframe.clientHeight;
+                            } catch (e) {
+                                return iframe.clientHeight || 0;
+                            }
+                        },
+                        scroll: (amount) => {
+                            try {
+                                if (iframe.contentWindow) {
+                                    iframe.contentWindow.scrollBy({
+                                        top: amount,
+                                        behavior: 'smooth'
+                                    });
+                                } else {
+                                    iframe.scrollTop += amount;
+                                }
+                            } catch (e) {
+                                iframe.scrollTop += amount;
+                            }
+                        },
+                        scrollToTop: () => {
+                            try {
+                                if (iframe.contentWindow) {
+                                    iframe.contentWindow.scrollTo(0, 0);
+                                    iframe.contentDocument.documentElement.scrollTop = 0;
+                                    iframe.contentDocument.body.scrollTop = 0;
+                                } else {
+                                    iframe.scrollTop = 0;
+                                }
+                            } catch (e) {
+                                iframe.scrollTop = 0;
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // Check for scrollable divs
+            const scrollableDivs = document.querySelectorAll('div, section, article');
+            scrollableDivs.forEach(div => {
+                if (div.scrollHeight > div.clientHeight + 50 && div.clientHeight > 200) {
+                    const style = window.getComputedStyle(div);
+                    if (style.overflow !== 'hidden' && style.overflowY !== 'hidden') {
+                        targets.push({
+                            element: div,
+                            type: 'element',
+                            getScrollTop: () => div.scrollTop,
+                            getScrollHeight: () => div.scrollHeight,
+                            getClientHeight: () => div.clientHeight,
+                            scroll: (amount) => {
+                                div.scrollTo({
+                                    top: div.scrollTop + amount,
+                                    behavior: 'smooth'
+                                });
+                            },
+                            scrollToTop: () => {
+                                div.scrollTop = 0;
+                            }
+                        });
+                    }
+                }
+            });
+            
+            // Always include window as fallback
+            targets.push({
+                element: window,
+                type: 'window',
+                getScrollTop: () => window.pageYOffset,
+                getScrollHeight: () => document.documentElement.scrollHeight,
+                getClientHeight: () => window.innerHeight,
+                scroll: (amount) => {
+                    window.scrollBy({
+                        top: amount,
+                        behavior: 'smooth'
+                    });
+                },
+                scrollToTop: () => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                }
+            });
+            
+            return targets;
+        }
+        
+        // Initialize scroll targets
+        scrollTargets = detectScrollTargets();
+        primaryTarget = scrollTargets[0]; // Use first detected target as primary
+        
+        // Reset all scroll targets to top immediately after detection
+        scrollTargets.forEach(target => {
+            try {
+                if (target.scrollToTop) {
+                    target.scrollToTop();
+                }
+            } catch (e) {
+                console.warn('Failed to reset scroll for target:', e);
+            }
+        });
+        
+        // Get buttons
+        const scrollUpBtn = document.getElementById('scrollUpBtn');
+        const scrollDownBtn = document.getElementById('scrollDownBtn');
+        
+        // Unified scroll function
+        function scrollContent(direction) {
+            const scrollAmount = direction === 'up' ? -300 : 300;
+            
+            // Scroll all detected targets
+            scrollTargets.forEach(target => {
+                try {
+                    target.scroll(scrollAmount);
+                } catch (e) {
+                    console.warn('Failed to scroll target:', e);
+                }
+            });
+        }
+        
+        // Button click handlers
+        if (scrollUpBtn) scrollUpBtn.addEventListener('click', () => scrollContent('up'));
+        if (scrollDownBtn) scrollDownBtn.addEventListener('click', () => scrollContent('down'));
+        
+        // Unified button state update
+        function updateButtonStates() {
+            if (!primaryTarget || !scrollUpBtn || !scrollDownBtn) return;
+            
+            try {
+                const scrollTop = primaryTarget.getScrollTop();
+                const scrollHeight = primaryTarget.getScrollHeight();
+                const clientHeight = primaryTarget.getClientHeight();
+                
+                // Update button opacity based on scroll position
+                const isAtTop = scrollTop <= 50;
+                const isAtBottom = scrollTop + clientHeight >= scrollHeight - 50;
+                
+                scrollUpBtn.style.opacity = isAtTop ? '0.5' : '1';
+                scrollDownBtn.style.opacity = isAtBottom ? '0.5' : '1';
+                
+                // Show scroll position indicator
+                const scrollPercent = scrollHeight > clientHeight ? 
+                    Math.round((scrollTop / (scrollHeight - clientHeight)) * 100) : 0;
+                
+                scrollUpBtn.title = `Scroll Up (${scrollPercent}% down)`;
+                scrollDownBtn.title = `Scroll Down (${scrollPercent}% down)`;
+                
+            } catch (e) {
+                // Fallback: always show buttons as active
+                scrollUpBtn.style.opacity = '1';
+                scrollDownBtn.style.opacity = '1';
+            }
+        }
+        
+        // Set up scroll listeners for all targets
+        function setupScrollListeners() {
+            // Window scroll listener
+            window.addEventListener('scroll', updateButtonStates, { passive: true });
+            
+            // Iframe scroll listeners
+            scrollTargets.forEach(target => {
+                if (target.type === 'iframe') {
+                    try {
+                        if (target.element.contentWindow) {
+                            target.element.contentWindow.addEventListener('scroll', updateButtonStates, { passive: true });
+                        }
+                        target.element.addEventListener('load', function() {
+                            try {
+                                if (target.element.contentWindow) {
+                                    target.element.contentWindow.addEventListener('scroll', updateButtonStates, { passive: true });
+                                    // Reset scroll after load event
+                                    setTimeout(() => {
+                                        target.scrollToTop();
+                                    }, 100);
+                                }
+                            } catch (e) {
+                                // Cross-origin iframe
+                            }
+                        });
+                    } catch (e) {
+                        // Cross-origin iframe - use polling
+                        setInterval(updateButtonStates, 1000);
+                    }
+                } else if (target.type === 'element') {
+                    target.element.addEventListener('scroll', updateButtonStates, { passive: true });
+                }
+            });
+        }
+        
+        // Initialize scroll listeners
+        setupScrollListeners();
+        
+        // Initial button state
+        setTimeout(updateButtonStates, 100);
+        
+        // Re-detect scroll targets periodically and reset scroll
+        setInterval(function() {
+            const newTargets = detectScrollTargets();
+            if (newTargets.length !== scrollTargets.length) {
+                scrollTargets = newTargets;
+                primaryTarget = scrollTargets[0];
+                
+                // Reset new targets to top
+                scrollTargets.forEach(target => {
+                    try {
+                        if (target.scrollToTop) {
+                            target.scrollToTop();
+                        }
+                    } catch (e) {
+                        console.warn('Failed to reset scroll for new target:', e);
+                    }
+                });
+                
+                setupScrollListeners();
+                updateButtonStates();
+            }
+        }, 5000);
+        
+        // Mouse wheel integration
+        document.addEventListener('wheel', function(e) {
+            setTimeout(updateButtonStates, 100);
+        }, { passive: true });
+        
+        // Keyboard scroll integration
+        document.addEventListener('keydown', function(e) {
+            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key)) {
+                setTimeout(updateButtonStates, 100);
+            }
+        });
+        
+        // Touch scroll integration
+        let touchScrollTimer;
+        document.addEventListener('touchmove', function() {
+            clearTimeout(touchScrollTimer);
+            touchScrollTimer = setTimeout(updateButtonStates, 200);
+        }, { passive: true });
+        
+        // Enhanced clipboard protection
+        if (navigator.clipboard) {
+            const originalWriteText = navigator.clipboard.writeText;
+            navigator.clipboard.writeText = function() {
+                console.warn('Clipboard access blocked');
+                return Promise.reject('Clipboard access denied');
+            };
+        }
+        
+        // Block print functionality
+        window.addEventListener('beforeprint', function(e) {
+            e.preventDefault();
+            console.warn('Printing blocked');
+            return false;
+        });
+        
+        // Block common selection methods
+        document.addEventListener('mousedown', function(e) {
+            if (e.detail > 1) { // Multiple clicks (double, triple click)
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Additional text selection prevention
+        document.onselectstart = () => false;
+        document.onmousedown = () => false;
+        document.ondragstart = () => false;
+        
+        // Disable various browser APIs that could be used for content extraction
+        if (window.getSelection) {
+            const originalGetSelection = window.getSelection;
+            window.getSelection = function() {
+                return { toString: () => '', removeAllRanges: () => {} };
+            };
+        }
+        
+        // Block document methods that could expose content
+        const originalWrite = document.write;
+        document.write = () => {};
+        
+        const originalWriteln = document.writeln;
+        document.writeln = () => {};
+    });
+    
+    // Additional page load events to ensure scroll reset
+    window.addEventListener('load', function() {
+        // Force scroll reset after full page load
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
+            // Reset all iframes again
+            const iframes = document.querySelectorAll('iframe, embed, object');
+            iframes.forEach(iframe => {
+                iframe.scrollTop = 0;
+                try {
+                    if (iframe.contentWindow) {
+                        iframe.contentWindow.scrollTo(0, 0);
+                    }
+                } catch (e) {
+                    // Cross-origin iframe
+                }
+            });
+        }, 100);
+    });
+    
+    // Handle browser back/forward navigation
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            // Page was restored from cache, reset scroll
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+    });
+    
+    // Prevent browsers from storing scroll position
+    window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+    });
+    
+    // Console protection messages
+    console.clear();
+    console.warn('🚫 This document is protected. Unauthorized copying or extraction is prohibited.');
+    console.warn('📋 All user actions are monitored for security compliance.');
+    
+    // Hide console logs in production (additional obfuscation)
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        console.log = () => {};
+        console.warn = () => {};
+        console.error = () => {};
+        console.info = () => {};
+    }
+    </script>
+		@stack('js')
+		@livewireScripts
+        <x:notify-messages />
+        @notifyJs
+        <!--Start of Tawk.to Script-->
+        @php
+            echo setting('tawk_widget');
+        @endphp
+        <!--End of Tawk.to Script-->
+        
+        <!-- JavaScript Console Error Fixes -->
+<script src="{{ theme_asset('js/fixes/vue-fix.js') }}"></script>
+<script src="{{ theme_asset('js/fixes/font-fix.js') }}"></script>
+<script src="{{ theme_asset('js/fixes/pdf-worker-fix.js') }}"></script>
+
+<!-- Vue PDF Component -->
+<script src="{{ asset('js/vue-pdf-embed-s3.js') }}"></script>
+        
+	</body>
+</html>
+

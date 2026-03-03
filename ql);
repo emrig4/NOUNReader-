@@ -1,0 +1,90 @@
+=> """
+   \n
+   [32m-- Create languages table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_languages` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `locale` varchar(20) NOT NULL,[39m\n
+   [32m  `name` varchar(255) NOT NULL,[39m\n
+   [32m  `is_default` tinyint(1) NOT NULL DEFAULT 0,[39m\n
+   [32m  PRIMARY KEY (`id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create categories table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_categories` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `slug` varchar(255) NOT NULL,[39m\n
+   [32m  `category_image` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `created_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  `updated_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  PRIMARY KEY (`id`),[39m\n
+   [32m  UNIQUE KEY `slug` (`slug`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create category translations table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_category_translations` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `category_id` int(11) NOT NULL,[39m\n
+   [32m  `lang_id` int(11) NOT NULL,[39m\n
+   [32m  `category_name` varchar(255) NOT NULL,[39m\n
+   [32m  `category_description` text DEFAULT NULL,[39m\n
+   [32m  `meta_title` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `meta_desc` text DEFAULT NULL,[39m\n
+   [32m  PRIMARY KEY (`id`),[39m\n
+   [32m  KEY `category_id` (`category_id`),[39m\n
+   [32m  KEY `lang_id` (`lang_id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create posts table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_posts` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `slug` varchar(255) NOT NULL,[39m\n
+   [32m  `posted_at` datetime NOT NULL,[39m\n
+   [32m  `is_published` tinyint(1) NOT NULL DEFAULT 0,[39m\n
+   [32m  `author_id` int(11) DEFAULT NULL,[39m\n
+   [32m  `image_large` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `image_medium` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `image_thumbnail` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `created_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  `updated_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  PRIMARY KEY (`id`),[39m\n
+   [32m  UNIQUE KEY `slug` (`slug`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create post translations table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_post_translations` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `post_id` int(11) NOT NULL,[39m\n
+   [32m  `lang_id` int(11) NOT NULL,[39m\n
+   [32m  `title` varchar(255) NOT NULL,[39m\n
+   [32m  `slug` varchar(255) NOT NULL,[39m\n
+   [32m  `intro` text DEFAULT NULL,[39m\n
+   [32m  `body` longtext DEFAULT NULL,[39m\n
+   [32m  `meta_title` varchar(255) DEFAULT NULL,[39m\n
+   [32m  `meta_desc` text DEFAULT NULL,[39m\n
+   [32m  PRIMARY KEY (`id`),[39m\n
+   [32m  KEY `post_id` (`post_id`),[39m\n
+   [32m  KEY `lang_id` (`lang_id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create post categories table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_post_categories` ([39m\n
+   [32m  `post_id` int(11) NOT NULL,[39m\n
+   [32m  `category_id` int(11) NOT NULL,[39m\n
+   [32m  PRIMARY KEY (`post_id`,`category_id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create comments table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_comments` ([39m\n
+   [32m  `id` int(11) NOT NULL AUTO_INCREMENT,[39m\n
+   [32m  `post_id` int(11) NOT NULL,[39m\n
+   [32m  `user_id` int(11) DEFAULT NULL,[39m\n
+   [32m  `parent_id` int(11) DEFAULT NULL,[39m\n
+   [32m  `comment` text NOT NULL,[39m\n
+   [32m  `is_approved` tinyint(1) NOT NULL DEFAULT 1,[39m\n
+   [32m  `created_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  `updated_at` timestamp NULL DEFAULT NULL,[39m\n
+   [32m  PRIMARY KEY (`id`),[39m\n
+   [32m  KEY `post_id` (`post_id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   [32m-- Create tagged posts table[39m\n
+   [32mCREATE TABLE IF NOT EXISTS `binshops_tagged_posts` ([39m\n
+   [32m  `post_id` int(11) NOT NULL,[39m\n
+   [32m  `tag_id` int(11) NOT NULL,[39m\n
+   [32m  PRIMARY KEY (`post_id`,`tag_id`)[39m\n
+   [32m) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;[39m\n
+   """
+

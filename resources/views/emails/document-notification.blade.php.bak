@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $subject }}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            color: {{ $bgColor }};
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .message {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .document-info {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .document-info h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 18px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #666;
+        }
+        .info-value {
+            color: #333;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .status-pending {
+            background-color: #FFF3CD;
+            color: #856404;
+            border: 1px solid #FFEAA7;
+        }
+        .status-approved {
+            background-color: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+        }
+        .status-rejected {
+            background-color: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+        }
+        .action-button {
+            display: inline-block;
+            background-color: {{ $bgColor }};
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .info-row {
+                flex-direction: column;
+            }
+            .action-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">{{ $title }}</h1>
+    </div>
+    
+    <div class="content">
+        <div class="message">
+            Hello {{ $user->first_name ?? $user->name }},
+        </div>
+        
+        <div class="message">
+            {{ $message }}
+        </div>
+        
+        @if($document)
+        <div class="document-info">
+            <h3>Document Details</h3>
+            <div class="info-row">
+                <span class="info-label">Filename:</span>
+                <span class="info-value">{{ $document->original_filename }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Status:</span>
+                <span class="info-value">
+                    <span class="status-badge status-{{ $document->status }}">
+                        {{ $document->status_name }}
+                    </span>
+                </span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Submitted:</span>
+                <span class="info-value">{{ $document->created_at->format('M d, Y \a\t g:i A') }}</span>
+            </div>
+            @if($document->rejection_reason)
+            <div class="info-row">
+                <span class="info-label">Rejection Reason:</span>
+                <span class="info-value">{{ $document->rejection_reason }}</span>
+            </div>
+            @endif
+        </div>
+        @endif
+        
+        @if($type !== 'admin_submitted')
+        <div style="text-align: center;">
+            <a href="{{ $actionUrl }}" class="action-button">
+                @if($type === 'submitted')
+                    View Dashboard
+                @elseif($type === 'approved')
+                    View Approved Document
+                @elseif($type === 'rejected')
+                    Upload New Document
+                @else
+                    Go to Dashboard
+                @endif
+            </a>
+        </div>
+        @else
+        <div style="text-align: center;">
+            <a href="{{ $actionUrl }}" class="action-button">
+                Review Document
+            </a>
+        </div>
+        @endif
+        
+        <div class="message">
+            @if($type === 'admin_submitted')
+                Please review this document and approve or reject it as appropriate.
+            @elseif($type === 'approved')
+                You can now access your approved document from your dashboard.
+            @elseif($type === 'rejected')
+                You can upload a new version of your document for review.
+            @else
+                Thank you for using our document submission system.
+            @endif
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>This is an automated notification. Please do not reply to this email.</p>
+        <p>If you have any questions, please contact our support team.</p>
+    </div>
+</body>
+</html>

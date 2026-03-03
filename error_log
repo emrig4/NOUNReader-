@@ -1,0 +1,23 @@
+[23-Jul-2022 17:35:12 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Console\Exception\RuntimeException: Unable to write output. in phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/StreamOutput.php:79
+Stack trace:
+#0 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/Output.php(164): Symfony\Component\Console\Output\StreamOutput->doWrite('\n', true)
+#1 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/Output.php(132): Symfony\Component\Console\Output\Output->write(Array, true, 16)
+#2 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Application.php(641): Symfony\Component\Console\Output\Output->writeln('', 16)
+#3 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Application.php(127): Symfony\Component\Console\Application->renderException(Object(Symfony\Component\Console\Exception\RuntimeException), Object(Symfony\Component\Console\Output\StreamOutput))
+#4 phar:///opt/cpanel/composer/bin/composer/src/Composer/Console/Application.php(131): Symfony\Component\Conso in phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/StreamOutput.php on line 79
+[06-Jan-2026 03:46:04 UTC] PHP Fatal error:  Uncaught Error: Class 'DB' not found in /home/projtpyy/pamdev.online/complete-cleanup.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/projtpyy/pamdev.online/complete-cleanup.php on line 17
+[06-Jan-2026 03:58:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function database_path() in /home/projtpyy/pamdev.online/replace-fields-complete.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/projtpyy/pamdev.online/replace-fields-complete.php on line 17
+[22-Jan-2026 11:37:47 UTC] PHP Fatal error:  Cannot use App\Modules\Blog\Http\Controllers\BlogController as BlogController because the name is already in use in /home/projtpyy/pamdev.online/routes/web.php on line 1422
+[22-Jan-2026 11:38:01 UTC] PHP Fatal error:  Cannot use App\Modules\Blog\Http\Controllers\BlogController as BlogController because the name is already in use in /home/projtpyy/pamdev.online/routes/web.php on line 1422
+[22-Jan-2026 12:18:28 UTC] PHP Fatal error:  Uncaught Error: Class 'BinshopsBlog\Models\BinshopsPost' not found in /home/projtpyy/pamdev.online/debug_blog.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/projtpyy/pamdev.online/debug_blog.php on line 5
+[01-Feb-2026 20:53:03 UTC] PHP Fatal error:  Cannot declare class AddOneClickVerificationFields, because the name is already in use in /home/projtpyy/pamdev.online/database/migrations/2026_02_01_205037_add_one_click_verification_fields_to_users_table.php on line 7
+[04-Feb-2026 06:20:36 UTC] PHP Fatal error:  Cannot declare class AddContentHashToPlagiarismChecks, because the name is already in use in /home/projtpyy/pamdev.online/database/migrations/2025_02_04_add_content_hash_to_plagiarism_checks.php on line 7

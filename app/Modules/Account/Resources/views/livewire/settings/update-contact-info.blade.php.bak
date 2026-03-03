@@ -1,0 +1,64 @@
+<x-jet-form-section submit="updateContactInformation">
+    <x-slot name="title">
+    </x-slot>
+
+    <x-slot name="description">
+    </x-slot>
+
+    <x-slot name="form">
+    	<!-- Address -->
+        <div class="">
+            <x-jet-label for="address" value="{{ __('Address') }}" />
+            <x-textarea id="address" type="text" class="mb-4 block w-full" wire:model.defer="state.address" autocomplete="name" />
+            <x-jet-input-error for="address" class="mt-2 contents" />
+        </div>
+        <!-- Phone Number -->
+        <div class="flex mt-10 space-x-2">
+            <!-- first name -->
+            <div class="w-1/2">
+                <x-jet-label for="name" value="{{ __('Phone 1') }}" />
+                <x-jet-input id="phone" type="text" class="mb-4 block w-full" wire:model.defer="state.phone" autocomplete="phone" />
+                <x-jet-input-error for="phone" class="mt-2" />
+            </div>
+            <!-- last name -->
+            <div class="w-1/2">
+                <x-jet-label for="name" value="{{ __('Phone 2') }}" />
+                <x-jet-input id="phone1" type="text" class="mb-4-1 block w-full" wire:model.defer="state.phone1" autocomplete="phone1" />
+                <x-jet-input-error for="phone1" class="mt-2" />
+            </div>
+        </div>
+        <!-- Social Number -->
+        <div class="flex mt-10 space-x-2">
+            <!-- Twitter -->
+            <div class="w-1/2">
+                <x-jet-label for="name" value="{{ __('Twitter') }}" />
+                <x-jet-input id="twitter" type="url" class="mb-4 block w-full" wire:model.defer="state.twitter" autocomplete="twitter" />
+                <x-jet-input-error for="twitter" class="mt-2" />
+            </div>
+            <!-- Linkedin -->
+            <div class="w-1/2">
+                <x-jet-label for="name" value="{{ __('Linkedin') }}" />
+                <x-jet-input id="linkedin" type="url" class="mb-4-1 block w-full" wire:model.defer="state.linkedin" autocomplete="linkedin" />
+                <x-jet-input-error for="linkedin" class="mt-2" />
+            </div>
+            <!-- Facebook -->
+            <div class="w-1/2">
+                <x-jet-label for="name" value="{{ __('Facebook') }}" />
+                <x-jet-input id="facebook" type="url" class="mb-4-1 block w-full" wire:model.defer="state.facebook" autocomplete="name" />
+                <x-jet-input-error for="facebook" class="mt-2" />
+            </div>
+        </div>
+
+    </x-slot>
+
+    <x-slot name="actions">
+        <x-jet-action-message class="mr-3" on="saved">
+            {{ __('Saved.') }}
+        </x-jet-action-message>
+
+        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+            {{ __('Save') }}
+        </x-jet-button>
+    </x-slot>
+</x-jet-form-section>
+

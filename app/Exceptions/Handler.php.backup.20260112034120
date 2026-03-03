@@ -1,0 +1,287 @@
+<?php
+
+namespace App\Exceptions;
+
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Throwable;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Auth\AuthenticationException;
+
+class Handler extends ExceptionHandler
+{
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array
+     */
+    protected $dontReport = [
+        //
+    ];
+
+    /**
+     * A list of the inputs that are never flashed for validation exceptions.
+     *
+     * @var array
+     */
+    protected $dontFlash = [
+        'current_password',
+        'password',
+        'password_confirmation',
+    ];
+
+    /**
+     * Register the exception handling callbacks for the application.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->reportable(function (Throwable $e) {
+            $this->logException($e);
+        });
+    }
+
+    /**
+     * Log exception securely without exposing sensitive data
+     */
+    protected function logException(Throwable $e)
+    {
+        Log::error('Application error occurred', [
+            'exception_class' => get_class($e),
+            'message' => $this->sanitizeErrorMessage($e->getMessage()),
+            'code' => $e->getCode(),
+            'file' => basename($e->getFile()),
+            'line' => $e->getLine(),
+            'url' => request()->fullUrl(),
+            'method' => request()->method(),
+            'user_id' => auth()->id() ?? 'guest',
+            'ip' => request()->ip(),
+        ]);
+    }
+
+    /**
+     * Sanitize error message to remove sensitive information
+     */
+    protected function sanitizeErrorMessage($message)
+    {
+        $message = preg_replace('/\/[a-zA-Z0-9_\-\.]+\/[a-zA-Z0-9_\-\.]+/', '[PATH_REDACTED]', $message);
+        $message = preg_replace('/s3\.amazonaws\.com\/[a-zA-Z0-9_\-]+/', 's3.amazonaws.com/[BUCKET_REDACTED]', $message);
+        $message = preg_replace('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', '[IP_REDACTED]', $message);
+        return $message;
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function render($request, Throwable $e)
+    {
+        // Handle Authentication Exceptions - redirect to login
+        if ($e instanceof AuthenticationException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'error' => [
+                        'type' => 'Unauthorized',
+                        'message' => 'Please login to access this resource.',
+                        'code' => 401
+                    ]
+                ], 401);
+            }
+            return redirect()->guest(route('login'));
+        }
+
+        // If the request expects JSON, return a sanitized JSON response
+        if ($request->expectsJson() || $request->is('api/*') || $request->is('api')) {
+            return $this->renderJsonException($request, $e);
+        }
+
+        // For web requests, show custom error page without exposing system details
+        return $this->renderWebException($request, $e);
+    }
+
+    /**
+     * Render exception as JSON with sanitized error messages
+     */
+    protected function renderJsonException(Request $request, Throwable $e)
+    {
+        $statusCode = 500;
+        $errorType = 'Internal Server Error';
+        
+        if ($e instanceof HttpException) {
+            $statusCode = $e->getStatusCode();
+            $errorType = $this->getErrorType($statusCode);
+        } elseif ($e instanceof ValidationException) {
+            $statusCode = 422;
+            $errorType = 'Validation Error';
+        }
+
+        $response = [
+            'success' => false,
+            'error' => [
+                'type' => $errorType,
+                'message' => $this->getUserFriendlyMessage($statusCode),
+                'code' => $statusCode,
+            ],
+        ];
+
+        if (config('app.debug')) {
+            $response['error']['debug'] = [
+                'exception' => get_class($e),
+                'message' => $this->sanitizeErrorMessage($e->getMessage()),
+                'line' => $e->getLine(),
+            ];
+        }
+
+        return new JsonResponse($response, $statusCode);
+    }
+
+    /**
+     * Render exception as web page without exposing system details
+     */
+    protected function renderWebException(Request $request, Throwable $e)
+    {
+        $statusCode = 500;
+        if ($e instanceof HttpException) {
+            $statusCode = $e->getStatusCode();
+        }
+
+        // Handle 401 Unauthorized - redirect to login
+        if ($statusCode === 401) {
+            return redirect()->guest(route('login'));
+        }
+
+        // Handle 403 Forbidden - show access denied
+        if ($statusCode === 403) {
+            $view = view()->exists('errors.403') ? 'errors.403' : 'errors.general';
+            if (!view()->exists($view)) {
+                return response($this->getBasicErrorHtml(403, 'Access Denied', 'You do not have permission to access this page.'), 403);
+            }
+            return response()->view($view, [
+                'exception' => $e,
+                'statusCode' => 403,
+                'message' => $this->getUserFriendlyMessage(403),
+            ], 403);
+        }
+
+        // Handle 404 Not Found
+        if ($statusCode === 404) {
+            $view = view()->exists('errors.404') ? 'errors.404' : 'errors.general';
+            if (!view()->exists($view)) {
+                return response($this->getBasicErrorHtml(404, 'Page Not Found', 'The page you are looking for does not exist.'), 404);
+            }
+            return response()->view($view, [
+                'exception' => $e,
+                'statusCode' => 404,
+                'message' => $this->getUserFriendlyMessage(404),
+            ], 404);
+        }
+
+        // Get custom error view if it exists
+        $view = "errors.{$statusCode}";
+        if (!view()->exists($view)) {
+            $view = 'errors.general';
+            if (!view()->exists($view)) {
+                return response($this->getBasicErrorHtml($statusCode), $statusCode);
+            }
+        }
+
+        return response()->view($view, [
+            'exception' => $e,
+            'statusCode' => $statusCode,
+            'message' => $this->getUserFriendlyMessage($statusCode),
+        ], $statusCode);
+    }
+
+    /**
+     * Get user-friendly error message
+     */
+    protected function getUserFriendlyMessage($statusCode)
+    {
+        $messages = [
+            400 => 'The request was invalid. Please check your input and try again.',
+            401 => 'Please login to access this resource.',
+            403 => 'You do not have permission to access this resource.',
+            404 => 'The requested resource was not found.',
+            419 => 'Your session has expired. Please refresh the page and try again.',
+            422 => 'The submitted data was invalid. Please check your input.',
+            429 => 'Too many requests. Please wait a moment and try again.',
+            500 => 'An unexpected error occurred. Please try again later.',
+            503 => 'Service temporarily unavailable. Please try again later.',
+        ];
+
+        return isset($messages[$statusCode]) ? $messages[$statusCode] : 'An unexpected error occurred. Please try again later.';
+    }
+
+    /**
+     * Get error type name from status code
+     */
+    protected function getErrorType($statusCode)
+    {
+        $types = [
+            400 => 'Bad Request',
+            401 => 'Unauthorized',
+            403 => 'Forbidden',
+            404 => 'Not Found',
+            419 => 'Session Expired',
+            422 => 'Validation Error',
+            429 => 'Too Many Requests',
+            500 => 'Internal Server Error',
+            503 => 'Service Unavailable',
+        ];
+
+        return isset($types[$statusCode]) ? $types[$statusCode] : 'Error';
+    }
+
+    /**
+     * Generate basic error HTML for fallback
+     */
+    protected function getBasicErrorHtml($statusCode, $title = null, $message = null)
+    {
+        $title = $title ?? $this->getErrorType($statusCode);
+        $message = $message ?? $this->getUserFriendlyMessage($statusCode);
+        
+        return <<<HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error {$statusCode} - readprojecttopics</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f8f9fa; }
+        .error-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #23A455; margin-bottom: 20px; }
+        p { color: #666; font-size: 16px; line-height: 1.6; }
+        .btn { display: inline-block; padding: 12px 24px; background: #23A455; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        .btn:hover { background: #1e8a47; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>{$title}</h1>
+        <p>{$message}</p>
+        <a href="/" class="btn">Return to Homepage</a>
+    </div>
+</body>
+</html>
+HTML;
+    }
+
+    /**
+     * Check if the exception should be reported
+     */
+    public function shouldReport(Throwable $e)
+    {
+        if ($e instanceof \Illuminate\Session\TokenMismatchException) {
+            return false;
+        }
+        
+        return parent::shouldReport($e);
+    }
+}

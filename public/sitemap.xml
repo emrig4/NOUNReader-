@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>{{ url('/') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>{{ asset('images/default-project-cover.png') }}</image:loc>
+            <image:title>Project Topics and Materials - Authoran</image:title>
+            <image:caption>Download free project topics and academic materials</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>{{ url('/about-us') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/how-to') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/privacy') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/copyright') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/faq') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Resource Categories -->
+    <url>
+        <loc>{{ url('/resources') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/fields') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Project Topics by Field -->
+    @php
+        $projectFields = [
+            'computer-science' => 'Computer Science Project Topics',
+            'engineering' => 'Engineering Project Topics',
+            'business-administration' => 'Business Administration Project Topics',
+            'education' => 'Education Project Topics',
+            'medicine' => 'Medicine Project Topics',
+            'nursing' => 'Nursing Project Topics',
+            'pharmacy' => 'Pharmacy Project Topics',
+            'law' => 'Law Project Topics',
+            'accounting' => 'Accounting Project Topics',
+            'economics' => 'Economics Project Topics',
+            'psychology' => 'Psychology Project Topics',
+            'sociology' => 'Sociology Project Topics',
+            'political-science' => 'Political Science Project Topics',
+            'english-literature' => 'English Literature Project Topics',
+            'history' => 'History Project Topics',
+            'philosophy' => 'Philosophy Project Topics',
+            'mathematics' => 'Mathematics Project Topics',
+            'physics' => 'Physics Project Topics',
+            'chemistry' => 'Chemistry Project Topics',
+            'biology' => 'Biology Project Topics',
+            'agricultural-science' => 'Agricultural Science Project Topics',
+            'architecture' => 'Architecture Project Topics',
+            'mass-communication' => 'Mass Communication Project Topics',
+            'international-relations' => 'International Relations Project Topics',
+            'banking-finance' => 'Banking and Finance Project Topics',
+            'marketing' => 'Marketing Project Topics',
+            'human-resource' => 'Human Resource Project Topics',
+            'public-administration' => 'Public Administration Project Topics',
+            'industrial-relations' => 'Industrial Relations Project Topics',
+            'environmental-science' => 'Environmental Science Project Topics',
+            'geology' => 'Geology Project Topics',
+            'geography' => 'Geography Project Topics',
+            'anthropology' => 'Anthropology Project Topics',
+            'theology' => 'Theology Project Topics',
+            'islamic-studies' => 'Islamic Studies Project Topics',
+            'classical-studies' => 'Classical Studies Project Topics',
+            'linguistics' => 'Linguistics Project Topics',
+            'fine-arts' => 'Fine Arts Project Topics',
+            'music' => 'Music Project Topics',
+            'theatre-arts' => 'Theatre Arts Project Topics',
+            'foreign-languages' => 'Foreign Languages Project Topics',
+            'library-science' => 'Library Science Project Topics',
+            'home-science' => 'Home Science Project Topics',
+            'social-work' => 'Social Work Project Topics',
+            'statistics' => 'Statistics Project Topics',
+            'actuarial-science' => 'Actuarial Science Project Topics'
+        ];
+    @endphp
+    
+    @foreach($projectFields as $slug => $title)
+    <url>
+        <loc>{{ url('/resources/fields/' . $slug) }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>{{ asset('images/fields/' . $slug . '.jpg') }}</image:loc>
+            <image:title>{{ $title }}</image:title>
+            <image:caption>Download free {{ strtolower($title) }} and materials</image:caption>
+        </image:image>
+    </url>
+    @endforeach
+    
+    <!-- Resource Types -->
+    <url>
+        <loc>{{ url('/resources/types/thesis') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/dissertation') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/project') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/research-paper') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/journal-article') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/term-paper') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/assignment') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/types/book') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Authentication Pages -->
+    <url>
+        <loc>{{ url('/login') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/register') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Resource Actions -->
+    <url>
+        <loc>{{ url('/resources/create') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/upload') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/publish') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Pricing and Plans -->
+    <url>
+        <loc>{{ url('/pricing') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog Section -->
+    <url>
+        <loc>{{ url('/blog') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Search Results (Top queries) -->
+    <url>
+        <loc>{{ url('/resources/search?q=computer+science+project+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=final+year+project+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=project+materials+download') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=BSC+project+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=free+project+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=thesis+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=dissertation+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/search?q=research+paper+topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Account Pages -->
+    <url>
+        <loc>{{ url('/account') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/account/profile') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/account/resources') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/account/wallet') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/account/favorites') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>{{ url('/account/subscription') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Admin Section (if needed for SEO) -->
+    @if(config('app.env') === 'local')
+    <url>
+        <loc>{{ url('/admin') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    @endif
+    
+    <!-- Dynamic Resource Pages (Sample - replace with actual resource slugs) -->
+    @if(isset($topResources) && $topResources->count() > 0)
+        @foreach($topResources as $resource)
+        <url>
+            <loc>{{ url('/resources/' . $resource->slug) }}</loc>
+            <lastmod>{{ $resource->updated_at->format('Y-m-d') }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.7</priority>
+            <image:image>
+                <image:loc>{{ asset('images/resources/' . $resource->slug . '.jpg') }}</image:loc>
+                <image:title>{{ $resource->title }}</image:title>
+                <image:caption>{{ Str::limit($resource->description, 160) }}</image:caption>
+            </image:image>
+        </url>
+        @endforeach
+    @endif
+    
+    <!-- Sample Featured Project Topics -->
+    <url>
+        <loc>{{ url('/resources/computer-science-final-year-project-topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>{{ asset('images/project-topics/computer-science.jpg') }}</image:loc>
+            <image:title>Computer Science Final Year Project Topics</image:title>
+            <image:caption>Download free computer science project topics and materials</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/mechanical-engineering-project-topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>{{ asset('images/project-topics/mechanical-engineering.jpg') }}</image:loc>
+            <image:title>Mechanical Engineering Project Topics</image:title>
+            <image:caption>Download free mechanical engineering project topics and materials</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>{{ url('/resources/business-administration-project-topics') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>{{ asset('images/project-topics/business-administration.jpg') }}</image:loc>
+            <image:title>Business Administration Project Topics</image:title>
+            <image:caption>Download free business administration project topics and materials</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>

@@ -1,0 +1,73 @@
+<nav id="menu" class="menu navbar navbar-default">
+    <ul class="level-1 navbar-nav">
+
+        <li class="active"><a href="/">🏠 Home</a></li>
+
+        <li class="active">
+            <a href="{{ route('resources.fields') }}">🔬 Projects</a>
+        </li>
+
+        <li>
+            <a href="#">ℹ️ ABOUT</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu level-2">
+                <li><a href="https://readprojecttopics.com/about-us">📖 About Us</a></li>
+                <li><a href="https://readprojecttopics.com/how-it-works">⚙️ How It Works</a></li>
+                <li><a href="https://readprojecttopics.com/faq">❓ FAQ</a></li>
+                <li><a href="https://readprojecttopics.com/privacy-policy">🔒 Privacy Policy</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">📚 Browse</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu level-2">
+                <li><a href="{{ route('resources.fields') }}">🏫 Browse Faculties</a></li>
+                <li><a href="https://readprojecttopics.com/project-topics-materials">📋 Browse Topics</a></li>
+                <li><a href="https://readprojecttopics.com/resources/types/thesis">🎓 Thesis & Dissertation</a></li>
+            </ul>
+        </li>
+
+    
+        <li>
+            @if(auth()->user())
+
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                    <img class="h-10 ml-5 rounded-full object-cover" 
+                         src="{{ Auth::user()->profile_photo_url }}" 
+                         alt="{{ Auth::user()->name }}" />
+                    <span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+                @else
+                    <span class="inline-flex rounded-md">
+                        {{ Auth::user()->name }}
+                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+                    </span>
+                @endif
+
+                <ul class="sub-menu level-2">
+                    <li><a href="{{ route('account.index') }}">🏠 Dashboard</a></li>
+                    <li><a href="https://readprojecttopics.com/account/subscription">💰 Wallet</a></li>
+                    <li><a href="https://readprojecttopics.com/account/favorites">❤️ Favorites</a></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">  @csrf <button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;text-decoration:underline;padding:0;margin:0;"> 🚪 Logout </button>
+                        </form>
+                    </li>
+                </ul>
+
+            @else
+
+                <a class="ml-5" href="{{ route('login') }}">🔑 Login</a>
+                <span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+
+                <ul class="sub-menu level-2">
+                    <li><a href="{{ route('login') }}">🔑 Login</a></li>
+                    <li><a href="{{ route('register') }}">📝 Register</a></li>
+                    <li><a href="https://readprojecttopics.com/forgot-password">🔄 Forgot Password</a></li>
+                </ul>
+
+            @endif
+        </li>
+
+    </ul>
+</nav>

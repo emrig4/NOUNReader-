@@ -1,0 +1,198 @@
+/* 
+ * Consolidated User Menu CSS
+ * Optimized layout with section headers for better organization
+ */
+
+/* User menu improvements */
+.navbar-nav li[data-menu-id="account"] .sub-menu {
+    min-width: 280px;
+    max-width: 320px;
+}
+
+/* Section Headers */
+.menu-section-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+    padding: 0 !important;
+    margin: 8px 0 4px 0 !important;
+}
+
+.menu-section-header:first-child {
+    margin-top: 0 !important;
+}
+
+.menu-section-header span {
+    display: block;
+    padding: 8px 20px 8px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #dee2e6;
+    background: transparent;
+}
+
+/* Enhanced menu items with icons */
+.navbar-nav li[data-menu-id="account"] .sub-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.navbar-nav li[data-menu-id="account"] .sub-menu li:last-child a {
+    border-bottom: none;
+}
+
+/* Hover states */
+.navbar-nav li[data-menu-id="account"] .sub-menu li a:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #007bff;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+/* Icon spacing */
+.navbar-nav li[data-menu-id="account"] .sub-menu li a::before {
+    margin-right: 10px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Specific icon styling */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(2) a::before { content: "🏠"; } /* Dashboard */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(3) a::before { content: "💰"; } /* Wallet */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(4) a::before { content: "📋"; } /* Subscription */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(5) a::before { content: "❤️"; } /* Favorites */
+
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(7) a::before { content: "👥"; } /* Followings */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(8) a::before { content: "🔔"; } /* Notifications */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(9) a::before { content: "⚙️"; } /* Settings */
+
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(11) a::before { content: "📊"; } /* Credit History */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(12) a::before { content: "📥"; } /* Download History */
+.navbar-nav li[data-menu-id="account"] .sub-menu li:nth-child(13) a::before { content: "👤"; } /* Profile */
+
+/* Logout styling */
+.logout-item {
+    margin-top: 10px !important;
+    border-top: 2px solid #007bff;
+    padding-top: 8px !important;
+}
+
+.logout-button {
+    width: 100%;
+    text-align: left;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+}
+
+.logout-button::before {
+    content: "🚪";
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .navbar-nav li[data-menu-id="account"] .sub-menu {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    /* Mobile section headers */
+    .menu-section-header span {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    /* Mobile menu items */
+    .navbar-nav li[data-menu-id="account"] .sub-menu li a {
+        padding: 16px 20px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    /* Mobile logout button */
+    .logout-button {
+        padding: 16px 20px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    /* Mobile icons */
+    .navbar-nav li[data-menu-id="account"] .sub-menu li a::before {
+        margin-right: 12px;
+        font-size: 18px;
+    }
+
+    .logout-button::before {
+        margin-right: 12px;
+        font-size: 18px;
+    }
+}
+
+/* Compact mode for narrow screens */
+@media (max-width: 480px) {
+    .navbar-nav li[data-menu-id="account"] .sub-menu {
+        min-width: 250px;
+    }
+
+    .menu-section-header span {
+        padding: 10px 15px;
+        font-size: 11px;
+    }
+
+    .navbar-nav li[data-menu-id="account"] .sub-menu li a {
+        padding: 14px 15px;
+        font-size: 15px;
+    }
+
+    .logout-button {
+        padding: 14px 15px;
+        font-size: 15px;
+    }
+}
+
+/* Accessibility improvements */
+.navbar-nav li[data-menu-id="account"] .sub-menu li a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: -2px;
+}
+
+.logout-button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .menu-section-header,
+    .logout-item {
+        display: none;
+    }
+}

@@ -1,0 +1,46 @@
+<x-jet-form-section submit="updateBankInfo">
+    <x-slot name="title">
+    </x-slot>
+
+    <x-slot name="description">
+    </x-slot>
+
+    <x-slot name="form">
+        <!-- account -->
+        <div class=" mt-10 space-x-2">
+            <!-- Bank -->
+            <div class="w-full">
+                <x-jet-label for="bank_name" value="{{ __('Bank Name') }}" />
+                <x-jet-input id="bank_name" type="text" class="mb-4 block w-full" wire:model.defer="state.bank_name" autocomplete="bank_name" />
+                <x-jet-input-error for="bank_name" class="mt-2" />
+            </div>
+            <!-- first name -->
+            <div class="w-full">
+                <x-jet-label for="bank_account_name" value="{{ __('Account Name') }}" />
+                <x-jet-input id="bank_account_name" type="text" class="mb-4 block w-full" wire:model.defer="state.bank_account_name" autocomplete="bank_account_name" />
+                <x-jet-input-error for="bank_account_name" class="mt-2" />
+            </div>
+            <!-- last name -->
+            <div class="w-full">
+                <x-jet-label for="bank_account_number" value="{{ __('Account Number') }}" />
+                <x-jet-input id="bank_account_number" type="text" class="mb-4-1 block w-full" wire:model.defer="state.bank_account_number" autocomplete="bank_account_number" />
+                <x-jet-input-error for="bank_account_number" class="mt-2" />
+            </div>
+
+
+        </div>
+
+    </x-slot>
+
+    <x-slot name="actions">
+        <x-jet-action-message class="mr-3" on="saved">
+            {{ __('Saved.') }}
+        </x-jet-action-message>
+
+        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+            {{ __('Save') }}
+        </x-jet-button>
+    </x-slot>
+</x-jet-form-section>
+
+

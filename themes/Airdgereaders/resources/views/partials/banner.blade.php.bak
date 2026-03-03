@@ -1,0 +1,76 @@
+<!-- // Main Banner \\ -->
+<div class="ereaders-banner">
+
+    <!--// Slider \\-->
+    <div class="ereaders-banner-layer">
+        <img src="{{ theme_asset('extra-images/banner-2.jpg') }}" alt="Banner Image">
+        <div class="ereaders-banner-caption">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div class="ereaders-banner-text-two">
+                            <h2>Read and Download </h2>
+                            <h3>Final Year Projects Made Easy</h3>
+                            <p>
+                                Search and access thousands of final year project topics and complete research materials. 
+                                Read online or download instantly to support your academic research.
+                            </p>
+                            <div class="clearfix"></div>
+
+                            <a href="https://readprojecttopics.com/project-topics-materials" 
+                               class="ereaders-simple-btn ereaders-bgcolor">
+                                Explore Topics
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="ereaders-banner-thumb-two">
+                            <img src="{{ theme_asset('extra-images/banner-thumb7.png') }}" alt="Banner Thumbnail">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ereaders-banner-layer">
+        <img src="{{ theme_asset('extra-images/banner-2.jpg') }}" alt="Banner Image">
+        <div class="ereaders-banner-caption">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div class="ereaders-banner-text-two">
+                            <h2>Publish Project Work</h2>
+                            <h3>Share & Reach More Students</h3>
+                            <p>
+                                Upload your project topics and research materials for others to read, download, 
+                                and cite. Help students nationwide find quality academic content.
+                            </p>
+                            <div class="clearfix"></div>
+
+                            <a href="https://readprojecttopics.com/resources/upload" 
+                               class="ereaders-simple-btn ereaders-bgcolor">
+                                Publish Project
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="ereaders-banner-thumb-two">
+                            <img src="{{ theme_asset('extra-images/banner-thumb6.png') }}" alt="Banner Thumbnail">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Slider \\-->
+
+</div>
+<!--// Main Banner \\ -->
+

@@ -1,0 +1,31 @@
+@component('mail::message')
+# Congratulations! Your Document Has Been Approved
+
+Hello {{ $resource->user->first_name }},
+
+Great news! Your document has been reviewed and approved by our admin team. It is now published and visible to all users on the platform.
+
+**Document Details:**
+- **Title:** {{ $resource->title }}
+- **Approved on:** {{ $resource->approved_at ? $resource->approved_at->format('F d, Y \a\t g:i A') : now()->format('F d, Y \a\t g:i A') }}
+- **Status:** Published
+
+@component('mail::button', ['url' => route('resources.show', $resource->slug)])
+View Your Document
+@endcomponent
+
+**What's Next?**
+- Your document is now available for readers to view, download, or purchase
+- You can track views, downloads, and earnings from your dashboard
+- Consider sharing your document on social media to reach more readers
+
+Thank you for contributing to our platform!
+
+Best regards,
+readprojecttopics Team
+
+---
+This is an automated message. Please do not reply to this email.
+@endcomponent
+
+

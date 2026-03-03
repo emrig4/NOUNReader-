@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="kxif4mNzcVplMsLcmLHjvyQV5XVbC6UPmpV3rYgMShk" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    @stack('meta')
+    
+    {{-- Default SEO Meta Tags --}}
+    <meta name="description" content="Project and Materials provides updated project topics and complete project materials in PDF for students across all departments and academic levels.">
+    <meta name="keywords" content="project topics, project materials, final year projects, thesis, dissertation, research topics, academic resources, Nigerian university projects">
+    
+    {{-- Open Graph Meta Tags --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Project Topics & Materials">
+    <meta property="og:title" content="Project Topics & Materials | Download Academic Research">
+    <meta property="og:description" content="Access and download complete project topics, materials, thesis, and research works for academic success.">
+    <meta property="og:image" content="{{ asset('themes/airdgereaders/images/Projectandmaterials.webp') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    
+    {{-- Twitter Card Meta Tags --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@projectandmaterials">
+    <meta name="twitter:title" content="Project Topics & Materials | Download Academic Research">
+    <meta name="twitter:description" content="Access and download complete project topics, materials, thesis, and research works for academic success.">
+    <meta name="twitter:image" content="{{ asset('themes/airdgereaders/images/Projectandmaterials.webp') }}">
+    
+    {{-- Canonical URL --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    {{-- Robots --}}
+    <meta name="robots" content="index, follow">
+    
+<title>
+    @if(isset($title) && !empty(trim($title)))
+        {{ trim($title) }} | Project Topics & Materials
+    @else
+        Project Topics & Materials | Download Academic Research
+    @endif
+</title>   <!-- Favicon for all browsers -->
+<link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="32x32">
+<link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="128x128">
+<link rel="icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="192x192">
+<link rel="shortcut icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="196x196">
+<link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="152x152">
+<link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="167x167">
+<link rel="apple-touch-icon" href="{{ theme_asset('admin/assets/images/favicon/favicon.ico') }}" sizes="180x180">
+    <!-- PRECONNECT HINTS - Critical Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://code.jquery.com">
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//code.jquery.com">
+    
+    <!-- CRITICAL CSS - Inline above-the-fold styles -->
+    <style>
+        /* Critical Above-the-Fold Styles */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .ereaders-main-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .ereaders-main-content {
+            flex: 1;
+            padding: 20px 0;
+        }
+        
+        /* Critical loading state */
+        .loading {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .loaded {
+            opacity: 1;
+        }
+        
+        /* Prevent layout shift for critical elements */
+        .ereaders-header,
+        .ereaders-footer {
+            width: 100%;
+            min-height: 60px;
+        }
+        
+        /* Image optimization - prevent CLS */
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+        
+        /* Critical button styles */
+        .btn,
+        .ereaders-simple-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover,
+        .ereaders-simple-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="{{ theme_asset('css/bootstrap.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/bootstrap.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/style.css') }}"></noscript>
+    
+    <!-- Font loading with display swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"></noscript>
+    
+    @notifyCss
+    
+    <!-- Remaining CSS files - deferred loading -->
+    <link rel="preload" href="{{ theme_asset('css/font-awesome.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/font-awesome.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/flaticon.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/flaticon.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/slick-slider.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/slick-slider.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/fancybox.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/fancybox.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/color.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/color.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/responsive.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/responsive.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/typography.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/typography.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/scrollbar.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/scrollbar.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/search-mega.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/search-mega.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ theme_asset('css/theme.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ theme_asset('css/theme.css') }}"></noscript>
+    
+    @stack('css')
+    
+    <style>
+        .tawk-card-primary {
+            background-color: #37a5d8 !important;
+            color: #fff;
+            color: var(--tawk-header-text-color);
+        }
+    </style>
+    
+    <!-- CSS Load Complete Indicator -->
+    <script>
+        // Mark page as loaded when critical resources are ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loaded class after a short delay to prevent FOUC
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</head>
+
+<body class="ereaders-sticky loading">
+    <!--// Main Wrapper \\-->
+    <div class="ereaders-main-wrapper">
+        <!-- include header here -->
+        @include('partials.header')
+        
+        @yield('banner')
+        @yield('breadcrumb')
+        
+        <!--// Main Content \\-->
+        <div class="ereaders-main-content ereaders-content-padding">
+            @yield('content')
+        </div>
+        <!--// Main Content \\-->
+     
+        <!-- Footer start -->
+        @include('partials.footer')
+        <!-- Footer end -->
+        
+        <div class="clearfix"></div>
+    </div>
+    <!--// Main Wrapper \\-->
+    
+    <!-- CRITICAL JS - Load essential functionality first -->
+    <script>
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+    </script>
+    
+    <!-- jQuery - Load with defer -->
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+            crossorigin="anonymous"></script>
+    
+    <!-- Remaining JavaScript - Deferred loading -->
+    <script defer src="{{ theme_asset('js/bootstrap.min.js') }}"></script>
+    <script defer src="{{ theme_asset('js/slick.slider.min.js') }}"></script>
+    <script defer src="{{ theme_asset('js/fancybox.pack.js') }}"></script>
+    <script defer src="{{ theme_asset('js/isotope.min.js') }}"></script>
+    <script defer src="{{ theme_asset('js/progressbar.js') }}"></script>
+    <script defer src="{{ theme_asset('js/jquery.countdown.min.js') }}"></script>
+    <script defer src="{{ theme_asset('js/circle-chart.js') }}"></script>
+    <script defer src="{{ theme_asset('js/numscroller.js') }}"></script>
+    <script defer src="{{ theme_asset('js/functions.js') }}"></script>
+    
+    @stack('js')
+    <x:notify-messages />
+    @notifyJs
+    
+    <!--Start of Tawk.to Script-->
+    @php
+        echo setting('tawk_widget');
+    @endphp
+    <!--End of Tawk.to Script-->
+    
+   <!-- readprojecttopics WhatsApp Business Chat Widget - Improved Version -->
+<div id="readprojecttopics-whatsapp-widget" class="readprojecttopics-whatsapp-widget">
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" id="whatsapp-btn">
+        <div class="whatsapp-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </div>
+        <div class="whatsapp-pulse"></div>
+        <div class="whatsapp-notification" id="whatsapp-notification" style="display: none;">3</div>
+    </div>
+
+    <!-- Chat Popup -->
+    <div class="whatsapp-popup" id="whatsapp-popup">
+        <div class="whatsapp-header">
+            <div class="whatsapp-agent-info">
+                <div class="whatsapp-avatar">
+                    <img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="readprojecttopics Support" />
+                    <div class="online-status"></div>
+                </div>
+                <div class="whatsapp-info">
+                    <h4>PAM Support</h4>
+                    <span class="whatsapp-status">Online • Usually replies instantly</span>
+                </div>
+            </div>
+            <button class="whatsapp-close" onclick="closeWhatsAppPopup()">&times;</button>
+        </div>
+
+        <div class="whatsapp-body">
+            <div class="whatsapp-welcome">
+                <div class="welcome-avatar">
+                    <img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="Readprojecttopics" />
+                </div>
+                <div class="welcome-content">
+                   <!-- <h3>Welcome! 🎓</h3>
+                    <p>Hi there! 👋 We're here to help you with:</p>
+                    <ul>
+                        <li>📚 Buying unit Credits to read and download project materials</li>
+                        <li>✍️ Hiring professional writers to asist in your new projrct writing</li>
+                        <li>💬 General support & guidance</li>--> 
+                    </ul>
+                    <p>Choose an option below to get started:</p>
+                </div>
+            </div>
+
+            <div class="whatsapp-options">
+                <button class="whatsapp-option" onclick="sendWhatsAppMessage('Hi! I want to buy Ranc Credits for my account.')">
+                    <span class="option-icon">💳</span>
+                    <div class="option-content">
+                        <strong>Buy unit Credits</strong>
+                        <small>Purchase credits to read and download projects</small>
+                    </div>
+                </button>
+
+                <button class="whatsapp-option" onclick="sendWhatsAppMessage('Hi! I need to hire a professional writer for my project.')">
+                    <span class="option-icon">✍️</span>
+                    <div class="option-content">
+                        <strong>Hire a Writer</strong>
+                        <small>Get expert writing assistance</small>
+                    </div>
+                </button>
+
+                <button class="whatsapp-option" onclick="sendWhatsAppMessage('Hi! I need help with my account and general support.')">
+                    <span class="option-icon">💬</span>
+                    <div class="option-content">
+                        <strong>General Support</strong>
+                        <small>Account help & technical support</small>
+                    </div>
+                </button>
+            </div>
+
+            <div class="whatsapp-footer">
+                <p><small>🔒 Your conversations are secure with WhatsApp</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* readprojecttopics WhatsApp Widget Styles - Improved Version */
+.readprojecttopics-whatsapp-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    /* Removed floating animation to reduce visual disruption */
+}
+
+/* Keep subtle hover effect */
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    color: white;
+    z-index: 2;
+}
+
+/* Reduced pulse animation - less disruptive */
+.whatsapp-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.2);
+    /* Slower, less frequent pulse */
+    animation: subtlePulse 4s infinite;
+}
+
+/* Subtle pulse animation - much less disruptive */
+@keyframes subtlePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Notification Badge - Hidden by default */
+.whatsapp-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+    /* Removed bounce animation - too disruptive */
+}
+
+/* Chat Popup */
+.whatsapp-popup {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    height: 520px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: popupSlide 0.4s ease;
+}
+
+.whatsapp-popup.active {
+    display: flex;
+}
+
+@keyframes popupSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header */
+.whatsapp-header {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whatsapp-agent-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.whatsapp-avatar {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+.whatsapp-avatar img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.online-status {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #4CAF50;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.whatsapp-info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.whatsapp-status {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.whatsapp-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.whatsapp-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Body */
+.whatsapp-body {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+    background: #f0f2f5;
+}
+
+.whatsapp-welcome {
+    padding: 25px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.welcome-avatar {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.welcome-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.welcome-content h3 {
+    margin: 0 0 10px 0;
+    color: #128C7E;
+    font-size: 18px;
+}
+
+.welcome-content p {
+    margin: 0 0 8px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.welcome-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.welcome-content li {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+/* Options */
+.whatsapp-options {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.whatsapp-option {
+    background: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 100%;
+}
+
+.whatsapp-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    background: #f8fffe;
+}
+
+.option-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5;
+    border-radius: 10px;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-content strong {
+    display: block;
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.option-content small {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Footer */
+.whatsapp-footer {
+    padding: 15px 20px;
+    text-align: center;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.whatsapp-footer p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .readprojecttopics-whatsapp-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .whatsapp-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .whatsapp-popup {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: auto;
+        width: 100%;
+        height: 70vh;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .whatsapp-body {
+        height: calc(70vh - 80px);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .whatsapp-popup {
+        background: #2a2a2a;
+        color: white;
+    }
+    
+    .whatsapp-body {
+        background: #1a1a1a;
+    }
+    
+    .whatsapp-welcome,
+    .whatsapp-option {
+        background: #2a2a2a;
+        color: white;
+    }
+    
+    .whatsapp-footer {
+        background: #2a2a2a;
+        border-color: #444;
+    }
+    
+    .option-content strong {
+        color: white;
+    }
+    
+    .option-content small {
+        color: #ccc;
+    }
+    
+    .welcome-content p,
+    .welcome-content li {
+        color: #ccc;
+    }
+}
+
+/* User preference storage styles */
+.whatsapp-user-preference {
+    position: absolute;
+    bottom: 85px;
+    right: 0;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 10001;
+    min-width: 280px;
+}
+
+.whatsapp-user-preference.active {
+    display: block;
+}
+
+.preference-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.preference-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.preference-option {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.preference-option:hover {
+    background: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+
+.preference-option.active {
+    background: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const whatsappPopup = document.getElementById('whatsapp-popup');
+    const notification = document.getElementById('whatsapp-notification');
+    let isPopupOpen = false;
+    let hasUserInteracted = false;
+
+    // Get user preference from localStorage
+    const userPreference = localStorage.getItem('whatsappPopupPreference') || 'auto';
+
+    // Initialize based on user preference
+    initializeWhatsAppWidget(userPreference);
+
+    function initializeWhatsAppWidget(preference) {
+        switch(preference) {
+            case 'auto':
+                // Auto-show after extended delay (30 seconds instead of 10)
+                setTimeout(function() {
+                    if (!hasUserInteracted && !isPopupOpen) {
+                        showNotificationBadge();
+                    }
+                }, 30000); // Extended to 30 seconds
+                break;
+            case 'manual':
+                // Only show button, no auto-popup
+                console.log('WhatsApp widget set to manual mode');
+                break;
+            case 'delayed':
+                // Auto-show after very long delay (2 minutes)
+                setTimeout(function() {
+                    if (!hasUserInteracted && !isPopupOpen) {
+                        showNotificationBadge();
+                    }
+                }, 120000); // 2 minutes
+                break;
+            default:
+                // Default to manual if preference not recognized
+                console.log('WhatsApp widget using default manual mode');
+        }
+    }
+
+    // Toggle popup
+    whatsappBtn.addEventListener('click', function() {
+        hasUserInteracted = true;
+        isPopupOpen = !isPopupOpen;
+        whatsappPopup.classList.toggle('active', isPopupOpen);
+        
+        // Hide notification when opened
+        if (isPopupOpen) {
+            hideNotificationBadge();
+        }
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!whatsappBtn.contains(event.target) && 
+            !whatsappPopup.contains(event.target) && 
+            isPopupOpen) {
+            closeWhatsAppPopup();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && isPopupOpen) {
+            closeWhatsAppPopup();
+        }
+    });
+
+    // Show notification badge (only for auto mode)
+    function showNotificationBadge() {
+        if (notification && localStorage.getItem('whatsappPopupPreference') !== 'manual') {
+            notification.style.display = 'flex';
+            notification.style.animation = 'subtleNotification 0.5s ease-in-out';
+        }
+    }
+
+    // Hide notification badge
+    function hideNotificationBadge() {
+        if (notification) {
+            notification.style.display = 'none';
+        }
+    }
+
+    // Add subtle notification animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes subtleNotification {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Context menu for power users (right-click on button)
+    whatsappBtn.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        showPreferenceMenu(e);
+    });
+
+    // Preference menu
+    function showPreferenceMenu(event) {
+        // Remove existing preference menu if any
+        const existingMenu = document.querySelector('.whatsapp-user-preference');
+        if (existingMenu) {
+            existingMenu.remove();
+        }
+
+        const preferenceMenu = document.createElement('div');
+        preferenceMenu.className = 'whatsapp-user-preference';
+        
+        const currentPref = localStorage.getItem('whatsappPopupPreference') || 'auto';
+        
+        preferenceMenu.innerHTML = `
+            <div class="preference-title">WhatsApp Widget Settings</div>
+            <div class="preference-options">
+                <div class="preference-option ${currentPref === 'auto' ? 'active' : ''}" onclick="setWhatsAppPreference('auto')">
+                    Auto-popup (30s delay)
+                </div>
+                <div class="preference-option ${currentPref === 'delayed' ? 'active' : ''}" onclick="setWhatsAppPreference('delayed')">
+                    Auto-popup (2min delay)
+                </div>
+                <div class="preference-option ${currentPref === 'manual' ? 'active' : ''}" onclick="setWhatsAppPreference('manual')">
+                    Manual only (click to open)
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(preferenceMenu);
+        
+        // Position menu near button
+        const rect = whatsappBtn.getBoundingClientRect();
+        preferenceMenu.style.bottom = '80px';
+        preferenceMenu.style.right = '0';
+        
+        // Show menu
+        setTimeout(() => preferenceMenu.classList.add('active'), 10);
+        
+        // Hide menu when clicking elsewhere
+        setTimeout(() => {
+            document.addEventListener('click', function hideMenu(e) {
+                if (!preferenceMenu.contains(e.target) && e.target !== whatsappBtn) {
+                    preferenceMenu.classList.remove('active');
+                    setTimeout(() => preferenceMenu.remove(), 300);
+                    document.removeEventListener('click', hideMenu);
+                }
+            });
+        }, 100);
+    }
+
+    // Track user engagement
+    let engagementTimer = 0;
+    const engagementThreshold = 30; // 30 seconds of engagement
+
+    // Start tracking user engagement
+    const engagementStart = Date.now();
+    
+    document.addEventListener('scroll', function() {
+        engagementTimer += 1;
+    });
+    
+    document.addEventListener('click', function() {
+        engagementTimer += 5; // Clicks count more heavily
+    });
+
+    // Show notification for engaged users
+    setTimeout(function() {
+        const currentTime = Date.now();
+        const timeSpent = (currentTime - engagementStart) / 1000; // in seconds
+        
+        // Only show if user has been engaged for at least threshold time
+        if (timeSpent >= engagementThreshold && engagementTimer >= 10) {
+            showNotificationBadge();
+        }
+    }, 45000); // Check after 45 seconds
+});
+
+// Global function to set user preference
+function setWhatsAppPreference(preference) {
+    localStorage.setItem('whatsappPopupPreference', preference);
+    
+    // Hide preference menu
+    const menu = document.querySelector('.whatsapp-user-preference');
+    if (menu) {
+        menu.classList.remove('active');
+        setTimeout(() => menu.remove(), 300);
+    }
+    
+    // Show confirmation
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 14px;
+        z-index: 10002;
+        animation: slideInRight 0.3s ease;
+    `;
+    notification.textContent = 'WhatsApp widget preference saved!';
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 2000);
+    
+    // Add animation styles
+    if (!document.querySelector('#preference-animation-styles')) {
+        const animStyles = document.createElement('style');
+        animStyles.id = 'preference-animation-styles';
+        animStyles.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(animStyles);
+    }
+}
+
+// Close popup function
+function closeWhatsAppPopup() {
+    document.getElementById('whatsapp-popup').classList.remove('active');
+    isPopupOpen = false;
+}
+
+// Send WhatsApp message function
+function sendWhatsAppMessage(message) {
+    // IMPORTANT: Replace with your WhatsApp Business phone number
+    // Format: Country code + number without + or spaces
+    // Example: +1234567890 becomes 1234567890
+    const phoneNumber = '2349038349959'; // Replace with your actual number
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in new window/tab
+    window.open(whatsappURL, '_blank');
+    
+    // Close popup
+    closeWhatsAppPopup();
+    
+    // Track analytics (if you have Google Analytics)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': message,
+            'value': 1
+        });
+    }
+    
+    // Track with Facebook Pixel (if installed)
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'WhatsApp Chat',
+            content_category: 'Support'
+        });
+    }
+}
+</script>
+    <!-- Social Media Popup Banner -->
+<style>
+    .social-popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+    .social-popup-overlay.active { display: flex; opacity: 1; }
+    .social-popup-container { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 40px; max-width: 450px; width: 90%; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); transform: scale(0.8); transition: transform 0.3s ease; position: relative; }
+    .social-popup-overlay.active .social-popup-container { transform: scale(1); }
+    .social-popup-close { position: absolute; top: 15px; right: 20px; font-size: 28px; color: white; cursor: pointer; }
+    .social-popup-title { color: white; font-size: 26px; font-weight: bold; margin-bottom: 10px; }
+    .social-popup-subtitle { color: rgba(255,255,255,0.9); font-size: 16px; margin-bottom: 30px; }
+    .social-popup-buttons { display: flex; flex-direction: column; gap: 15px; }
+    .social-popup-btn { display: flex; align-items: center; justify-content: center; padding: 15px 25px; border-radius: 50px; text-decoration: none; color: white; font-weight: 600; font-size: 16px; }
+    .social-popup-btn.whatsapp { background: #25D366; }
+    .social-popup-btn.telegram { background: #0088cc; }
+    .social-popup-btn.facebook { background: #1877F2; }
+    .social-popup-dont-show { margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 14px; }
+    .social-popup-dont-show label { cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    @media (max-width: 480px) { .social-popup-container { padding: 30px 20px; } .social-popup-title { font-size: 22px; } }
+</style>
+
+<div class="social-popup-overlay" id="socialPopup">
+    <div class="social-popup-container">
+        <span class="social-popup-close" onclick="closeSocialPopup()">&times;</span>
+        <div class="social-popup-title">Join Our Community!</div>
+        <div class="social-popup-subtitle">Connect with us on social media for updates</div>
+        <div class="social-popup-buttons">
+            <a href="https://chat.whatsapp.com/YOUR-LINK" target="_blank" class="social-popup-btn whatsapp">Join WhatsApp</a>
+            <a href="https://t.me/YOUR-CHANNEL" target="_blank" class="social-popup-btn telegram">Join Telegram</a>
+            <a href="https://facebook.com/YOUR-PAGE" target="_blank" class="social-popup-btn facebook">Facebook Page</a>
+        </div>
+        <div class="social-popup-dont-show">
+            <label><input type="checkbox" id="dontShowAgain" onchange="handleDontShowChange()"> Don't show again (24 hours)</label>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const FIRST_DELAY = 5000;
+    const RECURRING_DELAY = 180000; // 3 minutes
+    const DONT_SHOW_DURATION = 86400000; // 24 hours
+    const STORAGE_KEY = 'social_popup_dont_show';
+    const DONT_SHOW_TIME_KEY = 'social_popup_dont_show_time';
+    const FIRST_KEY = 'social_popup_first_shown';
+    const LAST_KEY = 'social_popup_last_shown';
+    var popupInterval = null;
+    
+    function shouldShowPopup() {
+        var dontShow = localStorage.getItem(STORAGE_KEY);
+        if (dontShow === 'true') {
+            var dontShowTime = localStorage.getItem(DONT_SHOW_TIME_KEY);
+            if (dontShowTime) {
+                var elapsed = Date.now() - parseInt(dontShowTime);
+                if (elapsed >= DONT_SHOW_DURATION) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    localStorage.removeItem(DONT_SHOW_TIME_KEY);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+    
+    function showPopup() {
+        if (!shouldShowPopup()) return;
+        var popup = document.getElementById('socialPopup');
+        if (popup) {
+            popup.classList.add('active');
+            localStorage.setItem(LAST_KEY, Date.now().toString());
+            if (!localStorage.getItem(FIRST_KEY)) localStorage.setItem(FIRST_KEY, 'true');
+        }
+    }
+    
+    function startRecurring() {
+        if (popupInterval) clearInterval(popupInterval);
+        popupInterval = setInterval(function() { if (shouldShowPopup()) showPopup(); }, RECURRING_DELAY);
+    }
+    
+    window.closeSocialPopup = function() {
+        var popup = document.getElementById('socialPopup');
+        if (popup) popup.classList.remove('active');
+        localStorage.setItem(LAST_KEY, Date.now().toString());
+        startRecurring();
+    };
+    
+    window.handleDontShowChange = function() {
+        var checkbox = document.getElementById('dontShowAgain');
+        if (checkbox && checkbox.checked) {
+            localStorage.setItem(STORAGE_KEY, 'true');
+            localStorage.setItem(DONT_SHOW_TIME_KEY, Date.now().toString());
+            if (popupInterval) clearInterval(popupInterval);
+            var popup = document.getElementById('socialPopup');
+            if (popup) popup.classList.remove('active');
+        } else {
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(DONT_SHOW_TIME_KEY);
+        }
+    };
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var popup = document.getElementById('socialPopup');
+        if (!popup) return;
+        popup.addEventListener('click', function(e) { if (e.target === popup) closeSocialPopup(); });
+        if (!shouldShowPopup()) return;
+        var lastShown = localStorage.getItem(LAST_KEY);
+        var isFirst = !localStorage.getItem(FIRST_KEY);
+        var now = Date.now();
+        if (isFirst) setTimeout(function() { showPopup(); startRecurring(); }, FIRST_DELAY);
+        else if (lastShown) { var elapsed = now - parseInt(lastShown); if (elapsed >= RECURRING_DELAY) showPopup(); startRecurring(); }
+        else setTimeout(function() { showPopup(); startRecurring(); }, FIRST_DELAY);
+    });
+})();
+</script>
+    <!-- S3 Speed Optimization Script -->
+    <script defer src="{{ asset('js/vue-pdf-embed-s3.js') }}"></script>
+    
+    <!-- Performance monitoring -->
+    <script>
+        // Web Vitals tracking
+        if ('PerformanceObserver' in window) {
+            // Track Largest Contentful Paint
+            const lcpObserver = new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                console.log('LCP:', lastEntry.startTime);
+            });
+            lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+            
+            // Track First Input Delay
+            const fidObserver = new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    console.log('FID:', entry.processingStart - entry.startTime);
+                }
+            });
+            fidObserver.observe({ entryTypes: ['first-input'] });
+            
+            // Track Cumulative Layout Shift
+            const clsObserver = new PerformanceObserver((entryList) => {
+                let clsValue = 0;
+                for (const entry of entryList.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                }
+                console.log('CLS:', clsValue);
+            });
+            clsObserver.observe({ entryTypes: ['layout-shift'] });
+        }
+        
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.youtube-lazy').forEach(function(div) {
+        var videoId = div.getAttribute('data-id');
+        var img = div.querySelector('img');
+        img.src = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
+    });
+});
+</script>
+    </script>
+</body>
+</html>

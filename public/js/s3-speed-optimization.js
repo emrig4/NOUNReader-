@@ -1,0 +1,716 @@
+/**
+ * S3 Speed Optimization JavaScript
+ * Non-intrusive client-side performance enhancements
+ * Generated: 2025-11-15 10:00:57
+ */
+
+(function() {
+    'use strict';
+
+    // Configuration
+    const CONFIG = {
+        enablePerformanceMonitoring: true,
+        enableProgressiveLoading: true,
+        enableLazyLoading: true,
+        enableSmartCaching: true,
+        debug: false,
+        
+        // S3 Optimization Settings
+        accelerationEndpoint: 's3-accelerate',
+        cloudFrontDomain: '', // Set via data attribute
+        cacheThreshold: 100, // KB
+        
+        // Performance thresholds
+        largeFileThreshold: 10 * 1024 * 1024, // 10MB
+        timeout: 30000, // 30 seconds
+        retryAttempts: 3,
+        
+        // Monitoring
+        metricsUpdateInterval: 1000, // 1 second
+        maxMetricsHistory: 100,
+    };
+
+    // Performance monitoring
+    class S3PerformanceMonitor {
+        constructor() {
+            this.metrics = new Map();
+            this.startTime = performance.now();
+            this.isEnabled = CONFIG.enablePerformanceMonitoring;
+            
+            if (this.isEnabled) {
+                this.init();
+            }
+        }
+        
+        init() {
+            // Monitor resource loading
+            if ('PerformanceObserver' in window) {
+                this.setupObservers();
+            }
+            
+            // Show metrics display
+            this.createMetricsDisplay();
+            
+            // Update metrics periodically
+            this.startMetricsUpdate();
+        }
+        
+        setupObservers() {
+            // Monitor resource loading
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    this.recordMetric(entry.name, {
+                        duration: entry.duration,
+                        size: entry.transferSize || 0,
+                        type: entry.initiatorType,
+                        startTime: entry.startTime,
+                        endTime: entry.startTime + entry.duration
+                    });
+                }
+            });
+            
+            observer.observe({ entryTypes: ['resource', 'navigation'] });
+            
+            // Monitor memory usage
+            if ('memory' in performance) {
+                this.monitorMemory();
+            }
+        }
+        
+        recordMetric(name, data) {
+            const timestamp = Date.now();
+            
+            if (!this.metrics.has(name)) {
+                this.metrics.set(name, []);
+            }
+            
+            this.metrics.get(name).push({
+                timestamp,
+                ...data
+            });
+            
+            // Limit history
+            const history = this.metrics.get(name);
+            if (history.length > CONFIG.maxMetricsHistory) {
+                history.shift();
+            }
+        }
+        
+        monitorMemory() {
+            const memoryInfo = performance.memory;
+            this.recordMetric('memory', {
+                used: memoryInfo.usedJSHeapSize,
+                total: memoryInfo.totalJSHeapSize,
+                limit: memoryInfo.jsHeapSizeLimit
+            });
+        }
+        
+        createMetricsDisplay() {
+            const display = document.createElement('div');
+            display.className = 'performance-metrics';
+            display.id = 's3-performance-metrics';
+            display.innerHTML = `
+                <div class="metric">Load Time: <span class="metric-value" id="metric-load-time">--</span></div>
+                <div class="metric">Cache Hit: <span class="metric-value" id="metric-cache-hit">--</span></div>
+                <div class="metric">Transfer: <span class="metric-value" id="metric-transfer">--</span></div>
+            `;
+            
+            document.body.appendChild(display);
+            
+            // Toggle display with keyboard
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.shiftKey && e.key === 'M') {
+                    display.classList.toggle('visible');
+                }
+            });
+        }
+        
+        startMetricsUpdate() {
+            setInterval(() => {
+                this.updateDisplay();
+            }, CONFIG.metricsUpdateInterval);
+        }
+        
+        updateDisplay() {
+            const loadTimeEl = document.getElementById('metric-load-time');
+            const cacheHitEl = document.getElementById('metric-cache-hit');
+            const transferEl = document.getElementById('metric-transfer');
+            
+            if (loadTimeEl) {
+                const loadTime = Math.round(performance.now() - this.startTime);
+                loadTimeEl.textContent = loadTime + 'ms';
+            }
+            
+            if (cacheHitEl) {
+                const cacheHit = this.getCacheHitRate();
+                cacheHitEl.textContent = cacheHit + '%';
+            }
+            
+            if (transferEl) {
+                const transfer = this.getTotalTransferSize();
+                transferEl.textContent = this.formatBytes(transfer);
+            }
+        }
+        
+        getCacheHitRate() {
+            let totalRequests = 0;
+            let cacheHits = 0;
+            
+            this.metrics.forEach((history) => {
+                totalRequests += history.length;
+                cacheHits += history.filter(entry => entry.transferSize === 0).length;
+            });
+            
+            return totalRequests > 0 ? Math.round((cacheHits / totalRequests) * 100) : 0;
+        }
+        
+        getTotalTransferSize() {
+            let total = 0;
+            this.metrics.forEach((history) => {
+                total += history.reduce((sum, entry) => sum + (entry.size || 0), 0);
+            });
+            return total;
+        }
+        
+        formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        log(message, data = {}) {
+            if (CONFIG.debug) {
+                console.log('[S3 Performance]', message, data);
+            }
+        }
+    }
+
+    // S3 URL Optimizer
+    class S3UrlOptimizer {
+        constructor() {
+            this.cloudFrontDomain = this.getCloudFrontDomain();
+            this.acceleratedEndpoint = CONFIG.accelerationEndpoint;
+        }
+        
+        getCloudFrontDomain() {
+            // Try to get from meta tag
+            const metaTag = document.querySelector('meta[name="s3-cloudfront-domain"]');
+            if (metaTag) {
+                return metaTag.content;
+            }
+            
+            // Try from data attribute
+            const body = document.querySelector('body');
+            if (body && body.dataset.cloudFrontDomain) {
+                return body.dataset.cloudFrontDomain;
+            }
+            
+            return CONFIG.cloudFrontDomain;
+        }
+        
+        optimizeUrl(originalUrl) {
+            const url = new URL(originalUrl);
+            const fileSize = this.estimateFileSize(url.pathname);
+            const fileType = this.getFileType(url.pathname);
+            
+            const optimization = {
+                original: originalUrl,
+                strategies: [],
+                recommended: null,
+                metadata: {
+                    fileSize,
+                    fileType,
+                    shouldAccelerate: fileSize > CONFIG.largeFileThreshold,
+                    shouldUseCDN: !!this.cloudFrontDomain
+                }
+            };
+            
+            // Strategy 1: CloudFront CDN (highest priority)
+            if (this.cloudFrontDomain) {
+                const cloudfrontUrl = this.generateCloudFrontUrl(url.pathname);
+                optimization.strategies.push({
+                    type: 'cloudfront',
+                    url: cloudfrontUrl,
+                    speed: 'fastest',
+                    reliability: 'high'
+                });
+            }
+            
+            // Strategy 2: S3 Transfer Acceleration
+            if (fileSize > CONFIG.largeFileThreshold) {
+                const acceleratedUrl = this.generateAcceleratedUrl(url.pathname);
+                optimization.strategies.push({
+                    type: 'acceleration',
+                    url: acceleratedUrl,
+                    speed: 'very_fast',
+                    reliability: 'high'
+                });
+            }
+            
+            // Strategy 3: Regular S3 (fallback)
+            optimization.strategies.push({
+                type: 'regular',
+                url: originalUrl,
+                speed: 'normal',
+                reliability: 'reliable'
+            });
+            
+            // Select best strategy
+            optimization.recommended = this.selectBestStrategy(optimization.strategies, optimization.metadata);
+            
+            return optimization;
+        }
+        
+        generateCloudFrontUrl(path) {
+            const baseUrl = this.cloudFrontDomain.startsWith('http') 
+                ? this.cloudFrontDomain 
+                : 'https://' + this.cloudFrontDomain;
+            
+            return `${baseUrl}${path}`;
+        }
+        
+        generateAcceleratedUrl(path) {
+            // Note: This is a simplified version. In practice, you'd use the AWS SDK
+            // to generate proper accelerated URLs with proper signing
+            const bucket = this.extractBucketFromUrl(path);
+            return `https://${bucket}.s3-accelerate.dualstack.amazonaws.com${path}`;
+        }
+        
+        selectBestStrategy(strategies, metadata) {
+            // Prioritize CloudFront if available
+            const cloudfront = strategies.find(s => s.type === 'cloudfront');
+            if (cloudfront && metadata.shouldUseCDN) {
+                return cloudfront;
+            }
+            
+            // Use acceleration for large files
+            const acceleration = strategies.find(s => s.type === 'acceleration');
+            if (acceleration && metadata.shouldAccelerate) {
+                return acceleration;
+            }
+            
+            // Fallback to regular S3
+            return strategies.find(s => s.type === 'regular');
+        }
+        
+        estimateFileSize(pathname) {
+            // Simple estimation based on file extension
+            const extension = pathname.split('.').pop()?.toLowerCase();
+            const sizeEstimates = {
+                'pdf': 5 * 1024 * 1024, // 5MB average
+                'jpg': 2 * 1024 * 1024, // 2MB average
+                'png': 3 * 1024 * 1024, // 3MB average
+                'mp4': 100 * 1024 * 1024, // 100MB average
+                'doc': 1 * 1024 * 1024, // 1MB average
+            };
+            
+            return sizeEstimates[extension] || 1024 * 1024; // Default 1MB
+        }
+        
+        getFileType(pathname) {
+            const extension = pathname.split('.').pop()?.toLowerCase();
+            const typeMap = {
+                'pdf': 'document',
+                'doc': 'document',
+                'docx': 'document',
+                'jpg': 'image',
+                'jpeg': 'image',
+                'png': 'image',
+                'gif': 'image',
+                'mp4': 'video',
+                'avi': 'video',
+                'mov': 'video',
+            };
+            
+            return typeMap[extension] || 'unknown';
+        }
+        
+        extractBucketFromUrl(url) {
+            // This is a simplified extraction. In practice, you'd get this from config
+            return 'your-bucket-name';
+        }
+    }
+
+    // Lazy Loading Manager
+    class S3LazyLoader {
+        constructor() {
+            this.observer = null;
+            this.loadedElements = new Set();
+            this.init();
+        }
+        
+        init() {
+            if (!CONFIG.enableLazyLoading) return;
+            
+            // Setup intersection observer
+            if ('IntersectionObserver' in window) {
+                this.setupObserver();
+            }
+            
+            // Mark lazy loadable elements
+            this.markLazyElements();
+            
+            // Force load visible elements
+            this.loadVisibleElements();
+        }
+        
+        setupObserver() {
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.loadElement(entry.target);
+                        this.observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+        }
+        
+        markLazyElements() {
+            const selectors = [
+                'img[data-s3-src]',
+                'iframe[data-s3-src]',
+                'object[data-s3-src]',
+                '.lazy-s3-load'
+            ];
+            
+            selectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach(element => {
+                    if (!this.loadedElements.has(element)) {
+                        this.markForLazyLoad(element);
+                    }
+                });
+            });
+        }
+        
+        markForLazyLoad(element) {
+            // Add loading class
+            element.classList.add('lazy-load', 'loading');
+            
+            // Add lazy load indicator
+            element.setAttribute('data-lazy-loaded', 'false');
+            
+            // Observe if intersection observer is available
+            if (this.observer) {
+                this.observer.observe(element);
+            }
+        }
+        
+        loadElement(element) {
+            if (this.loadedElements.has(element)) return;
+            
+            const src = element.dataset.s3Src || element.dataset.src;
+            if (!src) return;
+            
+            this.optimizeAndLoad(element, src);
+        }
+        
+        async optimizeAndLoad(element, url) {
+            try {
+                // Get optimized URL
+                const optimizer = new S3UrlOptimizer();
+                const optimization = optimizer.optimizeUrl(url);
+                
+                // Use recommended strategy
+                const optimizedUrl = optimization.recommended.url;
+                
+                // Mark as S3 optimized
+                element.classList.add('s3-optimized', `s3-${optimization.recommended.type}`);
+                
+                // Load with optimized URL
+                if (element.tagName === 'IMG') {
+                    await this.loadImage(element, optimizedUrl);
+                } else {
+                    await this.loadResource(element, optimizedUrl);
+                }
+                
+                this.loadedElements.add(element);
+                element.setAttribute('data-lazy-loaded', 'true');
+                element.classList.remove('loading');
+                element.classList.add('loaded');
+                
+                // Dispatch load event
+                element.dispatchEvent(new CustomEvent('s3-lazy-loaded', {
+                    detail: { optimization }
+                }));
+                
+            } catch (error) {
+                console.error('Lazy loading failed:', error);
+                element.classList.remove('loading');
+                element.classList.add('error');
+            }
+        }
+        
+        loadImage(img, url) {
+            return new Promise((resolve, reject) => {
+                img.onload = () => {
+                    img.classList.add('loaded');
+                    resolve();
+                };
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+        
+        loadResource(element, url) {
+            if (element.tagName === 'IFRAME') {
+                element.src = url;
+            } else if (element.tagName === 'OBJECT') {
+                element.data = url;
+            }
+        }
+        
+        loadVisibleElements() {
+            // Load elements that are immediately visible
+            const visibleElements = document.querySelectorAll('.lazy-load:not([data-lazy-loaded])');
+            visibleElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    this.loadElement(element);
+                }
+            });
+        }
+    }
+
+    // Progressive Loading Manager
+    class S3ProgressiveLoader {
+        constructor() {
+            this.enabled = CONFIG.enableProgressiveLoading;
+            this.init();
+        }
+        
+        init() {
+            if (!this.enabled) return;
+            
+            // Mark progressive loadable elements
+            this.markProgressiveElements();
+        }
+        
+        markProgressiveElements() {
+            document.querySelectorAll('[data-s3-progressive]').forEach(element => {
+                this.setupProgressiveLoad(element);
+            });
+        }
+        
+        setupProgressiveLoad(element) {
+            const url = element.dataset.s3Src;
+            if (!url) return;
+            
+            // Add progressive container
+            const container = document.createElement('div');
+            container.className = 'progressive-container';
+            
+            // Create preview element
+            const preview = element.cloneNode();
+            preview.classList.add('progressive-preview');
+            preview.removeAttribute('data-s3-progressive');
+            
+            // Create full element
+            const full = element.cloneNode();
+            full.classList.add('progressive-full');
+            full.removeAttribute('data-s3-progressive');
+            full.removeAttribute('data-s3-src');
+            
+            // Replace element with container
+            element.parentNode.insertBefore(container, element);
+            container.appendChild(preview);
+            container.appendChild(full);
+            
+            // Load preview first
+            this.loadPreview(preview, url).then(() => {
+                // Then load full version
+                this.loadFull(full, url);
+            });
+        }
+        
+        async loadPreview(element, url) {
+            try {
+                const previewUrl = this.generatePreviewUrl(url);
+                await this.loadImage(element, previewUrl);
+            } catch (error) {
+                console.warn('Preview loading failed:', error);
+                // Fallback to regular load
+                await this.loadImage(element, url);
+            }
+        }
+        
+        async loadFull(element, url) {
+            try {
+                await this.loadImage(element, url);
+                element.classList.add('loaded');
+            } catch (error) {
+                console.error('Full load failed:', error);
+            }
+        }
+        
+        generatePreviewUrl(url) {
+            // For S3, you might use different object versions or generate thumbnails
+            // This is a simplified version
+            return url + '?preview=true';
+        }
+        
+        loadImage(img, url) {
+            return new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+    }
+
+    // Smart Caching Manager
+    class S3SmartCache {
+        constructor() {
+            this.enabled = CONFIG.enableSmartCaching;
+            this.cache = new Map();
+            this.init();
+        }
+        
+        init() {
+            if (!this.enabled) return;
+            
+            // Setup smart caching
+            this.setupCacheStrategies();
+        }
+        
+        setupCacheStrategies() {
+            // Cache frequently accessed resources
+            this.preloadCommonResources();
+            
+            // Setup cache invalidation
+            this.setupCacheInvalidation();
+        }
+        
+        preloadCommonResources() {
+            const commonResources = [
+                // Add your common S3 resources here
+                '/api/user-avatar',
+                '/assets/logo.png',
+                '/documents/common.pdf'
+            ];
+            
+            commonResources.forEach(resource => {
+                this.preloadResource(resource);
+            });
+        }
+        
+        preloadResource(url) {
+            if (this.cache.has(url)) return;
+            
+            // Create link element for preloading
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = this.getResourceType(url);
+            link.href = url;
+            document.head.appendChild(link);
+            
+            // Also store in cache
+            this.cache.set(url, {
+                loaded: false,
+                timestamp: Date.now()
+            });
+        }
+        
+        getResourceType(url) {
+            const extension = url.split('.').pop().toLowerCase();
+            const typeMap = {
+                'jpg': 'image',
+                'jpeg': 'image',
+                'png': 'image',
+                'gif': 'image',
+                'css': 'style',
+                'js': 'script',
+                'woff': 'font',
+                'woff2': 'font',
+                'pdf': 'document'
+            };
+            
+            return typeMap[extension] || 'fetch';
+        }
+        
+        setupCacheInvalidation() {
+            // Listen for cache invalidation signals
+            document.addEventListener('s3-cache-invalidate', (e) => {
+                this.invalidate(e.detail.resource);
+            });
+        }
+        
+        invalidate(resource) {
+            this.cache.delete(resource);
+            
+            // Remove from DOM if cached
+            const cachedElements = document.querySelectorAll(`[data-cached-url="${resource}"]`);
+            cachedElements.forEach(element => {
+                element.removeAttribute('data-cached-url');
+                element.classList.remove('cached-resource');
+            });
+        }
+    }
+
+    // Main S3 Speed Optimizer
+    class S3SpeedOptimizer {
+        constructor() {
+            this.performanceMonitor = null;
+            this.urlOptimizer = null;
+            this.lazyLoader = null;
+            this.progressiveLoader = null;
+            this.smartCache = null;
+            
+            this.init();
+        }
+        
+        init() {
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => this.initialize());
+            } else {
+                this.initialize();
+            }
+        }
+        
+        initialize() {
+            // Initialize all components
+            this.performanceMonitor = new S3PerformanceMonitor();
+            this.urlOptimizer = new S3UrlOptimizer();
+            this.lazyLoader = new S3LazyLoader();
+            this.progressiveLoader = new S3ProgressiveLoader();
+            this.smartCache = new S3SmartCache();
+            
+            // Mark page as optimized
+            document.documentElement.classList.add('s3-speed-optimized');
+            document.body.classList.add('js-enabled');
+            
+            console.log('🚀 S3 Speed Optimizer initialized');
+        }
+        
+        // Public API for external use
+        optimizeUrl(url) {
+            return this.urlOptimizer.optimizeUrl(url);
+        }
+        
+        forceLoad(element) {
+            this.lazyLoader.loadElement(element);
+        }
+        
+        invalidateCache(resource) {
+            this.smartCache.invalidate(resource);
+        }
+        
+        getMetrics() {
+            return this.performanceMonitor ? this.performanceMonitor.metrics : new Map();
+        }
+    }
+
+    // Initialize the optimizer
+    window.S3SpeedOptimizer = new S3SpeedOptimizer();
+    
+    // Expose utilities for external use
+    window.optimizeS3Url = (url) => window.S3SpeedOptimizer.optimizeUrl(url);
+    window.forceLoadS3 = (element) => window.S3SpeedOptimizer.forceLoad(element);
+    window.invalidateS3Cache = (resource) => window.S3SpeedOptimizer.invalidateCache(resource);
+
+})();

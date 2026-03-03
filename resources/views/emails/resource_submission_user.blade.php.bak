@@ -1,0 +1,25 @@
+@component('mail::message')
+# Document Submission Received
+
+Hello {{ $resource->user->first_name }},
+
+Thank you for submitting your document for review. Here are the details:
+
+**Document Title:** {{ $resource->title }}
+**Submitted on:** {{ $resource->submitted_at->format('F d, Y \a\t g:i A') }}
+
+Your document is now awaiting review by our admin team. You will be notified once the review is completed.
+
+**Current Status:** Pending Review
+
+@component('mail::button', ['url' => route('resources.show', $resource->slug)])
+View Document
+@endcomponent
+
+Best regards,
+readprojecttopics Team
+
+---
+This is an automated message. Please do not reply to this email.
+@endcomponent
+

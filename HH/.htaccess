@@ -1,0 +1,22 @@
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv ALLOWED_HOSTS projectandmaterials.com www.projectandmaterials.com
+SetEnv CANONICAL_HOST www.projectandmaterials.com
+SetEnv DEBUG False
+SetEnv DEFAULT_FROM_EMAIL edwinemerenu@gmail.com
+SetEnv EMAIL_HOST_PASSWORD zesowjxkwyhkfccs
+SetEnv EMAIL_HOST_USER edwinemerenu
+SetEnv FLUTTERWAVE_PUBLIC_KEY FLWPUBK_TEST-9f805bc76ad53e2d617304c2067b98b6-X
+SetEnv FLUTTERWAVE_SECRET_KEY FLWSECK_TEST-55e39365eb7480d5a03673b048dbabc0-X
+SetEnv GOOGLE_APPLICATION_CREDENTIALS /home/projtpyy/projectandmaterials.com/gcs-key.json
+SetEnv GOOGLE_CLIENT_ID 707618321370-lqibi9rhpsppomnfhdb80lt2d2tss724.apps.googleusercontent.com
+SetEnv GOOGLE_CLIENT_SECRET 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	
+SetEnv GS_BUCKET_NAME projectsandmaterials_bucket
+SetEnv GS_PROJECT_ID projectsandmaterials
+SetEnv SECRET_KEY django-insecure--9i@4wl40l!72$)r+jm37n2+4!r=1h$67_y@libzd#ss)+o#pp
+SetEnv SITE_URL projectsandmaterials.com	
+SetEnv YOUTUBE_API_KEY AIzaSyBNnHvpswq4U0AO6Pur0PbrK8QRQncA-C0
+SetEnv PAYSTACK_SECRET_KEY sk_live_40a17e395857bfe36b51d609f8cd788ebdf09e3d
+SetEnv PAYSTACK_PUBLIC_KEY pk_live_107ab994be1d988d631ab6b3b802c3ef59cd3c10
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END

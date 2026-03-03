@@ -1,0 +1,21 @@
+@component('mail::message')
+# Document Approved! 🎉
+
+Congratulations! Your document has been approved and is now published on readprojecttopics.
+
+**Document Title:** {{ $resource->title }}
+**Approved on:** {{ $resource->approved_at->format('F d, Y \a\t g:i A') }}
+
+Your document is now live and available for other users to access and download.
+
+**View Your Document:**
+@component('mail::button', ['url' => route('resources.show', $resource->slug)])
+View Published Document
+@endcomponent
+
+Thank you for contributing to our academic resource library!
+
+Best regards,
+readprojecttopics Team
+@endcomponent
+

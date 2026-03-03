@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://readprojecttopics.test/admin/plans -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="kxif4mNzcVplMsLcmLHjvyQV5XVbC6UPmpV3rYgMShk">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>readprojecttopics - Admin</title>
+
+    <!-- Generics -->
+    <link rel="icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="32x32">
+    <link rel="icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="128x128">
+    <link rel="icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="192x192">
+
+    <!-- Android -->
+    <link rel="shortcut icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="196x196">
+
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="167x167">
+    <link rel="apple-touch-icon" href="http://readprojecttopics.test/themes/airdgereaders/admin/assets/images/favicon/logo.png" sizes="180x180">
+
+  <link rel="stylesheet" href="./readprojecttopics - Admin_files/style.css">
+  <link rel="stylesheet" href="./readprojecttopics - Admin_files/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- <link href="http://readprojecttopics.test/themes/airdgereaders/css/typography.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" type="text/css" href="./readprojecttopics - Admin_files/notify.css"></head>
+
+<body aria-expanded="false" class="">
+
+    <!-- Top Bar  -->
+    <header class="top-bar">
+
+    <!-- Menu Toggler -->
+    <button type="button" class="menu-toggler la la-bars" data-toggle="menu"></button>
+
+    <!-- Brand -->
+    <span class="brand">readprojecttopics</span>
+
+    <!-- Search -->
+    <form class="hidden md:block ml-10" action="http://readprojecttopics.test/admin/plans#">
+        <label class="form-control-addon-within rounded-full">
+            <input type="text" class="form-control border-none" placeholder="Search">
+            <span class="flex items-center pr-4">
+                <button type="button" class="dark:text-gray-700 dark:hover:text-primary btn btn-link text-gray-300 hover:text-primary text-xl leading-none la la-search"></button>
+            </span>
+        </label>
+    </form>
+
+    <!-- Right -->
+    <div class="flex items-center ml-auto">
+
+        <!-- Dark Mode -->
+        <label class="switch switch_outlined" data-toggle="tooltip" data-tippy-content="Toggle Dark Mode" aria-expanded="false">
+            <input id="darkModeToggler" type="checkbox">
+            <span></span>
+        </label>
+
+        <!-- Fullscreen -->
+        <button type="button" class="hidden lg:inline-block btn-link ml-3 px-2 text-2xl leading-none la la-expand-arrows-alt" data-toggle="tooltip" data-tippy-content="Fullscreen" id="fullScreenToggler" aria-expanded="false"></button>
+
+    </div>
+</header>
+    <!-- Menu Bar -->
+    <aside class="menu-bar menu-sticky null">
+    <div class="menu-items">
+        
+        <a href="http://readprojecttopics.test/admin" class="link"><span class="icon la la-store"></span><span class="title">Dashboard</span></a>
+       
+        
+        <a href="http://readprojecttopics.test/admin/resources" class="link"><span class="icon la la-file"></span><span class="title">Resources</span></a>
+
+
+        <a href="http://readprojecttopics.test/admin/plans#no-link" class="link" data-target="users" data-toggle="tooltip-menu" data-tippy-content="Plans"><span class="icon la la-store"></span><span class="title">Users</span></a>
+
+
+        <a href="http://readprojecttopics.test/admin/plans#no-link" class="link active" data-target="plans" data-toggle="tooltip-menu" data-tippy-content="Plans"><span class="icon la la-store"></span><span class="title">Plans</span></a>
+        
+
+        <a href="http://readprojecttopics.test/admin/plans#" class="link" data-toggle="tooltip-menu" data-target="wallets" data-tippy-content="Wallets"><span class="icon la la-laptop"></span><span class="title">Wallet</span></a>
+
+
+
+        <a href="http://readprojecttopics.test/admin/settings" class="link" data-toggle="tooltip-menu" data-tippy-content="Dashboard"><span class="icon la la-laptop"></span><span class="title">Settings</span></a>
+        
+
+    </div>
+
+    <!-- Applications -->
+    <div class="menu-detail" data-menu="plans">
+        <div class="menu-detail-wrapper">
+            <a href="http://readprojecttopics.test/admin/subscriptions"><span class="la la-image"></span>Subscriptions</a>
+            <a href="http://readprojecttopics.test/admin/pricings"><span class="la la-check-circle"></span>Pricings</a>
+            <a href="http://readprojecttopics.test/admin/plans" class="active"><span class="la la-comment"></span>Plans</a>
+        </div>
+    </div>
+
+
+    <!-- Users -->
+    <div class="menu-detail" data-menu="users">
+        <div class="menu-detail-wrapper">
+            <a href="http://readprojecttopics.test/admin/users"><span class="la la-image"></span>Users</a>
+            <a href="http://readprojecttopics.test/admin/roles"><span class="la la-check-circle"></span>Roles</a>
+            <a href="http://readprojecttopics.test/admin/permissions"><span class="la la-comment"></span>Permissions</a>
+        </div>
+    </div>
+
+
+    <!-- Transactions -->
+    <div class="menu-detail" data-menu="wallets">
+        <div class="menu-detail-wrapper">
+            <a href="http://readprojecttopics.test/admin/wallets/transactions?type=withdrawal"><span class="la la-comment"></span>Withdrawals</a>
+            <a href="http://readprojecttopics.test/admin/wallets/transactions?type=earning"><span class="la la-check-circle"></span> Earnings</a>
+           <!--  <a href="http://readprojecttopics.test/admin/wallets/holdings"><span class="la la-image"></span>Holdings</a> -->
+
+        </div>
+    </div>
+
+
+   
+</aside>
+    <!-- Workspace  -->
+    <main class="workspace overflow-hidden">
+
+
+        <div class="lg:-mx-4">
+                <section class="container">
+
+        <!-- Actions -->
+        <div class="card lg:flex p-4 mb-10">
+            <h2 class="text-xl leading-tight">Plans</h2>
+            <div class="flex items-center ml-auto mt-5 lg:mt-0">
+                <form class="w-2/3 items-center mt-0" action="http://readprojecttopics.test/admin/plans#">
+                    <label class="form-control-addon-within  rounded-full overflow-hidden">
+                        <input type="text" class="form-control border-none" placeholder="Search">
+                        <span class="flex items-center pr-4"><button type="button" class="dark:text-gray-700 dark:hover:text-primary text-secondary hover:text-primary btn btn-link la la-search text-2xl leading-none"></button></span>
+                    </label>
+                </form>
+                <div class="w-1/3  mt-0">
+                    <div class=" ml-2">
+                        <button class="ml-5 btn  btn_secondary uppercase" data-toggle="modal" data-target="#exampleModalCenteredCreatePlan">
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+           <!--  +"subscriptions": {#1783 ▶}
+            +"pages": {#1812}
+            +"domain": "test"
+            +"name": "BASIC"
+            +"plan_code": "PLN_eohnjyhr4zvlyyd"
+            +"description": "readprojecttopics Basic Plan - Upto 10 Reads5 Access to Downloads20 Plagiarism"
+            +"amount": 200000
+            +"interval": "hourly"
+            +"invoice_limit": 0
+            +"send_invoices": true
+            +"send_sms": true
+            +"hosted_page": false
+            +"hosted_page_url": null
+            +"hosted_page_summary": null
+            +"currency": "NGN"
+            +"migrate": false
+            +"is_deleted": true
+            +"is_archived": true
+            +"id": 209914
+            +"integration": 149366
+            +"createdAt": "2021-12-29T15:51:32.000Z"
+            +"updatedAt": "2022-04-10T11:29:52.000Z"
+            +"total_subscriptions": 13
+            +"active_subscriptions": 0
+            +"total_subscriptions_revenue": 143800000 -->
+
+        <!-- Card Column -->
+        <div class="grid grid-cols-1  sm:grid-cols-2" v-if="isFetched">
+                            <div class="lg:px-4 mb-5">
+                    <div class="card card_column p-10 cursor-pointer h-full">
+                        <div class="flex justify-between">
+                            <p class="text-lg text-tertiary leading-tight">Basic Daily</p>
+                            <div class="text-right">
+                                <p class="rounded-lg p-1 px-2 ">0 Subscriptions</p>
+                            </div>
+                        </div>
+                        <div class="border-t mb-10">
+                            <div class="mt-8">
+                                <p>30 reads, 2 downloads, 1000 plagiarism check</p>
+
+                                <div class="mt-5">
+                                    <p><span class="font-bold">Code:</span> PLN_9uw9qzhplyihp1n</p>
+                                    <p><span class="font-bold">Amount:</span> 220000</p>
+                                    <p><span class="font-bold">Currency:</span> NGN</p>
+                                    <p><span class="font-bold">Revenue:</span> 0</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="border-t flex justify-end">
+                            <a href="http://readprojecttopics.test/admin/plans/352543" class="ml-5 w-20 rounded-none h-5 btn btn_secondary uppercase">Edit</a>
+                            <form method="POST" class="" action="http://readprojecttopics.test/admin/plans/PLN_9uw9qzhplyihp1n">
+                                <input type="hidden" name="_token" value="cnJdVTb5YbxlZY3V8bYioxwxqbHFcQzIEcuHmAUv">                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="ml-5 w-20 rounded-none h-5 btn btn_danger uppercase">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    </div> 
+
+    </section>
+
+      <!-- Basic -->
+    <div class="modal" id="exampleModal" data-animations="bounceInDown, bounceOutUp" data-static-backdrop="">
+        <div class="modal-dialog max-w-2xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn_primary ml-2 uppercase">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered -->
+    <div class="modal" id="exampleModalCenteredCreatePlan" data-animations="bounceInDown, bounceOutUp" data-static-backdrop="">
+        <div class="modal-dialog modal-dialog_centered max-w-2xl">
+            
+            <form method="POST" action="http://readprojecttopics.test/admin/plans" class="modal-content" style="min-width: 400px;"> 
+                <input type="hidden" name="_token" value="cnJdVTb5YbxlZY3V8bYioxwxqbHFcQzIEcuHmAUv">                <div class="modal-header">
+                    <h2 class="modal-title">Create Paystack Plan</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter text here">
+                        <small class="block mt-2">Please make it short.</small>
+                    </div>
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Description</label>
+                        <input type="text" class="form-control" name="description" placeholder="Enter text here">
+                        <small class="block mt-2"></small>
+                    </div>
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Amount</label>
+                        <input type="number" class="form-control" name="amount" placeholder="Enter text here">
+                        <small class="block mt-2"></small>
+                    </div>
+                     <div class="w-full">
+                        <label class="label block mb-2" for="input">Currency</label>
+                        
+                        <div class="custom-select">
+                            <select name="currency" class="form-control">
+                                <option value="USD">USD</option>
+                                <option value="NGN">NGN</option>
+                            </select>
+                            <div class="select-icon la la-caret-down"></div>
+                        </div>
+
+                        <small class="block mt-2"></small>
+                    </div>
+                     <div class="w-full">
+                        <label class="label block mb-2" for="input">Interval</label>
+                        <div class="custom-select">
+                            <select name="interval" class="form-control">
+                                <option value="hourly">Hourly</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                            <div class="select-icon la la-caret-down"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="submit" class="btn btn_primary ml-2 uppercase">Create Plan</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Scrollable -->
+    <div class="modal" id="exampleModalScrollable" data-animations="bounceInDown, bounceOutUp" data-static-backdrop="">
+        <div class="modal-dialog modal-dialog_scrollable max-w-2xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn_primary ml-2 uppercase">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side -->
+    <div class="modal modal_aside" id="exampleModalAside" data-animations="bounceInRight, bounceOutRight">
+        <div class="modal-dialog max-w-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn_primary uppercase ml-2">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+          </div>
+
+        <!-- Footer  -->
+        <footer class="flex mt-auto">
+    <div class="footer">
+        <span class="uppercase">© 2022 readprojecttopics</span>
+        <nav class="ml-auto">
+            <a href="mailto:support%3Cairondev@gmail.com%3E?subject=Support">Support</a>
+            <span class="divider mx-2">|</span>
+            <a href="http://readprojecttopics.test/admin/plans#" target="_blank">Help</a>
+        </nav>
+    </div>
+</footer>
+    </main>
+
+    <!-- Scripts -->
+  
+    <script src="./readprojecttopics - Admin_files/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="./readprojecttopics - Admin_files/vendor.js"></script>
+    <script src="./readprojecttopics - Admin_files/Chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+    <script src="./readprojecttopics - Admin_files/script.js"></script>
+
+          <script>
+    var notify = {
+        timeout: "5000",
+    }
+</script>
+    <script type="text/javascript" src="./readprojecttopics - Admin_files/notify.js"></script>
+
+
+
+</body><div id="vimeo-record-extension"></div></html>

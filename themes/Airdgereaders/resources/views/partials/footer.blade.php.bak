@@ -1,0 +1,135 @@
+<!--// Footer \\-->
+
+<footer id="ereaders-footer" class="ereaders-footer-one">    
+
+<!-- COUNTERS -->
+<div class="col-md-12">
+    <div class="ereaders-counter ereaders-about-counter">
+        <ul>
+
+            <li>
+                <div class="ereaders-counter-text">
+                    <i class="icon ereaders-document"></i>
+                    <div class="ereaders-scroller">
+                        <h2 class="numscroller" data-min="0" data-max="25124" data-delay="10" data-increment="100">27045</h2> 
+                        <span>Projects</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ereaders-counter-text">
+                    <i class="icon ereaders-book"></i>
+                    <div class="ereaders-scroller">
+                        <h2 class="numscroller" data-min="0" data-max="14510" data-delay="10" data-increment="100">14510</h2> 
+                        <span>Thesis</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ereaders-counter-text">
+                    <i class="icon ereaders-download-content"></i>
+                    <div class="ereaders-scroller">
+                        <h2 class="numscroller" data-min="0" data-max="13550" data-delay="10" data-increment="100">13550</h2> 
+                        <span>dissertation</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ereaders-counter-text">
+                    <i class="icon ereaders-document"></i>
+                    <div class="ereaders-scroller">
+                        <h2 class="numscroller" data-min="0" data-max="11932" data-delay="10" data-increment="100">11932</h2> 
+                        <span>Others</span>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+    <!--// Footer Widget \\-->
+    <div class="ereaders-footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ereaders-footer-newslatter flex flex-col items-center">
+                        <h2>Subscribe to Our Newsletter</h2>
+                        <p>Sign up to our newsletter to be the first to receive the latest project topics, research materials, and academic tips on ReadProjectTopics.</p>
+                        <form action="#">
+                            <input value="Enter Your Email Address" 
+                                onblur="if(this.value == '') { this.value ='Enter Your Email Address'; }" 
+                                onfocus="if(this.value =='Enter Your Email Address') { this.value = ''; }" 
+                                tabindex="0" 
+                                type="email">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-md-4 pt-5">
+                    <div class="footer-widget">
+                        <h4 class="footer-widget-title">Resources</h4>
+                        <ul class="footer-menu list-style">
+                            <li><a href="https://readprojecttopics.com/project-topics-materials">Browse Projects</a></li>
+                            <li><a href="https://readprojecttopics.com/resources/types/book">Browse Books</a></li>
+                            <li><a href="https://readprojecttopics.com/resources/types/journal">Browse Journals</a></li>
+                            <li><a href="https://readprojecttopics.com/resources/types/thesis">Browse Thesis</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8 pt-5 flex justify-between">
+                    
+                    <div>
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Company</h4>
+                            <ul class="footer-menu list-style">
+                                <li><a href="https://readprojecttopics.com/about-us">About</a></li>
+                                <li><a href="https://readprojecttopics.com/how-it-works">How It Works</a></li>
+                                <li><a href="https://readprojecttopics.com/faq">FAQ</a></li>
+                                <li><a href="https://readprojecttopics.com/pricings">Pricing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <ul class="footer-menu list-style">
+                                <li><a href="https://readprojecttopics.com/">Home</a></li>
+                                <li><a href="https://readprojecttopics.com/register">Join</a></li>
+                                <li><a href="https://readprojecttopics.com/login">Login</a></li>
+                                <li><a href="https://readprojecttopics.com/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Tools</h4>
+                            <ul class="footer-menu list-style">
+                                <li><a href="https://readprojecttopics.com/blog">Blog</a></li>
+                                <li><a href="#">Plagiarism Checker</a></li>
+                                <li><a href="#">Paraphraser</a></li>
+                                <li><a href="#">Re-writer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--// Footer Widget \\-->
+
+    @include('partials.copyright')
+</footer>
+<!--// Footer \\-->
+

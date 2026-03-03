@@ -1,0 +1,18 @@
+{
+    "Page": true,
+    "Resource": true,
+    "Account": true,
+    "Blog": true,
+    "File": true,
+    "Institution": true,
+    "Payment": true,
+    "Revenue": true,
+    "Setting": true,
+    "Subscription": true,
+    "Support": true,
+    "Theme": true,
+    "Livewire": true,
+    "Role": true,
+    "Wallet": true,
+    "Admin": true
+}

@@ -1,0 +1,12 @@
+# 301 Permanent Redirect - SEO Friendly
+# Redirect ALL traffic from projectandmaterials.com to readprojecttopics.com
+
+RewriteEngine On
+
+# Redirect with 301 (permanent) - preserves 90%+ SEO value
+RewriteCond %{HTTP_HOST} ^(www\.)?projectandmaterials\.com$ [NC]
+RewriteRule ^(.*)$ https://readprojecttopics.com/$1 [R=301,L,E=NO_COOKIE:1]
+
+# Optional: Redirect www to non-www or vice versa
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]

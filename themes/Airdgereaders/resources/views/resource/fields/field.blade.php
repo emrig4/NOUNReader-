@@ -1,0 +1,64 @@
+@extends('layouts.public', ['title' => 'Browse Fields'])
+@push('meta')
+@endpush
+
+@push('css')
+    <link href="{{ theme_asset('css/search-mini.css') }}" rel="stylesheet">
+@endpush
+
+@push('meta')
+    <meta property="description" content="Download resources on Others" />
+    <meta property="og:description" content="Download resources on Others" />
+
+@endpush
+
+@section('content')
+    <!--// Main Section \\-->
+    <div class="ereaders-main-section ereaders-counterfull">
+        <div class="container w-full" >
+        @isset($field)
+            <div class="row">                
+                <div class="col-md-12">
+                    @include('partials.fancy_title', [
+                        'title' => $field->title,
+                        'description' => 'Find the right resource for your research', 'action_text' => 'Back to fields',
+                        'action_link' => redirect()->getUrlGenerator()->previous()
+                    ])
+                </div>
+
+                <div class="col-md-12 mb-10">
+                    @include('partials.search_mini', ['subfields' => $field->subfields])
+                </div>
+
+               
+
+                <div class="col-md-12" >
+                   @include('resource.partials.subfields_grid', ['subfields' => $field->subfields])
+                </div>
+
+                <!--  <div class="col-md-3">
+                    include('partials.sidebar')
+                </div> -->
+
+                <!-- recent pubs -->
+                <div class="col-md-12">
+
+                    <!-- link to search page with field as keyword -->
+                   
+
+                    @include('resource.partials.top_field_resource_grid', ['resources' => $field->queryResources([],6)])
+                </div>
+
+            </div>
+        @endisset
+        </div>
+    </div>
+    <!--// Main Section \\-->
+
+    <div class="hidden">
+        <h1>{{$field->title}}</h1>
+        <h3>{{$field->title}}</h3>
+        <img src="" alt="Resources">
+    </div>
+@endsection
+

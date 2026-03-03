@@ -1,0 +1,15 @@
+{
+    "name": "Resource",
+    "alias": "resource",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\Resource\\Providers\\ResourceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "helpers.php"
+    ],
+    "requires": []
+}

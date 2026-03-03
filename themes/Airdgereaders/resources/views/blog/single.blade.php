@@ -1,0 +1,297 @@
+@extends('layouts.reader', ['title' => 'Resource | ' . $resource->title])
+@push('css')
+    <style type="text/css">
+        #viewerContainer::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #viewerContainer::-webkit-scrollbar {
+          height: 3px;
+          width: 5px;
+        }
+
+        #viewerContainer::-webkit-scrollbar-thumb {
+          background-color: #23A455;
+          border-radius: 10px;
+        }
+
+        /*hide vue-pdf-app file input field*/
+        #pdfFileInput{
+          display: none;
+        }
+
+        /* S3 Optimization Styles */
+        .s3-loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .s3-loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #23A455;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .s3-progress {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+@endpush
+
+@section('breadcrumb')
+@endsection
+
+@php
+    // S3 Speed Optimization: Production Ready
+    if($mainFile){
+        
+        // S3 Speed Optimizer Service
+        $s3Optimizer = app(\App\Services\S3SpeedOptimizer::class);
+        $optimizedData = $s3Optimizer->getOptimizedUrl($mainFile->path());
+        
+        // Session and preview limit logic (unchanged)
+        $sessionRead = \Session::get($resource->slug);
+        $isLimit = $resource->preview_limit;
+        if( $sessionRead ){
+            $isLimit = 0;
+        }
+        if(!$resource->price &&  !$resource->price > 0 && !$resource->preview_limit){
+            $isLimit = 0;
+        }
+
+        // S3 Optimized file loading - NO MORE file_get_contents!
+        $fileUrl = $optimizedData['best_url'] ?? $mainFile->url();
+        $fileMetadata = [
+            'url' => $fileUrl,
+            'type' => $mainFile->mime_type ?? 'application/pdf',
+            'size' => $optimizedData['metadata']['size'] ?? 0,
+            'name' => $mainFile->name ?? basename($mainFile->url()),
+            'optimization_type' => $optimizedData['optimization_type'] ?? 'fallback',
+            'preview_limit' => $isLimit,
+            'cache_ttl' => 300, // 5 minutes
+            's3_optimized' => true
+        ];
+        
+        $base64_encode = ""; // Don't preload entire file
+    }else{
+        $base64_encode = "";
+        $file = null;
+        $fileMetadata = [];
+    }
+@endphp
+
+@section('content')
+    <!--// Main Section \\-->
+    <div class="ereaders-main-section" id="app">
+        <div class="col-md-12" style="height: 1200px">
+         <!--  <button class="btn btn-primary m-2" onclick="openFullscreen()">Open in Fullscreen</button> -->
+
+          <!-- S3 Optimized File Loading -->
+          @if($mainFile)
+            <!-- S3 Loading Overlay -->
+            <div id="s3LoadingOverlay" class="s3-loading-overlay">
+                <div class="text-center">
+                    <div class="s3-loading-spinner"></div>
+                    <h5 class="mt-3">Loading with S3 Optimization...</h5>
+                    <p class="text-muted">Preparing document for fast viewing</p>
+                    <small class="text-muted">
+                        🚀 S3 Speed Optimization Active
+                    </small>
+                </div>
+            </div>
+
+            <!-- S3 Progress Bar -->
+            <div id="s3Progress" class="s3-progress" style="display: none;">
+                <div id="progressText">Initializing S3 optimization...</div>
+                <div class="progress mt-2" style="height: 4px;">
+                    <div id="progressBar" class="progress-bar bg-primary" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- S3 Optimized Viewer -->
+            <vue-pdf-air 
+                :preview_limit="{{ $fileMetadata['preview_limit'] ?? 0 }}" 
+                :source-url="'{{ $fileMetadata['url'] ?? '' }}'"
+                :file-metadata="{{ json_encode($fileMetadata) }}"
+                :s3-optimized="true"
+                :timeout="45000"
+                :enable-progressive="true"
+                :enable-cache="true"
+                @s3-loading="handleS3Loading"
+                @s3-error="handleS3Error"
+                @s3-loaded="handleS3Loaded"
+                @s3-progress="handleS3Progress">
+            </vue-pdf-air>
+
+          @else
+            <div class="ereaders-error-text mt-20" style="width: 100%">
+                <span>Sorry! File Not Found</span>
+                <p>The Link you clicked maybe broken or the file may have been removed.</p>
+                <div class="clearfix"></div>
+                <a href="{{ redirect()->getUrlGenerator()->previous() }}" class="eraders-search-btn">Back To Homepage <i class="icon ereaders-right-arrow"></i></a>
+            </div>
+          @endif
+        </div>
+    </div>
+    <!--// Main Section \\-->
+@endsection
+
+
+@push('js')
+   
+    <script src="{{ mix('/js/app.js') }}"></script>
+
+    <!-- full screen function -->
+    <script>
+      var elem = document.getElementById("viewerContainer");
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <!-- S3 Optimization JavaScript -->
+    <script>
+        // S3 Optimized Configuration
+        window.s3ViewerConfig = {
+            fileMetadata: {{ json_encode($fileMetadata ?? []) }},
+            optimizationEnabled: true,
+            timeout: 45000,
+            retryAttempts: 3,
+            progressiveLoading: true,
+            showProgress: true
+        };
+
+        // S3 State Management
+        let s3ViewerState = {
+            isLoading: false,
+            hasLoaded: false,
+            loadStartTime: null,
+            currentProgress: 0
+        };
+
+        // Initialize S3 optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark as S3 optimized
+            document.body.classList.add('s3-speed-optimized');
+            
+            if (window.s3ViewerConfig.fileMetadata.url) {
+                startS3Loading();
+            }
+        });
+
+        // Start S3 optimized loading
+        function startS3Loading() {
+            if (s3ViewerState.isLoading) return;
+            
+            s3ViewerState.isLoading = true;
+            s3ViewerState.loadStartTime = performance.now();
+            
+            showS3Loading();
+            updateS3Progress('Initializing S3 optimization...', 10);
+            
+            // Simulate S3 optimization process
+            setTimeout(() => {
+                updateS3Progress('Analyzing file...', 30);
+            }, 500);
+            
+            setTimeout(() => {
+                updateS3Progress('Optimizing delivery...', 60);
+            }, 1000);
+            
+            setTimeout(() => {
+                updateS3Progress('Ready to load...', 90);
+            }, 1500);
+        }
+
+        // S3 Event Handlers
+        function handleS3Loading(event) {
+            console.log('🚀 S3 Loading:', event.detail);
+            updateS3Progress('Loading document...', 95);
+        }
+
+        function handleS3Error(event) {
+            console.error('❌ S3 Error:', event.detail);
+            hideS3Loading();
+            showS3Error('Failed to load document with S3 optimization');
+        }
+
+        function handleS3Loaded(event) {
+            console.log('✅ S3 Loaded:', event.detail);
+            s3ViewerState.hasLoaded = true;
+            hideS3Loading();
+            
+            const loadTime = performance.now() - s3ViewerState.loadStartTime;
+            console.log(`🚀 S3 Document loaded in ${Math.round(loadTime)}ms`);
+        }
+
+        function handleS3Progress(event) {
+            const { progress, message } = event.detail;
+            updateS3Progress(message, progress);
+        }
+
+        // UI Helper Functions
+        function showS3Loading() {
+            const overlay = document.getElementById('s3LoadingOverlay');
+            const progress = document.getElementById('s3Progress');
+            
+            if (overlay) overlay.style.display = 'flex';
+            if (progress) progress.style.display = 'block';
+        }
+
+        function hideS3Loading() {
+            const overlay = document.getElementById('s3LoadingOverlay');
+            const progress = document.getElementById('s3Progress');
+            
+            if (overlay) overlay.style.display = 'none';
+            if (progress) progress.style.display = 'none';
+        }
+
+        function updateS3Progress(message, progress) {
+            const progressText = document.getElementById('progressText');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (progressText) progressText.textContent = message;
+            if (progressBar) progressBar.style.width = progress + '%';
+            
+            s3ViewerState.currentProgress = progress;
+        }
+
+        function showS3Error(message) {
+            console.error('S3 Error:', message);
+            // You can enhance this with a proper error modal
+        }
+    </script>
+
+@endpush

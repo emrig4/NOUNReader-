@@ -1,0 +1,166 @@
+@extends('layouts.public', ['title' => 'Buy Credits'])
+@push('meta')
+@endpush
+@push('css')
+@endpush
+
+@section('content')
+    <!--// Main Section \\-->
+    <div class="ereaders-main-section ereaders-counterfull">
+        <div class="container" style="width: 100%">
+            <div class="row">                
+                <div class="col-md-12">
+                     @include('partials.fancy_title', ['title' => 'CREDIT PACKAGES', 'description' => 'Buy credits to unlock premium content and continue reading thousands of research papers from different authors. Credits never expire and can be used anytime.'])
+                </div>
+
+                <div class="col-md-12">
+                    <div class="ereaders-priceplan">
+                        <ul>
+                            <li>
+                                <div class="ereaders-priceplan-wrap">
+                                    <h5 class="ereaders-bgcolor">{{$basic->title}}</h5>
+                                    <div class="ereaders-priceplan-heading">
+                                        <h2>
+                                            <small class="block">{{ $basic->currency() }}</small>
+                                            {{ $basic->price() }}
+                                            <!-- <span>{{ $basic->price() }}<br><small>one-time</small></span> -->
+                                        </h2>
+                                    </div>
+                                    <div class="ereaders-priceplan-list">
+                                        <ul>
+                                            @foreach($basic->features() as $feature)
+                                                <li>{{ $feature }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <a href="{{route('pricings.show', $basic->slug)}}" class="ereaders-simple-btn ereaders-bgcolor">BUY CREDITS NOW</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="active">
+                                <div class="ereaders-priceplan-wrap">
+                                    <h5 class="ereaders-bgcolor">{{$standard->title}}</h5>
+                                    <div class="ereaders-priceplan-heading">
+                                        <h2>
+                                            <small class="block">{{ $standard->currency() }}</small>
+                                            {{ $standard->price() }}
+                                            <!-- <span>{{ $standard->price() }}<br><small>one-time</small></span> -->
+                                        </h2>
+                                    </div>
+                                    <div class="ereaders-priceplan-list">
+                                        <ul>
+                                            @foreach($standard->features() as $feature)
+                                                <li>{{ $feature }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <a href="{{route('pricings.show', $standard->slug)}}" class="ereaders-simple-btn ereaders-bgcolor">BUY CREDITS NOW</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ereaders-priceplan-wrap">
+                                    <h5 class="ereaders-bgcolor">{{$pro->title}}</h5>
+                                    <div class="ereaders-priceplan-heading">
+                                        <h2>
+                                            <small class="block">{{ $basic->currency() }}</small>
+                                            {{ $pro->price() }}
+                                            <!-- <span>{{ $pro->price() }}<br><small>one-time</small></span> -->
+                                        </h2>
+                                    </div>
+                                    <div class="ereaders-priceplan-list">
+                                        <ul>
+                                             @foreach($pro->features() as $feature)
+                                                <li>{{ $feature }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <a href="{{route('pricings.show', $pro->slug)}}" class="ereaders-simple-btn ereaders-bgcolor">BUY CREDITS NOW</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+                
+                <div class="col-md-12">
+                     @include('partials.fancy_title', ['title' => 'HOW IT WORKS', 'description' => 'Your credits remain available until used. Buy credit packages to unlock and continue reading thousands of complete research works which includes final year projects, thesis, dissertation, journals, books and more...the credits will be added to your wallet in your dashboard automatically once transaction is successful. Credits never expire and can be used anytime.'])
+                </div>
+
+                <!-- Additional Benefits Section -->
+                <div class="col-md-12 mt-8">
+                    <div class="ereaders-shop-detail">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-semibold mb-2">Secure Payment</h4>
+                                    <p class="text-gray-600">Pay safely with your ATM, debit, credit cards, mobile money or USSD payments via Paystack.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-semibold mb-2">Instant Credit</h4>
+                                    <p class="text-gray-600">Credits are added to your wallet automatically once payment is confirmed.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-semibold mb-2">Never Expire</h4>
+                                    <p class="text-gray-600">Your credits remain valid indefinitely. Use them whenever you want, no rush.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="col-md-12 mt-8">
+                    <div class="ereaders-shop-detail">
+                        <div class="row">
+                            <div class="col-md-8 mx-auto">
+                                <div class="ereaders-detail-thumb-text text-center">
+                                    <h2 class="uppercase text-bold mb-6">Frequently Asked Questions</h2>
+                                    
+                                    <div class="text-left space-y-6">
+                                        <div>
+                                            <h4 class="font-semibold text-lg mb-2">What can I do with credits?</h4>
+                                            <p class="text-gray-600">Credits can be used to access premium content, download research papers, and unlock advanced features on the platform.</p>
+                                        </div>
+                                        
+                                        <div>
+                                            <h4 class="font-semibold text-lg mb-2">Do credits expire?</h4>
+                                            <p class="text-gray-600">No, credits never expire. They remain in your wallet until you choose to use them.</p>
+                                        </div>
+                                        
+                                        <div>
+                                            <h4 class="font-semibold text-lg mb-2">Can I refund unused credits?</h4>
+                                            <p class="text-gray-600">Credit purchases are final. However, you can contact support if you experience any issues with your purchase.</p>
+                                        </div>
+                                        
+                                        <div>
+                                            <h4 class="font-semibold text-lg mb-2">What payment methods do you accept?</h4>
+                                            <p class="text-gray-600">We accept all major credit cards, debit cards, mobile money, and USSD payments through our secure Paystack gateway.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Main Section \\-->
+@endsection

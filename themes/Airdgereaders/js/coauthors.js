@@ -1,0 +1,78 @@
+// Co-authors tag management
+$(document).ready(function() {
+    const coauthorsContainer = $('#coauthorscontainer');
+    const coauthorsInput = coauthorsContainer.find('input');
+    const coauthorsHiddenInput = $('#coauthors');
+    const authorsDatalist = $('#authors');
+    
+    let selectedCoauthors = [];
+    
+    // Initialize existing coauthors from old input value
+    if (coauthorsHiddenInput.val()) {
+        selectedCoauthors = coauthorsHiddenInput.val().split(',').map(c => c.trim()).filter(c => c);
+        selectedCoauthors.forEach(coauthor => {
+            addCoauthorTag(coauthor);
+        });
+    }
+    
+    // Handle input for adding new coauthors
+    coauthorsInput.on('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ',') {
+            e.preventDefault();
+            const value = $(this).val().trim();
+            if (value) {
+                addCoauthorToList(value);
+                $(this).val('');
+            }
+        }
+    });
+    
+    // Handle removing coauthor tags
+    coauthorsContainer.on('click', '.remove-tag', function(e) {
+        e.preventDefault();
+        const tagText = $(this).siblings('.tag-text').text();
+        removeCoauthorFromList(tagText);
+        $(this).parent().remove();
+        updateCoauthorsHiddenInput();
+    });
+    
+    function addCoauthorToList(coauthor) {
+        if (!selectedCoauthors.includes(coauthor)) {
+            selectedCoauthors.push(coauthor);
+            addCoauthorTag(coauthor);
+            updateCoauthorsHiddenInput();
+        }
+    }
+    
+    function removeCoauthorFromList(coauthor) {
+        const index = selectedCoauthors.indexOf(coauthor);
+        if (index > -1) {
+            selectedCoauthors.splice(index, 1);
+        }
+    }
+    
+    function addCoauthorTag(coauthor) {
+        const tagHtml = `
+            <span class="tag coauthor-tag">
+                <span class="tag-text">${coauthor}</span>
+                <a href="#" class="remove-tag" title="Remove coauthor">
+                    <i class="fa fa-times"></i>
+                </a>
+            </span>
+        `;
+        coauthorsContainer.prepend(tagHtml);
+    }
+    
+    function updateCoauthorsHiddenInput() {
+        coauthorsHiddenInput.val(selectedCoauthors.join(', '));
+    }
+    
+    // Handle datalist selection
+    coauthorsInput.on('change', function() {
+        const value = $(this).val().trim();
+        if (value) {
+            addCoauthorToList(value);
+            $(this).val('');
+        }
+    });
+});

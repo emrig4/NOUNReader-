@@ -1,0 +1,13 @@
+{
+    "name": "Payment",
+    "alias": "payment",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\Payment\\Providers\\PaymentServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

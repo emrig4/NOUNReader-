@@ -1,0 +1,30 @@
+@component('mail::message')
+# Email Verification Code
+
+Hello {{ $user->first_name ?? $user->name ?? 'User' }},
+
+Your verification code for account registration is:
+
+## {{ $verificationCode }}
+
+**Security Information:**
+- This code is valid for {{ $expiresAt->diffInMinutes() }} minutes only
+- Do not share this code with anyone
+- Enter this code on the verification page to complete your registration
+- Maximum 5 verification attempts allowed
+
+**Important Notes:**
+- If you didn't request this code, please ignore this email
+- Your account will be temporarily locked after 5 failed attempts
+- Code can only be used once
+
+If you need a new code, please go back to the registration page and request a resend.
+
+Thank you,<br>
+{{ config('app.name', 'Your App') }}
+
+---
+
+**Having trouble?** 
+Contact our support team if you're experiencing any issues with the verification process.
+@endcomponent

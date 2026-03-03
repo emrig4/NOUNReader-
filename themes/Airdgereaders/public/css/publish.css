@@ -1,0 +1,76 @@
+.publish {
+    padding: 4%;
+    /*height: 400px;*/
+}
+
+.publish .col-lg-3 {
+    background: #eee;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.publish-info {
+    /*margin-top:10%;*/
+}
+
+.publish-info img {
+    /*margin-bottom: 15%;*/
+}
+
+.publish-info h2 {
+    /*margin-bottom: 10%;*/
+}
+
+.publish .col-lg-9 {
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.publish-form label {
+    font-weight: 600;
+}
+
+.publish-form button {
+    background: #2e2e2e;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+
+.publish-form button:focus {
+    box-shadow: none;
+}
+
+.publish input,
+select,
+.selectize-control,
+.selectize-input,
+.selectize-input.full {
+    height: 50px;
+    background-color: #f2f2f2;
+    color: black;
+    font-size: 16px;
+}
+
+.ck.ck-editor__main .ck-content {
+    height: 239px;
+}
+
+#pricing .price {
+    width: 70%;
+    margin-left: 10px;
+}
+
+#pricing .currency {
+    width: 30%
+}
+
+.fileicon {
+    font-size: 80px;
+    color: gray;
+    text-align: center;
+    margin-bottom: 5px
+}

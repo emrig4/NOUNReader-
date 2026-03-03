@@ -1,0 +1,122 @@
+@extends('layouts.public', ['title' => 'Browse Fields'])
+@push('meta')
+    <meta name="description" content="Access and download complete project topics and materials. Read final year projects, research works, academic materials, and more on the largest online resource library."/>
+    <meta property="title" content="ReadProjectTopics.com | Project Topics & Complete Materials">
+    
+    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, university project topics, Nigerian project topics, complete project materials PDF">
+
+    <meta property="og:title" content="ReadProjectTopics.com | Project Topics & Materials">
+    <meta property="og:description" content="Download complete project topics and materials, final year projects, academic research works, assignments, journals, and more.">
+@endpush
+@push('css')
+@endpush
+
+@section('content')
+<!--// Main Section \\-->
+<div class="ereaders-main-section ereaders-counterfull">
+    <div class="container" style="width: 100%">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ereaders-fancy-title">
+                    <h2>Frequently Ask Question</h2>
+                    <div class="clearfix"></div>
+                    <p>Browse through our frequently asked questions</p>
+                </div>
+            </div>
+
+            <aside class="col-md-4">
+                <div class="ereaders-faq-tabs">
+                    <h2 class="ereaders-widget-title">Category</h2>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class=""><a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="false">General</a></li>
+                     </ul>
+                </div>
+            </aside>
+
+            <aside class="col-md-8">
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="panel-group ereaders-faq-accordion" id="accordiontwo" role="tablist" aria-multiselectable="true">
+                            
+                            <!-- FAQ 1 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordiontwo" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                             How do I download or unlock preview limit of a research work? 
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p>You are unable to download or continue reading because the units in your wallet is zero (0). Please top up to continue.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiontwo" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            How do I top-up credit unit into my wallet?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <p>Visit the link below to login and follow the instructions. Your wallet will be credited automatically once the payment is successful.  
+                                            <b>link:&nbsp;<a href="https://readprojecttopics.com/pricings">Top-up Credit</a></b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiontwo" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                           How do I confirm the amount in my wallet? 
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <p>Your wallet balance is visible on your dashboard. You can also click on your profile dropdown at the top-right corner to access your wallet quickly.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 4 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiontwo" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                          What is the duration of my credit unit? 
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                        <p>Your credit unit is valid for 30 days (one month) starting from the day your wallet was credited.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>    
+            </aside>
+
+        </div>
+
+    </div>
+</div>
+<!--// Main Section \\-->
+@endsection
+

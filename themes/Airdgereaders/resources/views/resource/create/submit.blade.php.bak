@@ -1,0 +1,524 @@
+@extends('layouts.public', ['title' => 'Submit Your Work'])
+@push('css')
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+    <link href="{{ asset('themes/airdgereaders/css/publish.css') }}" rel="stylesheet">
+    <link href="{{ asset('themes/airdgereaders/css/tag.css') }}" rel="stylesheet">
+    <style>
+        .submit-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .step.active .step-number {
+            background: #3b82f6;
+            color: #fff;
+        }
+        .step.completed .step-number {
+            background: #10b981;
+            color: #fff;
+        }
+        .file-upload-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+            cursor: pointer;
+        }
+        .file-upload-zone:hover, .file-upload-zone.dragover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .file-upload-zone.has-file {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+        .file-preview {
+            display: none;
+            align-items: center;
+            padding: 15px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .file-preview.show {
+            display: flex;
+        }
+        .file-icon {
+            font-size: 40px;
+            margin-right: 15px;
+            color: #10b981;
+        }
+        .file-info h4 {
+            margin: 0 0 5px 0;
+            color: #1f2937;
+        }
+        .file-info span {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .remove-file {
+            margin-left: auto;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+        }
+        .form-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        .form-section input, .form-section select, .form-section textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+        .form-section input:focus, .form-section select:focus, .form-section textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .submit-btn i {
+            margin-right: 8px;
+        }
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        .info-box i {
+            color: #3b82f6;
+            margin-right: 8px;
+        }
+        .pricing-row {
+            display: flex;
+            gap: 15px;
+        }
+        .pricing-row > div {
+            flex: 1;
+        }
+        .hidden-file-input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+@endpush
+
+@section('content')
+<div class="ereaders-main-section ereaders-counterfull">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @include('partials.fancy_title', ['title' => 'Submit Your Work', 'description' => 'Upload and publish your document for review'])
+            </div>
+
+            <div class="col-md-12">
+                @include('partials.flash')
+                
+                @if ($errors->any())
+                    <div class="alert alert-warning alert-dismissable mb-4" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Please fix the following errors:</h4>
+                        @foreach ($errors->all() as $error)
+                            <p class="mb-0">{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+
+            <div class="col-md-12">
+                <div class="submit-form-container">
+                    <!-- Step Indicator -->
+                    <div class="step-indicator">
+                        <div class="step active" id="step1-indicator">
+                            <span class="step-number">1</span>
+                            <span>Upload File</span>
+                        </div>
+                        <div class="step" id="step2-indicator">
+                            <span class="step-number">2</span>
+                            <span>Enter Details</span>
+                        </div>
+                        <div class="step" id="step3-indicator">
+                            <span class="step-number">3</span>
+                            <span>Submit</span>
+                        </div>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Submission Process:</strong> Upload your document (PDF or DOCX), fill in the details, and submit. 
+                        Your submission will be reviewed by our admin team before being published.
+                    </div>
+
+                    <form id="submitForm" method="POST" action="{{ route('resources.submit.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        
+                        <!-- File Upload Section -->
+                        <div class="form-section">
+                            <label><i class="fas fa-file-upload"></i> Upload Your Document *</label>
+                            <div class="file-upload-zone" id="dropZone">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-gray-400 mb-3"></i>
+                                <p class="text-lg font-medium">Drag & drop your file here</p>
+                                <p class="text-gray-500">or click to browse</p>
+                                <p class="text-sm text-gray-400 mt-2">Accepted formats: PDF, DOCX (Max 50MB)</p>
+                            </div>
+                            <input type="file" id="fileInput" name="file" accept=".pdf,.docx,.doc" class="hidden-file-input" required>
+                            <div class="file-preview" id="filePreview">
+                                <i class="fas fa-file-alt file-icon"></i>
+                                <div class="file-info">
+                                    <h4 id="fileName">document.pdf</h4>
+                                    <span id="fileSize">2.5 MB</span>
+                                </div>
+                                <i class="fas fa-times remove-file" id="removeFile" title="Remove file"></i>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="form-section">
+                            <label for="title"><i class="fas fa-heading"></i> Document Title *</label>
+                            <input type="text" id="title" name="title" placeholder="Enter the title of your document" required value="{{ old('title') }}">
+                        </div>
+
+                        <!-- Type -->
+                        <div class="form-section">
+                            <label for="type"><i class="fas fa-file-alt"></i> Document Type *</label>
+                            <select id="type" name="type" class="selectize" required>
+                                <option value="">Select document type</option>
+                                @foreach($resourceTypes as $type)
+                                    <option value="{{ $type->slug }}" {{ old('type') == $type->slug ? 'selected' : '' }}>{{ $type->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <!-- Field -->
+                        <div class="form-section" id="fieldcontainer">
+                            <label for="field"><i class="fas fa-bookmark"></i> Field/Category *</label>
+                            <select id="field" name="field" class="selectize" required>
+                                <option value="">Select field</option>
+                                @foreach($resourceFields as $field)
+                                    <option value="{{ $field->slug }}" {{ old('field') == $field->slug ? 'selected' : '' }}>{{ $field->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <!-- Sub Fields -->
+                        <div class="form-section">
+                            <label><i class="fas fa-tags"></i> Sub Fields/Topics</label>
+                            <div class="tag-wrapper">
+                                <div class="tag-container" id="subfieldscontainer">
+                                    <input list="subfieldslist" type="text" placeholder="Select or type topics (press Enter to add)"/>
+                                </div>
+                            </div>
+                            <input type="hidden" id="subfields" name="sub_fields" value="{{ old('sub_fields') }}">
+                            <datalist id="subfieldslist" src="{{ route('subfields') }}"></datalist>
+                        </div>
+
+                        <!-- Co-Authors -->
+                        <div class="form-section">
+                            <label><i class="fas fa-users"></i> Co-Author(s) (Optional)</label>
+                            <div class="tag-wrapper">
+                                <div class="tag-container" id="coauthorscontainer">
+                                    <input list="authors" type="text" placeholder="Add co-authors (press Enter to add)"/>
+                                </div>
+                            </div>
+                            <input type="hidden" id="coauthors" name="coauthors" value="{{ old('coauthors') }}">
+                            <datalist id="authors" src="{{ route('authors') }}"></datalist>
+                        </div>
+
+                        <!-- Overview -->
+                        <div class="form-section">
+                            <label for="overview"><i class="fas fa-align-left"></i> Overview/Abstract *</label>
+                            <textarea id="overview" name="overview" rows="5" placeholder="Enter the abstract or table of contents">{{ old('overview') }}</textarea>
+                        </div>
+
+                        <!-- Pricing -->
+                        <div class="form-section">
+                            <label><i class="fas fa-money-bill"></i> Pricing</label>
+                            <div class="pricing-row">
+                                <div>
+                                    <select id="currency" name="currency">
+                                        <option value="">Free</option>
+                                        @foreach($currencies as $currency)
+                                            <option value="{{ $currency->code }}" {{ old('currency') == $currency->code ? 'selected' : '' }}>{{ $currency->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="number" id="price" name="price" placeholder="Enter price" disabled value="{{ old('price') }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page Info -->
+                        <div class="form-section">
+                            <label><i class="fas fa-file"></i> Page Information</label>
+                            <div class="pricing-row">
+                                <div>
+                                    <input type="number" name="page_count" placeholder="Number of pages" value="{{ old('page_count') }}">
+                                </div>
+                                <div>
+                                    <input type="number" name="preview_limit" placeholder="Preview page limit" value="{{ old('preview_limit') }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-section text-center">
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit for Review
+                            </button>
+                            <p class="text-sm text-gray-500 mt-3">
+                                Your submission will be reviewed by our admin team before being published.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+<script type="text/javascript" src="{{ asset('themes/airdgereaders/js/coauthors.js') }}"></script>
+<script type="text/javascript" src="{{ asset('themes/airdgereaders/js/subfields.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    // Initialize selectize
+    $('.selectize').selectize({ sortField: 'text' });
+
+    // Initialize CKEditor and store instance
+    let overviewEditor;
+    ClassicEditor.create(document.querySelector('#overview'))
+        .then(editor => {
+            overviewEditor = editor;
+        })
+        .catch(error => console.error(error));
+
+    // File upload handling
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const filePreview = document.getElementById('filePreview');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Click to browse
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Drag and drop
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        if (files.length) {
+            fileInput.files = files;
+            handleFileSelect(files[0]);
+        }
+    });
+
+    // File input change
+    fileInput.addEventListener('change', function() {
+        if (this.files.length) {
+            handleFileSelect(this.files[0]);
+        }
+    });
+
+    // Handle file selection (just preview, no AJAX upload)
+    function handleFileSelect(file) {
+        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        
+        if (!validTypes.includes(file.type)) {
+            alert('Please upload a PDF or DOCX file');
+            fileInput.value = '';
+            return;
+        }
+
+        if (file.size > 50 * 1024 * 1024) {
+            alert('File size must be less than 50MB');
+            fileInput.value = '';
+            return;
+        }
+
+        // Show preview
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('fileSize').textContent = formatFileSize(file.size);
+        filePreview.classList.add('show');
+        dropZone.classList.add('has-file');
+
+        // Update step indicators
+        document.getElementById('step1-indicator').classList.add('completed');
+        document.getElementById('step2-indicator').classList.add('active');
+    }
+
+    // Remove file
+    document.getElementById('removeFile').addEventListener('click', function(e) {
+        e.stopPropagation();
+        fileInput.value = '';
+        filePreview.classList.remove('show');
+        dropZone.classList.remove('has-file');
+        
+        document.getElementById('step1-indicator').classList.remove('completed');
+        document.getElementById('step1-indicator').classList.add('active');
+        document.getElementById('step2-indicator').classList.remove('active');
+    });
+
+    // Format file size
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Currency/Price handling
+    $('#currency').change(function() {
+        if ($(this).val() === '') {
+            $('#price').val('').attr('disabled', 'disabled');
+        } else {
+            $('#price').removeAttr('disabled');
+        }
+    });
+
+    // Fetch subfields on field change
+    $('#field').on('change', function() {
+        let subfieldslist = $("#subfieldslist");
+        subfieldslist.empty();
+        let selectedfield = $(this).val();
+        
+        $.ajax({
+            type: "GET",
+            url: "{{ route('subfields') }}?field=" + selectedfield,
+            success: function(data) {
+                for (let i in data) {
+                    let subfield = data[i];
+                    var o = new Option(subfield.title, subfield.slug);
+                    $(o).html(subfield.title);
+                    subfieldslist.append(o);
+                }
+            }
+        });
+    });
+
+    // Form submission - sync CKEditor content before submit
+    $('#submitForm').on('submit', function(e) {
+        // Sync CKEditor content to textarea FIRST
+        if (overviewEditor) {
+            $('#overview').val(overviewEditor.getData());
+        }
+        
+        // Validate file is selected
+        if (!fileInput.files || fileInput.files.length === 0) {
+            e.preventDefault();
+            alert('Please select a file to upload');
+            return false;
+        }
+        
+        // Validate required fields
+        if (!$('#title').val().trim()) {
+            e.preventDefault();
+            alert('Please enter a document title');
+            $('#title').focus();
+            return false;
+        }
+        
+        // Validate overview/abstract is filled (from CKEditor)
+        var overviewContent = $('#overview').val();
+        if (!overviewContent || overviewContent.trim() === '' || overviewContent === '<p>&nbsp;</p>') {
+            e.preventDefault();
+            alert('Please enter an overview/abstract for your document');
+            if (overviewEditor) {
+                overviewEditor.editing.view.focus();
+            }
+            return false;
+        }
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        
+        // Update step indicator
+        document.getElementById('step2-indicator').classList.add('completed');
+        document.getElementById('step3-indicator').classList.add('active');
+    });
+});
+</script>
+@endpush
+

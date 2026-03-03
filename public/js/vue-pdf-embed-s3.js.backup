@@ -1,0 +1,327 @@
+/**
+ * Vue PDF Component with S3 Speed Optimization
+ * Enhanced component for fast PDF loading from S3
+ */
+
+Vue.component('vue-pdf-embed', {
+    props: {
+        sourceUrl: {
+            type: String,
+            default: ''
+        },
+        source: {
+            type: String,
+            default: ''
+        },
+        fileMetadata: {
+            type: Object,
+            default: () => ({})
+        },
+        pageRange: {
+            type: String,
+            default: '1,2'
+        },
+        s3Optimized: {
+            type: Boolean,
+            default: true
+        },
+        timeout: {
+            type: Number,
+            default: 30000
+        },
+        enableProgressive: {
+            type: Boolean,
+            default: true
+        },
+        enableCache: {
+            type: Boolean,
+            default: true
+        }
+    },
+    data() {
+        return {
+            pdfData: null,
+            loading: false,
+            error: null,
+            loadProgress: 0,
+            s3Status: 'initializing',
+            cacheKey: null,
+            abortController: null
+        }
+    },
+    mounted() {
+        this.initializeS3Optimization();
+    },
+    beforeDestroy() {
+        if (this.abortController) {
+            this.abortController.abort();
+        }
+    },
+    methods: {
+        async initializeS3Optimization() {
+            if (!this.s3Optimized || !this.sourceUrl) return;
+            
+            this.loading = true;
+            this.s3Status = 'optimizing';
+            this.$emit('s3-loading', { status: 'optimizing', url: this.sourceUrl });
+            
+            try {
+                // Step 1: Load metadata
+                await this.loadFileMetadata();
+                
+                // Step 2: Get optimized URL if needed
+                const optimizedUrl = await this.getOptimizedUrl();
+                
+                // Step 3: Load PDF with progressive loading
+                await this.loadPdfProgressive(optimizedUrl);
+                
+                this.s3Status = 'loaded';
+                this.loading = false;
+                this.$emit('s3-loaded', { 
+                    url: optimizedUrl, 
+                    metadata: this.fileMetadata,
+                    loadTime: Date.now() - (this.loadStartTime || Date.now())
+                });
+                
+            } catch (error) {
+                this.handleS3Error(error);
+            }
+        },
+        
+        async loadFileMetadata() {
+            if (!this.enableCache) return;
+            
+            this.cacheKey = `s3_metadata_${btoa(this.sourceUrl)}`;
+            const cached = localStorage.getItem(this.cacheKey);
+            
+            if (cached) {
+                const metadata = JSON.parse(cached);
+                if (metadata.expires > Date.now()) {
+                    Object.assign(this.fileMetadata, metadata.data);
+                    return;
+                }
+            }
+            
+            // Fetch fresh metadata
+            try {
+                const response = await fetch(`/api/s3/metadata?file_path=${encodeURIComponent(this.fileMetadata.path || '')}`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    Object.assign(this.fileMetadata, result.data);
+                    
+                    // Cache metadata
+                    localStorage.setItem(this.cacheKey, JSON.stringify({
+                        data: result.data,
+                        expires: Date.now() + (5 * 60 * 1000) // 5 minutes
+                    }));
+                }
+            } catch (error) {
+                console.warn('Failed to load metadata:', error);
+            }
+        },
+        
+        async getOptimizedUrl() {
+            try {
+                const response = await fetch(`/api/s3/optimize-url`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({
+                        file_path: this.fileMetadata.path || this.sourceUrl,
+                        options: {
+                            expires: 3600,
+                            progressive: this.enableProgressive
+                        }
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    this.s3Status = 'optimized';
+                    return result.data.best_url || this.sourceUrl;
+                }
+                
+                // Fallback to original URL
+                return this.sourceUrl;
+                
+            } catch (error) {
+                console.warn('S3 optimization failed, using fallback:', error);
+                return this.sourceUrl;
+            }
+        },
+        
+        async loadPdfProgressive(url) {
+            this.loadStartTime = Date.now();
+            
+            // Check cache first
+            if (this.enableCache) {
+                const pdfCacheKey = `s3_pdf_${btoa(url)}`;
+                const cachedPdf = sessionStorage.getItem(pdfCacheKey);
+                
+                if (cachedPdf) {
+                    this.pdfData = cachedPdf;
+                    this.s3Status = 'cached';
+                    return;
+                }
+            }
+            
+            // Progressive loading with XHR
+            this.abortController = new AbortController();
+            const signal = this.abortController.signal;
+            
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.timeout = this.timeout;
+                
+                xhr.onprogress = (event) => {
+                    if (event.lengthComputable) {
+                        const progress = Math.round((event.loaded / event.total) * 100);
+                        this.loadProgress = progress;
+                        this.$emit('s3-progress', { 
+                            progress, 
+                            message: `Loading... ${progress}%` 
+                        });
+                    }
+                };
+                
+                xhr.onload = () => {
+                    if (xhr.status === 200 && xhr.response) {
+                        const arrayBuffer = xhr.response;
+                        const uint8Array = new Uint8Array(arrayBuffer);
+                        const base64 = this.uint8ArrayToBase64(uint8Array);
+                        
+                        this.pdfData = base64;
+                        
+                        // Cache the result
+                        if (this.enableCache) {
+                            const pdfCacheKey = `s3_pdf_${btoa(url)}`;
+                            sessionStorage.setItem(pdfCacheKey, base64);
+                        }
+                        
+                        resolve();
+                    } else {
+                        reject(new Error(`HTTP ${xhr.status}: ${xhr.statusText}`));
+                    }
+                };
+                
+                xhr.onerror = () => {
+                    reject(new Error('Network error'));
+                };
+                
+                xhr.ontimeout = () => {
+                    reject(new Error('Request timeout'));
+                };
+                
+                xhr.responseType = 'arraybuffer';
+                xhr.open('GET', url, true);
+                xhr.send();
+            });
+        },
+        
+        handleS3Error(error) {
+            this.error = error.message;
+            this.loading = false;
+            this.s3Status = 'error';
+            this.$emit('s3-error', { 
+                error: error.message,
+                url: this.sourceUrl,
+                metadata: this.fileMetadata
+            });
+            
+            console.error('S3 PDF loading error:', error);
+        },
+        
+        uint8ArrayToBase64(uint8Array) {
+            let binary = '';
+            const chunkSize = 0x8000;
+            
+            for (let i = 0; i < uint8Array.length; i += chunkSize) {
+                const chunk = uint8Array.subarray(i, i + chunkSize);
+                binary += String.fromCharCode.apply(null, chunk);
+            }
+            
+            return btoa(binary);
+        },
+        
+        retryLoad() {
+            if (this.error) {
+                this.error = null;
+                this.initializeS3Optimization();
+            }
+        }
+    },
+    template: `
+        <div class="vue-pdf-embed-container s3-optimized">
+            <!-- Loading State -->
+            <div v-if="loading && !error" class="s3-loading-state">
+                <div class="s3-loading-spinner"></div>
+                <div class="s3-loading-text">
+                    <h5>S3 Optimized Loading</h5>
+                    <p>{{ s3Status }}...</p>
+                    <div class="progress mt-2" v-if="loadProgress > 0">
+                        <div class="progress-bar bg-primary" :style="{width: loadProgress + '%'}">
+                            {{ loadProgress }}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Error State -->
+            <div v-if="error" class="s3-error-state">
+                <div class="text-center">
+                    <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                    <h5>Loading Failed</h5>
+                    <p class="text-muted">{{ error }}</p>
+                    <button @click="retryLoad" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Retry
+                    </button>
+                </div>
+            </div>
+            
+            <!-- PDF Content -->
+            <div v-if="pdfData && !loading && !error" class="pdf-content">
+                <vue-pdf-app 
+                    :base64="pdfData"
+                    :page-range="pageRange"
+                    :config="vuePdfConfig">
+                </vue-pdf-app>
+            </div>
+            
+            <!-- Fallback for non-S3 files -->
+            <div v-if="!s3Optimized && source" class="pdf-content">
+                <vue-pdf-app 
+                    :base64="source"
+                    :page-range="pageRange"
+                    :config="vuePdfConfig">
+                </vue-pdf-app>
+            </div>
+        </div>
+    `
+});
+
+// Vue PDF App configuration with S3 optimizations
+window.vuePdfConfig = {
+    pdfjsWorkerSrc: '/vendor/vue-pdf-app/pdf.worker.min.js',
+    pdfjsSrc: '/vendor/vue-pdf-app/pdf.min.js',
+    cMapUrl: '/vendor/vue-pdf-app/cmaps/',
+    cMapPacked: true,
+    disableWorker: false,
+    disableAutoFetch: false,
+    disableFontFace: false,
+    disableRange: false,
+    disableStream: false,
+    isEvalSupported: false,
+    enableXfa: false,
+    verbosity: 1,
+    
+    // S3 optimization settings
+    enableS3Optimization: true,
+    useCloudFront: false, // Will be set based on configuration
+    enableAcceleration: false, // Will be set based on configuration
+    cacheEnabled: true,
+    progressiveLoading: true
+};

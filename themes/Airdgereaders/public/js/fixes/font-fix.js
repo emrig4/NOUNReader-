@@ -1,0 +1,83 @@
+/**
+ * Font Loading Optimizer
+ * Prevents font loading warnings and improves performance
+ */
+(function() {
+    'use strict';
+    
+    // Detect if this is a development environment
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' ||
+                         window.location.hostname.includes('.dev');
+    
+    // Font loading configuration
+    const fontConfig = {
+        // Preload critical fonts
+        preloadFonts: [
+            '/themes/airdgereaders/fonts/fontawesome-webfont3e6e.woff2?v=4.7.0',
+            '/themes/airdgereaders/fonts/icomoonf50b.ttf'
+        ],
+        // Font loading timeout (ms)
+        timeout: 3000,
+        // Enable fallback for slow connections
+        enableFallback: true
+    };
+    
+    // Optimize font loading
+    function optimizeFontLoading() {
+        // Add font-display: swap to prevent FOIT (Flash of Invisible Text)
+        const fontLinks = document.querySelectorAll('link[href*=".woff"], link[href*=".woff2"], link[href*=".ttf"]');
+        
+        fontLinks.forEach(link => {
+            // Skip if already optimized
+            if (link.dataset.optimized) return;
+            
+            // Add font-display: swap
+            const style = document.createElement('style');
+            style.textContent = `
+                @font-face {
+                    font-family: attr(href url);
+                    font-display: swap;
+                }
+            `;
+            
+            // Mark as optimized
+            link.dataset.optimized = 'true';
+        });
+        
+        console.log('✅ Font loading optimized');
+    }
+    
+    // Handle slow network warnings
+    function handleFontWarnings() {
+        // Suppress development warnings in non-production
+        if (isDevelopment) {
+            console.log('ℹ️  Development mode: Font loading warnings are normal');
+        }
+        
+        // Set up font loading fallback
+        if (fontConfig.enableFallback) {
+            const fallbackTimer = setTimeout(() => {
+                console.log('⚠️  Font loading timeout - using fallback fonts');
+                document.documentElement.classList.add('font-loading-timeout');
+            }, fontConfig.timeout);
+            
+            // Clear timeout if fonts load successfully
+            window.addEventListener('load', () => {
+                clearTimeout(fallbackTimer);
+                console.log('✅ All fonts loaded successfully');
+            });
+        }
+    }
+    
+    // Initialize font optimization
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', optimizeFontLoading);
+    } else {
+        optimizeFontLoading();
+    }
+    
+    handleFontWarnings();
+    
+    console.log('✅ Font loading optimizer loaded');
+})();

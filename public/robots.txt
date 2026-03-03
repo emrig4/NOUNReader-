@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap locations
+Sitemap: https://readprojecttopics.com/sitemap.xml
+Sitemap: https://readprojecttopics.com/sitemap-project-topics.xml
+Sitemap: https://readprojecttopics.com/sitemap-project-materials.xml
+Sitemap: https://readprojecttopics.com/sitemap-final-year-projects.xml
+Sitemap: https://readprojecttopics.com/sitemap-bsc-projects.xml
+Sitemap: https://readprojecttopics.com/sitemap-thesis-dissertations.xml
+Sitemap: https://readprojecttopics.com/sitemap-publication-topics.xml
+Sitemap: https://readprojecttopics.com/sitemap-complete.xml

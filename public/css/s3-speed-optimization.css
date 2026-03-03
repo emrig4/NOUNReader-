@@ -1,0 +1,379 @@
+/* 
+ * S3 Speed Optimization CSS
+ * Non-intrusive performance enhancements
+ * Generated: 2025-11-15 10:00:57
+ */
+
+/* ===== CRITICAL CSS INLINE ===== */
+
+/* Lazy Loading Optimizations */
+.lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+}
+
+.lazy-load.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-skeleton 1.5s infinite;
+}
+
+@keyframes loading-skeleton {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* S3 Optimization Indicators */
+.s3-optimized {
+    position: relative;
+}
+
+.s3-optimized::before {
+    content: "⚡";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+    opacity: 0.5;
+    z-index: 1000;
+}
+
+.s3-accelerated::before {
+    content: "🚀";
+}
+
+.s3-cloudfront::before {
+    content: "🌐";
+}
+
+/* Progressive Loading */
+.progressive-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.progressive-preview {
+    filter: blur(2px);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.progressive-full {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.progressive-full.loaded {
+    opacity: 1;
+}
+
+/* Smart Caching Indicators */
+.cached-resource {
+    position: relative;
+}
+
+.cached-resource::after {
+    content: "💾";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 8px;
+    opacity: 0.6;
+}
+
+/* Performance Metrics Display */
+.performance-metrics {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: monospace;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.performance-metrics.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.performance-metrics .metric {
+    display: block;
+    margin: 2px 0;
+}
+
+.performance-metrics .metric-value {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+/* ===== BROWSER OPTIMIZATION ===== */
+
+/* GPU Acceleration for smooth rendering */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Efficient image loading */
+.optimized-image {
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+}
+
+/* Scroll optimization */
+.smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===== S3 SPECIFIC OPTIMIZATIONS ===== */
+
+/* S3 Transfer Acceleration Status */
+.s3-acceleration-status {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.s3-acceleration-status.active {
+    opacity: 1;
+}
+
+.s3-acceleration-status.accelerated {
+    background: rgba(34, 197, 94, 0.9);
+}
+
+/* CloudFront CDN Indicators */
+.cdn-resource {
+    border-left: 3px solid #3b82f6;
+}
+
+.cdn-resource.cached {
+    border-left-color: #22c55e;
+}
+
+/* ===== LOADING STATES ===== */
+
+.optimized-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: s3-spin 1s linear infinite;
+}
+
+@keyframes s3-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Progressive Enhancement States */
+.js-enabled .no-js-only {
+    display: none;
+}
+
+.js-disabled .js-only {
+    display: none;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Content Visibility for faster rendering */
+.content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
+
+/* Transform optimizations */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+/* Efficient animations */
+.efficient-transition {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ===== RESPONSIVE OPTIMIZATIONS ===== */
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+    .performance-metrics {
+        bottom: 5px;
+        right: 5px;
+        font-size: 9px;
+        padding: 4px 6px;
+    }
+    
+    .s3-acceleration-status {
+        top: 5px;
+        left: 5px;
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+    
+    .lazy-load {
+        transition: opacity 0.2s ease-in-out;
+    }
+}
+
+/* High-DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .optimized-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .lazy-load,
+    .progressive-full,
+    .efficient-transition {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .optimized-loading {
+        animation: none !important;
+    }
+}
+
+/* Print optimizations */
+@media print {
+    .performance-metrics,
+    .s3-acceleration-status,
+    .s3-optimized::before,
+    .cached-resource::after {
+        display: none !important;
+    }
+    
+    .lazy-load {
+        opacity: 1 !important;
+    }
+    
+    .progressive-full {
+        opacity: 1 !important;
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .lazy-load.loading {
+        background: #ccc;
+    }
+    
+    .performance-metrics {
+        background: #000;
+        border: 1px solid #fff;
+    }
+}
+
+/* Focus management for optimization UI */
+.performance-metrics:focus-within {
+    outline: 2px solid #4ade80;
+    outline-offset: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Quick performance toggles */
+.performance-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.performance-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.performance-optimize {
+    contain: layout style paint;
+}
+
+/* S3 resource utilities */
+.s3-fast-load {
+    background: linear-gradient(45deg, #e8f4fd 0%, #d1ecf1 100%);
+}
+
+.s3-cached {
+    background: linear-gradient(45deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+/* ===== DEBUGGING HELPERS ===== */
+
+/* Performance measurement tools */
+.performance-measure-start::before {
+    content: "⏱️ Start";
+    font-size: 10px;
+    color: #3b82f6;
+}
+
+.performance-measure-end::after {
+    content: "⏱️ End";
+    font-size: 10px;
+    color: #ef4444;
+}
+
+/* Development mode indicators */
+.dev-mode .s3-optimized::before {
+    content: "⚡ [DEV]";
+    color: #fbbf24;
+}
+
+.dev-mode .cached-resource::after {
+    content: "💾 [CACHED]";
+    color: #10b981;
+}
+
+/* ===== FINAL OPTIMIZATION ===== */
+
+/* Prevent layout shifts */
+.optimization-placeholder {
+    min-height: 1px;
+    width: 100%;
+}
+
+/* Efficient rendering */
+.render-optimized {
+    contain: strict;
+}
+
+/* Memory management */
+.memory-efficient {
+    contain: content;
+}
+
+/* Performance monitoring */
+.performance-track {
+    contain: layout style paint;
+}

@@ -1,0 +1,107 @@
+@extends('layouts.account')
+@push('css')
+    <link href="{{ asset('themes/airdgereaders/css/tag.css') }}" rel="stylesheet">
+@endpush
+
+
+@section('content')
+    <!--// Main Section \\-->
+    <div class="ereaders-main-section ereaders-counterfull">
+
+        <!-- dashboard nav -->
+        @include('partials.usermenu')
+
+        <div class="container">
+            <div class="row">                
+    
+                <!-- User Profile Header Section -->
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="card" style="background: linear-gradient(135deg, #23A455 0%, #23A455 100%); color: white; border-radius: 10px; padding: 20px;">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3 style="margin: 0; display: flex; align-items: center; gap: 10px;">
+                                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                            <img src="{{ Auth::user()->profile_photo_url }}" 
+                                                 alt="{{ Auth::user()->name }}" 
+                                                 style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid white; object-fit: cover;">
+                                        @else
+                                            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 3px solid white;">
+                                                👤
+                                            </div>
+                                        @endif
+                                        <span>{{ Auth::user()->name }}</span>
+                                    </h3>
+                                    <p style="margin: 5px 0 0 0; opacity: 0.9;">
+                                        <i class="fa fa-envelope"></i> {{ Auth::user()->email }}
+                                    </p>
+                                    @if(Auth::user()->phone)
+                                    <p style="margin: 5px 0 0 0; opacity: 0.9;">
+                                        <i class="fa fa-phone"></i> {{ Auth::user()->phone }}
+                                    </p>
+                                    @endif
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 20px; display: inline-block;">
+                                        <small style="opacity: 0.8;">Member Since</small><br>
+                                        <strong>{{ Auth::user()->created_at->format('M Y') }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('account::settings.update-picture')
+                        @endif 
+                    </div>
+
+                    <div class="col-md-6">
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('account::settings.change-password')
+                        @endif 
+                    </div>
+                     
+                </div>
+
+                <div class="row mt-10">
+                    <div class="col-md-6">
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('account::settings.update-contact-info')
+                        @endif 
+                    </div>
+                    <div class="col-md-6">
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('account::settings.update-personal-information')
+                        @endif 
+                    </div>
+                </div>
+
+
+                <div class="row mt-10">
+                    <div class="col-md-6">
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('account::settings.update-bank-info')
+                        @endif 
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--// Main Section \\-->
+@endsection
+
+@push('js')
+    <script>
+      $( function() {
+        $( "#dob" ).datepicker();
+      } );
+    </script>
+    <script type="text/javascript" src="{{ asset('themes/airdgereaders/js/subfields.js') }}"></script>
+@endpush

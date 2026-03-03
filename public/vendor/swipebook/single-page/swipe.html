@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/flipbook.style.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+
+<script src="../js/dev/flipbook.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var pages = []
+        pages[0] = {
+            htmlContent:''
+        }
+
+        // set preview images for pages beyond the preview limit
+        for (var i = 5; i <= 1000; i++) {
+            // use image
+            // pages[i] = {src:"../images/book2/page6.jpg", thumb:"../images/book2/thumb6.jpg", title:"Page six"}
+
+            // use html ifrma content
+            // pages[i] = {
+            //     htmlContent: '<iframe src="preview-notice.html" style=" width: calc(100vh); min-height: calc(100vh); border: none;" ></iframe>'
+            // }
+
+            // use html ifrma content
+            pages[i] = {
+                htmlContent: '<div class="preview-notice-wrapper" ><div class="preview-notice"><h1>You have reached the preview limit for this document</h1><h3>Please subsscribe to read/download complete document</h3><a href="/dsf">See Pricing</a></div></div>'
+            }
+        }
+        
+        $("#container").flipBook({
+            // pages:[
+            //     {src:"../images/book2/page1.jpg", thumb:"../images/book2/thumb1.jpg", title:"Cover"},
+            //     {src:"../images/book2/page2.jpg", thumb:"../images/book2/thumb2.jpg", title:"Page two"},
+            //     {src:"../images/book2/page3.jpg", thumb:"../images/book2/thumb3.jpg", title:"Page three"},
+            //     {src:"../images/book2/page4.jpg", thumb:"../images/book2/thumb4.jpg", title:""},
+            //     {src:"../images/book2/page5.jpg", thumb:"../images/book2/thumb5.jpg", title:"Page five"},
+            //     {src:"../images/book2/page6.jpg", thumb:"../images/book2/thumb6.jpg", title:"Page six"},
+            //     {src:"../images/book2/page7.jpg", thumb:"../images/book2/thumb7.jpg", title:"Page seven"},
+            //     {src:"../images/book2/page8.jpg", thumb:"../images/book2/thumb8.jpg", title:"Last"}
+            // ],
+
+            pdfUrl:'../pdf/example.pdf',
+            viewMode:"swipe",
+			singlePageMode:true,
+            // zoomSize:1,
+            pages:pages,
+            layout: 1,
+            // backgroundTransparent : true,
+            lightBoxFullscreen  : true,
+            // pageTextureSizeSmall: 3000,
+        });
+    })
+</script>
+<style type="text/css">
+    @media (min-width:1025px) { 
+        /* big landscape tablets, laptops, and desktops */ 
+        .flipbook-carousel-page{
+        width: 3000px !important
+        }
+        .flipbook-carousel-page-bg {
+            width: 3000px
+        }
+        .flipbook-carousel-page-inner{
+            width: 3000px;
+            height: 4000px;
+
+        }
+        .flipbook-carousel-page{
+            width: 3000px
+        }
+
+        .flipbook-textLayer {
+            width: 3000px
+        }
+
+        .flipbook-carousel-slide .slide-inner {
+            width: 3000px !important;
+            transform: translate(220.142px, 7.21919px) scale(0.302905) translateZ(0px);
+            width: 1580.99px
+        }
+
+        .flipbook-carousel-slide {
+            overflow: scroll;
+        }
+    }
+
+    .flipbook-textLayer {
+       z-index: -100
+    }
+
+    .preview-notice-wrapper{
+       width: 50%;
+        min-height: calc(100vh); 
+        border: none;
+        margin-top: 100px
+    }
+
+    .preview-notice {
+        margin: auto;
+    }
+
+    .preview-notice h1{
+        font-size: 50px
+    }
+
+    .preview-notice a {
+       padding: 40px;
+    }
+
+    .flipbook-page-htmlContent {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform-origin: 0 0;
+    }
+
+</style>
+</head>
+	<body>
+		<div id="container" style="width:100%;height:100%"/>
+
+	</body>
+</html>

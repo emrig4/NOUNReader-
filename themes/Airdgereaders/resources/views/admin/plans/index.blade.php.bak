@@ -1,0 +1,300 @@
+@php
+@endphp
+@extends('layouts.admin')
+  @section('content')
+    <section class="container">
+
+        <!-- Actions -->
+        <div class="card lg:flex p-4 mb-10">
+            <h2 class="text-xl leading-tight">Plans</h2>
+            <div class="flex items-center ml-auto mt-5 lg:mt-0">
+                <form class="w-2/3 items-center mt-0" action="#">
+                    <label class="form-control-addon-within  rounded-full overflow-hidden">
+                        <input type="text" class="form-control border-none" placeholder="Search">
+                        <span class="flex items-center pr-4"><button type="button" class="dark:text-gray-700 dark:hover:text-primary text-secondary hover:text-primary btn btn-link la la-search text-2xl leading-none"></button></span>
+                    </label>
+                </form>
+                <div class="w-1/3  mt-0">
+                    <div class=" ml-2">
+                        <button class="ml-5 btn  btn_secondary uppercase" data-toggle="modal"
+                            data-target="#exampleModalCenteredCreatePlan">
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+           <!--  +"subscriptions": {#1783 ▶}
+            +"pages": {#1812}
+            +"domain": "test"
+            +"name": "BASIC"
+            +"plan_code": "PLN_eohnjyhr4zvlyyd"
+            +"description": "readprojecttopics Basic Plan - Upto 10 Reads5 Access to Downloads20 Plagiarism"
+            +"amount": 200000
+            +"interval": "hourly"
+            +"invoice_limit": 0
+            +"send_invoices": true
+            +"send_sms": true
+            +"hosted_page": false
+            +"hosted_page_url": null
+            +"hosted_page_summary": null
+            +"currency": "NGN"
+            +"migrate": false
+            +"is_deleted": true
+            +"is_archived": true
+            +"id": 209914
+            +"integration": 149366
+            +"createdAt": "2021-12-29T15:51:32.000Z"
+            +"updatedAt": "2022-04-10T11:29:52.000Z"
+            +"total_subscriptions": 13
+            +"active_subscriptions": 0
+            +"total_subscriptions_revenue": 143800000 -->
+
+        <!-- Card Column -->
+        <div class="grid grid-cols-1  sm:grid-cols-2" v-if="isFetched">
+            @foreach($plans as $plan)
+                <div class="lg:px-4 mb-5">
+                    <div class="card card_column p-10 cursor-pointer h-full">
+                        <div class="flex justify-between">
+                            <p class="text-lg text-tertiary leading-tight">{{ $plan->name }}</p>
+                            <div class="text-right">
+                                <p class="rounded-lg p-1 px-2 ">{{$plan->active_subscriptions}} Subscriptions</p>
+                            </div>
+                        </div>
+                        <div class="border-t mb-10">
+                            <div class="mt-8">
+                                <p>{{ $plan->description ?? 'Lorem, ipsum dolor, sit amet ipsum dolor, sit amet cipsum dolor, sit amet c consectetur adipisicing elit. Eos autem doloremque' }}</p>
+
+                                <div class="mt-5">
+                                    <p><span class="font-bold">Code:</span> {{$plan->plan_code}}</p>
+                                    <p><span class="font-bold">Amount:</span> {{$plan->amount}}</p>
+                                    <p><span class="font-bold">Currency:</span> {{$plan->currency}}</p>
+                                    <p><span class="font-bold">Revenue:</span> {{$plan->total_subscriptions_revenue}}</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="border-t flex justify-end">
+                            <a href="{{ route('admin.plans.show', $plan->id ) }}" class="ml-5 w-20 rounded-none h-5 btn btn_secondary uppercase" >Edit</a>
+                            <form method="POST" class="" action="{{route('admin.plans.destroy', $plan->plan_code)}}">
+                                @csrf
+                                {{ method_field('DELETE') }}
+                                <button type="submit" class="ml-5 w-20 rounded-none h-5 btn btn_danger uppercase" >
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div> 
+
+    </section>
+
+      <!-- Basic -->
+    <div class="modal" id="exampleModal" data-animations="bounceInDown, bounceOutUp" data-static-backdrop>
+        <div class="modal-dialog max-w-2xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn_primary ml-2 uppercase">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered create plan modal -->
+    <div class="modal" id="exampleModalCenteredCreatePlan" data-animations="bounceInDown, bounceOutUp" data-static-backdrop>
+        <div class="modal-dialog modal-dialog_centered max-w-2xl">
+            
+            <form method="POST" action="{{ route('admin.plans.store') }}" class="modal-content" style="min-width: 400px;"> 
+                @csrf
+                <div class="modal-header">
+                    <h2 class="modal-title">Create Paystack Plan</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter text here">
+                        <small class="block mt-2">Please make it short.</small>
+                    </div>
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Description</label>
+                        <input type="text" class="form-control" name="description" placeholder="Enter text here">
+                        <small class="block mt-2"></small>
+                    </div>
+                    <div class="w-full">
+                        <label class="label block mb-2" for="input">Amount</label>
+                        <input type="number" class="form-control" name="amount" placeholder="Enter text here">
+                        <small class="block mt-2"></small>
+                    </div>
+                     <div class="w-full">
+                        <label class="label block mb-2" for="input">Currency</label>
+                        
+                        <div class="custom-select">
+                            <select name="currency" class="form-control">
+                                <option value="USD">USD</option>
+                                <option value="NGN">NGN</option>
+                            </select>
+                            <div class="select-icon la la-caret-down"></div>
+                        </div>
+
+                        <small class="block mt-2"></small>
+                    </div>
+                     <div class="w-full">
+                        <label class="label block mb-2" for="input">Interval</label>
+                        <div class="custom-select">
+                            <select name="interval" class="form-control">
+                                <option value="hourly">Hourly</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                            <div class="select-icon la la-caret-down"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="submit" class="btn btn_primary ml-2 uppercase">Create Plan</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Scrollable -->
+    <div class="modal" id="exampleModalScrollable" data-animations="bounceInDown, bounceOutUp" data-static-backdrop>
+        <div class="modal-dialog modal-dialog_scrollable max-w-2xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <div class="flex ml-auto">
+                        <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn_primary ml-2 uppercase">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side -->
+    <div class="modal modal_aside" id="exampleModalAside" data-animations="bounceInRight, bounceOutRight">
+        <div class="modal-dialog max-w-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                    <button type="button" class="btn-icon close la la-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn_secondary uppercase" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn_primary uppercase ml-2">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+  @endSection
+  @push('js')
+  @endPush
+
+

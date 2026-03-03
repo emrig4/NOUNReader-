@@ -1,0 +1,13 @@
+<tr>
+<td class="header">
+<a href="{{ $url }}" style="display: inline-block;">
+@if (trim($slot) === 'readprojecttopics')
+<img src="https://dev.projectandmaterials.com/themes/airdgereaders/images/logo.png" class="logo" alt="readprojecttopics Logo" style="height: 50px; width: 120px;">
+@else
+{{ $slot }}
+@endif
+</a>
+</td>
+</tr>
+
+

@@ -1,0 +1,21 @@
+<div class="comments-area ereaders-book-reply">
+  <!--// coments \\-->
+  <h2 class="ereaders-section-heading">Book Reviews</h2>
+  <ul class="comment-list">
+    @foreach($resource->reviews as $review)
+     <li>
+        <div class="thumb-list">
+           <figure><img alt="" src="{{ $review->user->profile_photo_url }}"></figure>
+           <div class="text-holder">
+            <h6>{{ $review->name }}</h6>
+            <time class="post-date" datetime="2008-02-14 20:00">{{ ($review->created_at)->diffForHumans() }}</time><br>
+            <div class="star-rating"><span class="star-rating-box" style="width: {{$review->rating   }}%"></span></div>
+              <p>{{ $review->comment }}</p>
+           </div>
+        </div>
+     </li>
+    @endforeach
+  </ul>
+  <!--// coments \\-->
+  @include('resource.partials.inc.review_form', [ 'resource' => $resource ])
+</div>
