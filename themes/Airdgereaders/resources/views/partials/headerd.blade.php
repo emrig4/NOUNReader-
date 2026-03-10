@@ -6,7 +6,7 @@
                 <div class="flex justify-between flex-wrap items-center w-100">
                     <aside class="col-md-3 col-6 d-flex align-items-center">
                         <a href="{{route('pages.home')}}" class="logo">
-                            <img src="{{ asset('themes/airdgereaders/images/logo.png') }}" alt="">
+                            <img src="{{ asset('themes/airdgereaders/images/nounreader-logo-main.svg') }}" alt="">
                         </a>
                     </aside>
                     

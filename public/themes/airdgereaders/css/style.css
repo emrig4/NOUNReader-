@@ -3633,3 +3633,151 @@ blockquote:before {
 }
 .ereaders-contact-form ul li.full-width { width: 100%; }
 .ereaders-contact-form ul li:last-child { margin-bottom: 15px; }
+/* ========================================
+   HEADER FIX - ALIGN ALL ELEMENTS IN STRAIGHT LINE
+   ======================================== */
+
+/* Reduce main header height */
+.ereaders-main-header {
+    padding: 15px 0px !important;
+}
+
+/* Make header content align in one row */
+.col-md-9 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Remove position-relative to allow flex */
+.col-md-9.position-relative {
+    position: static !important;
+}
+
+/* Fix navigation container */
+.col-md-9 > div {
+    display: flex !important;
+    align-items: center !important;
+    flex-grow: 1 !important;
+    justify-content: flex-end !important;
+}
+
+/* Remove fixed positioning - make search icon inline */
+.fixed-search-icon {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 999 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 5px !important;
+    margin-left: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.fixed-search-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+/* Make action buttons inline with nav */
+.mobile-action-buttons {
+    margin-top: 0 !important;
+    margin-left: 15px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Make buttons smaller and inline */
+.mobile-action-buttons .mobile-btn {
+    height: 32px !important;
+    line-height: 32px !important;
+    padding: 0 15px !important;
+    font-size: 13px !important;
+    display: inline-block !important;
+    margin: 0 3px !important;
+}
+
+/* Reduce navigation spacing */
+.navbar {
+    padding-left: 15px !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar-nav > li {
+    margin: 0px 5px !important;
+}
+
+.navbar-nav > li > a {
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+}
+
+/* ========================================
+   MOBILE FIXES
+   ======================================== */
+@media (max-width: 991px) {
+    .ereaders-main-header {
+        padding: 10px 0px !important;
+    }
+    
+    .logo img {
+        max-height: 45px !important;
+    }
+    
+    /* Stack elements on mobile */
+    .col-md-9 {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    
+    /* Keep search icon and buttons inline */
+    .col-md-9 > div {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+    }
+    
+    .fixed-search-icon {
+        padding: 4px !important;
+        margin-left: 5px !important;
+    }
+    
+    .fixed-search-icon svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    .mobile-action-buttons {
+        margin-left: 8px !important;
+    }
+    
+    .mobile-action-buttons .mobile-btn {
+        height: 28px !important;
+        line-height: 28px !important;
+        padding: 0 10px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        max-height: 35px !important;
+    }
+    
+    .navbar-nav > li > a {
+        font-size: 11px !important;
+        padding: 4px 5px !important;
+    }
+    
+    .mobile-action-buttons .mobile-btn {
+        font-size: 11px !important;
+        padding: 0 8px !important;
+    }
+    
+    .fixed-search-icon svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}

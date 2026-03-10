@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Laravel\Jetstream\Jetstream;
 use App\Modules\Account\Models\Account;
 use App\Modules\Wallet\Models\SubscriptionWallet;
 use App\Modules\Wallet\Models\CreditWallet;
 use App\Services\AutoCreditService;
 use App\Services\EmailNotificationService;
+use App\Mail\PasswordResetMail;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -28,8 +30,10 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle registration - With Email Verification
-     * Note: Accounts and Wallets are automatically created by User model's booted() event
+     * Handle registration
+     * 1. Create user with password
+     * 2. Send verification email
+     * 3. Redirect to "Check Your Email" page
      */
     public function register(Request $request)
     {
@@ -40,30 +44,29 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+        ], [
+            'email.unique' => 'An account with this email already exists. Please login or use the forgot password option.',
         ])->validate();
 
-        Log::info('AuthController: Starting user registration with email verification', ['email' => $request->email]);
+        Log::info('AuthController: Starting user registration', ['email' => $request->email]);
 
         try {
             DB::beginTransaction();
 
-            // Create user with email NOT verified
-            // Note: Account, SubscriptionWallet, and CreditWallet are automatically 
-            // created by the User model's booted() event
+            // Create user with UNVERIFIED email
             $user = User::create([
                 'last_name' => $request->last_name,
                 'first_name' => $request->first_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'has_set_permanent_password' => true,
-                'email_verified_at' => null, // NOT VERIFIED - require email verification
-                'status' => 'pending',
+                'email_verified_at' => null, // NOT verified - requires email verification
             ]);
 
-            Log::info('AuthController: User created with pending verification', ['user_id' => $user->id]);
-            Log::info('AuthController: Account and Wallets auto-created by User model event', ['user_id' => $user->id]);
+            Log::info('AuthController: User created with unverified email', ['user_id' => $user->id]);
+            Log::info('AuthController: Account and Wallets auto-created', ['user_id' => $user->id]);
 
-            // Grant auto credit to first-time users
+            // Grant auto credit
             $autoCreditService = new AutoCreditService();
             $creditGranted = $autoCreditService->grantAutoCredit($user);
 
@@ -75,37 +78,28 @@ class AuthController extends Controller
             // Create Paystack customer
             $user->createOrGetPaystackCustomer(['email' => $user->email]);
 
-            // Send verification link using password reset service
+            DB::commit();
+
+            // ✅ SEND VERIFICATION EMAIL
             try {
-                // Create reset token for verification
                 $token = app('auth.password.broker')->createToken($user);
-                $actionUrl = route('password.reset', ['token' => $token, 'email' => $user->email]);
+                $verificationUrl = route('password.reset', ['token' => $token, 'email' => $user->email]);
                 
-                // Send verification email using the password reset mail template
-                Mail::to($user->email)->send(new \App\Mail\PasswordResetMail($user, $actionUrl, true));
-                
+                Mail::to($user->email)->send(new PasswordResetMail($user, $verificationUrl));
                 Log::info('AuthController: Verification email sent', ['user_id' => $user->id]);
             } catch (\Exception $e) {
                 Log::error('AuthController: Failed to send verification email', [
                     'user_id' => $user->id,
                     'error' => $e->getMessage()
                 ]);
-                // Don't fail registration if email fails
             }
 
-            DB::commit();
-
-            Log::info('AuthController: User registered successfully, verification pending', [
+            Log::info('AuthController: User registered successfully', [
                 'user_id' => $user->id,
                 'email' => $user->email
             ]);
 
-            // Log user out and redirect to check email notification page
-            Auth::logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-
-            // Redirect to check email notification page
+            // ✅ REDIRECT TO "CHECK YOUR EMAIL" PAGE
             return redirect()->route('verification.notice')
                 ->with('email', $user->email);
 
@@ -123,6 +117,110 @@ class AuthController extends Controller
     }
 
     /**
+     * Show "Check Your Email" page (after registration)
+     */
+    public function showVerificationNotice()
+    {
+        $email = session('email');
+        
+        if (!$email) {
+            return redirect()->route('register')
+                ->with('error', 'Please register to receive a verification email.');
+        }
+
+        return view('auth.verification-notice', ['email' => $email]);
+    }
+
+    /**
+     * Resend verification email
+     */
+    public function resendVerification(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->with('error', 'No account found with this email address.');
+        }
+
+        if ($user->email_verified_at) {
+            return redirect()->route('login')
+                ->with('info', 'Your email is already verified. Please log in.');
+        }
+
+        // Generate new verification token
+        try {
+            $token = app('auth.password.broker')->createToken($user);
+            $verificationUrl = route('password.reset', ['token' => $token, 'email' => $user->email]);
+            
+            Mail::to($user->email)->send(new PasswordResetMail($user, $verificationUrl));
+            Log::info('AuthController: Verification email resent', ['user_id' => $user->id]);
+        } catch (\Exception $e) {
+            Log::error('AuthController: Failed to resend verification email', [
+                'error' => $e->getMessage()
+            ]);
+            return back()->with('error', 'Failed to resend verification email. Please try again.');
+        }
+
+        return back()->with('success', 'Verification email sent! Please check your inbox.');
+    }
+
+    /**
+     * ✅ SIMPLE VERIFICATION - Click link → Go to LOGIN (no password reset)
+     */
+    public function verifyEmail(Request $request)
+    {
+        $token = $request->token;
+        $email = $request->email;
+
+        if (!$token || !$email) {
+            return redirect()->route('login')
+                ->with('error', 'Invalid verification link.');
+        }
+
+        // Find user by email
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            Log::warning('AuthController: User not found', ['email' => $email]);
+            return redirect()->route('login')
+                ->with('error', 'Invalid verification link.');
+        }
+
+        // Verify the password reset token
+        $passwordBroker = app('auth.password.broker');
+        $isValidToken = $passwordBroker->tokenExists($user, $token);
+
+        if (!$isValidToken) {
+            Log::warning('AuthController: Invalid token', ['email' => $email]);
+            return redirect()->route('login')
+                ->with('error', 'Invalid or expired verification link.');
+        }
+
+        // Check if already verified
+        if ($user->email_verified_at) {
+            return redirect()->route('login')
+                ->with('info', 'Your email is already verified. Please log in.');
+        }
+
+        // ✅ MARK EMAIL AS VERIFIED
+        $user->email_verified_at = now();
+        $user->save();
+
+        // Delete the used token
+        $passwordBroker->deleteToken($user);
+
+        Log::info('AuthController: Email verified successfully', ['user_id' => $user->id, 'email' => $email]);
+
+        // ✅ REDIRECT DIRECTLY TO LOGIN (no password reset step!)
+        return redirect()->route('login')
+            ->with('success', 'Email verified! You can now login with your password.');
+    }
+
+    /**
      * Show login form
      */
     public function showLoginForm()
@@ -131,7 +229,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle login - With Email Verification Check
+     * Handle login
      */
     public function login(Request $request)
     {
@@ -142,29 +240,21 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        // Check if user exists
         if (!$user) {
             return back()->withInput()
                 ->with('error', 'Invalid email or password.');
         }
 
-        // Check if user has set permanent password
-        if (!$user->has_set_permanent_password) {
+        // ✅ CHECK IF EMAIL IS VERIFIED
+        if (!$user->email_verified_at) {
             return back()->withInput()
-                ->with('error', 'Please set your permanent password first.');
+                ->with('error', 'Please check your email to verify your account first.');
         }
 
-        // CHECK IF EMAIL IS VERIFIED - New verification flow
-        if (is_null($user->email_verified_at)) {
-            // User hasn't verified their email
-            return back()->withInput()
-                ->with('error', 'Your email address has not been verified. Please check your email for the verification link or <a href="' . route('verification.resend') . '?email=' . urlencode($user->email) . '" class="underline">click here to resend</a>.');
-        }
-
-        // Attempt authentication
+        // Check password
         if (!Hash::check($request->password, $user->password)) {
             return back()->withInput()
-                ->with('error', 'Invalid email or password.');
+                ->with('error', 'Wrong password. Please try again or use forgot password.');
         }
 
         // Login successful
@@ -175,7 +265,6 @@ class AuthController extends Controller
             'email' => $user->email
         ]);
 
-        // Redirect to account page after successful login
         return redirect('/account')->with('success', 'Welcome back!');
     }
 
@@ -197,67 +286,5 @@ class AuthController extends Controller
 
         return redirect()->route('login')
             ->with('success', 'Logged out successfully.');
-    }
-
-    /**
-     * Show email verification notice page
-     */
-    public function showVerificationNotice(Request $request)
-    {
-        $email = $request->session()->get('email') ?? $request->get('email');
-        
-        if (!$email) {
-            return redirect()->route('register')
-                ->with('error', 'Please register first.');
-        }
-
-        return view('auth.verification-notice', [
-            'email' => $email
-        ]);
-    }
-
-    /**
-     * Resend verification link
-     */
-    public function resendVerificationLink(Request $request)
-    {
-        $email = $request->session()->get('email') ?? $request->get('email');
-        
-        if (!$email) {
-            return back()->with('error', 'Invalid request. Please register first.');
-        }
-
-        $user = User::where('email', $email)->first();
-        
-        if (!$user) {
-            return back()->with('error', 'User not found.');
-        }
-
-        // Check if already verified
-        if (!is_null($user->email_verified_at)) {
-            return redirect()->route('login')
-                ->with('info', 'Your email is already verified. Please log in.');
-        }
-
-        try {
-            // Create reset token for verification
-            $token = app('auth.password.broker')->createToken($user);
-            $actionUrl = route('password.reset', ['token' => $token, 'email' => $user->email]);
-            
-            // Send verification email
-            Mail::to($user->email)->send(new \App\Mail\PasswordResetMail($user, $actionUrl, true));
-            
-            Log::info('Verification link resent', ['user_id' => $user->id, 'email' => $user->email]);
-            
-            return back()->with('success', 'Verification link sent! Please check your email.');
-            
-        } catch (\Exception $e) {
-            Log::error('Failed to resend verification link', [
-                'user_id' => $user->id,
-                'error' => $e->getMessage()
-            ]);
-            
-            return back()->with('error', 'Failed to send verification link. Please try again.');
-        }
     }
 }

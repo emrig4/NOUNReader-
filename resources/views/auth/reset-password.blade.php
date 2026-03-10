@@ -2,7 +2,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <a href="/" class="logo">
-                <img src="{{ asset('themes/airdgereaders/images/logo.png') }}" alt="readprojecttopics Logo">
+                <img src="{{ asset('themes/airdgereaders/images/nounreader-logo-main.svg') }}" alt="Nounreader Logo">
             </a>
         </x-slot>
 

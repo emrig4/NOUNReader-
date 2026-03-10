@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset - Readprojecttopics</title>
+    <title>NOUN READER</title>
 
     <style>
         body {
@@ -105,7 +105,7 @@
     <!-- HEADER WITH TOP LOGO -->
     <div class="header">
         <div class="logo">
-            <img src="https://projectandmaterials.com/themes/airdgereaders/images/logo.png" alt="Readprojecttopics Logo">
+            <img src="#" alt="Noun Reader">
         </div>
         <div class="title">
             @if(isset($isVerification) && $isVerification)
@@ -125,7 +125,7 @@
 
     <!-- SECOND MAIN LOGO -->
     <div class="main-logo">
-        <img src="https://projectandmaterials.com/themes/airdgereaders/images/rpt.png" alt="ReadProjectTopics">
+        <img src="#" alt="NOUNREADER">
     </div>
 
     <!-- CONTENT -->
@@ -171,8 +171,8 @@
 
     <!-- FOOTER -->
     <div class="footer">
-        <p>This is an automated security message from ReadProjectTopics.</p>
-        <div class="footer-brand">Readprojecttopics - Your Academic Resource Platform</div>
+        <p>This is an automated security message from Nounreader.</p>
+        <div class="footer-brand">NounReader - Your Noun study companion</div>
     </div>
 
 </div>
