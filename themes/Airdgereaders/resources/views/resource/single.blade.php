@@ -59,42 +59,46 @@
         <meta property="article:modified_time" content="{{ $resource->updated_at->toIso8601String() }}">
         @endif
         
-        {{-- Structured Data (Schema.org) for Rich Snippets - FIXED: Removed addslashes() which causes bad escape sequence errors --}}
-        @php
-            $sd_title = $resource->title ?? 'Project Topics and Materials';
-            $sd_description = mb_strimwidth(strip_tags($resource->overview ?? 'Download complete project topics and materials for academic research'), 0, 160, '...');
-            $sd_author = $resource->author_name ?? 'Projectandmaterials';
-            $sd_image = $resource->cover_image ? asset('storage/' . $resource->cover_image) : asset('themes/airdgereaders/images/Projectandmaterials.webp');
-            $sd_published = isset($resource->created_at) ? $resource->created_at->toIso8601String() : now()->toIso8601String();
-            $sd_modified = isset($resource->updated_at) ? $resource->updated_at->toIso8601String() : now()->toIso8601String();
-        @endphp
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "ScholarlyArticle",
-            "headline": {{ json_encode($sd_title) }},
-            "description": {{ json_encode($sd_description) }},
-            "image": {{ json_encode($sd_image) }},
-            "author": {
-                "@type": "Person",
-                "name": {{ json_encode($sd_author) }}
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Project Topics & Materials",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": {{ json_encode(asset('themes/airdgereaders/images/Projectandmaterials.webp')) }}
-                }
-            },
-            "datePublished": {{ json_encode($sd_published) }},
-            "dateModified": {{ json_encode($sd_modified) }},
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": {{ json_encode(url()->current()) }}
-            }
-        }
-        </script>
+        
+        {{-- Structured Data (Schema.org) for Rich Snippets --}}
+@php
+$articleSchema = [
+    "@context" => "https://schema.org",
+    "@type" => "ScholarlyArticle",
+    "headline" => strip_tags($resource->title ?? 'Project Topics and Materials'),
+    "description" => mb_strimwidth(
+        strip_tags($resource->overview ?? 'Download complete project topics and materials for academic research'),
+        0,
+        160,
+        '...'
+    ),
+    "image" => $resource->cover_image
+        ? asset('storage/' . $resource->cover_image)
+        : asset('themes/airdgereaders/images/Projectandmaterials.webp'),
+    "author" => [
+        "@type" => "Person",
+        "name" => strip_tags($resource->author_name ?? 'Projectandmaterials')
+    ],
+    "publisher" => [
+        "@type" => "Organization",
+        "name" => "Project Topics & Materials",
+        "logo" => [
+            "@type" => "ImageObject",
+            "url" => asset('themes/airdgereaders/images/Projectandmaterials.webp')
+        ]
+    ],
+    "datePublished" => optional($resource->created_at)->toIso8601String(),
+    "dateModified" => optional($resource->updated_at)->toIso8601String(),
+    "mainEntityOfPage" => [
+        "@type" => "WebPage",
+        "@id" => url()->current()
+    ]
+];
+@endphp
+
+<script type="application/ld+json">
+{!! json_encode($articleSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+</script>
     @endif
 @endpush
 

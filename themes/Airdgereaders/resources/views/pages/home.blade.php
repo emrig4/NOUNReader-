@@ -28,30 +28,35 @@
 <meta name="google-site-verification" content="urfmtM4Blxx1obOP0-KybEZ8cXoHj4sLEv4sbBGeAJM" />
 
 {{-- JSON-LD Schema Markup --}}
+@php
+$websiteSchema = [
+    "@context" => "https://schema.org",
+    "@type" => "WebSite",
+    "name" => "Project Topics & Materials",
+    "url" => url('/'),
+    "alternateName" => "projectandmaterials",
+    "description" => "Largest online repository for project topics and materials in Nigeria. Download complete research materials, final year projects, thesis, and dissertations in PDF format.",
+    "potentialAction" => [
+        "@type" => "SearchAction",
+        "target" => url('/resources/searches') . "?search={search_term_string}",
+        "query-input" => "required name=search_term_string"
+    ],
+    "publisher" => [
+        "@type" => "Organization",
+        "name" => "Project Topics & Materials",
+        "logo" => [
+            "@type" => "ImageObject",
+            "url" => asset('themes/airdgereaders/images/Projectandmaterials.webp')
+        ]
+    ],
+    "inLanguage" => "en"
+];
+@endphp
+
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Project Topics & Materials",
-  "url": "{{ url('/') }}",
-  "alternateName": "projectandmaterials",
-  "description": "Largest online repository for project topics and materials in Nigeria. Download complete research materials, final year projects, thesis, and dissertations in PDF format.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ url('/resources/searches?search={search_term_string}') }}",
-    "query-input": "required name=search_term_string"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Project Topics & Materials",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ asset('themes/airdgereaders/images/Projectandmaterials.webp') }}"
-    }
-  },
-  "inLanguage": "en"
-}
+{!! json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
+
 @endpush
 
 @push('css')

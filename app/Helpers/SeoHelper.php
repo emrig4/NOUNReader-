@@ -181,43 +181,53 @@ class SeoHelper
     /**
      * ✅ NEW: Generate Organization Schema (JSON-LD)
      */
-    public static function generateOrganizationSchema()
-    {
-        return [
-            '@context' => 'https://schema.org',
-            '@type' => 'Organization',
-            'name' => 'readprojecttopics',
-            'url' => url('/'),
-            'logo' => asset('themes/airdgereaders/images/projectandmaterials.logo.png'),
-            'description' => 'Leading platform for free project topics, materials, and research resources for students',
-            'sameAs' => [
-                'https://www.facebook.com/readprojecttopics',
-                'https://twitter.com/readprojecttopics',
-                'https://www.linkedin.com/company/readprojecttopics'
-            ]
-        ];
-    }
+   public static function generateOrganizationSchema()
+{
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        'name' => 'readprojecttopics',
+        'url' => url('/'),
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => asset('themes/airdgereaders/images/Projectandmaterials.webp')
+        ],
+        'description' => 'Leading platform for free project topics, materials, and research resources for students',
+        'sameAs' => [
+            'https://www.facebook.com/readprojecttopics',
+            'https://twitter.com/readprojecttopics',
+            'https://www.linkedin.com/company/readprojecttopics'
+        ]
+    ];
+}
     
     /**
      * ✅ NEW: Generate Educational Resource Schema (JSON-LD)
      */
-    public static function generateEducationalResourceSchema($resource)
-    {
-        return [
-            '@context' => 'https://schema.org',
-            '@type' => 'EducationalResource',
-            'name' => $resource->title,
-            'description' => mb_strimwidth(strip_tags($resource->overview ?? ''), 0, 160, '...'),
-            'url' => route('resources.show', $resource->slug ?? $resource->id),
-            'author' => [
-                '@type' => 'Person',
-                'name' => $resource->author ?? 'readprojecttopics Team'
-            ],
-            'educationalLevel' => 'University/College',
-            'learningResourceType' => 'Project Materials',
-            'datePublished' => $resource->created_at->toIso8601String()
-        ];
+  public static function generateEducationalResourceSchema($resource)
+{
+    if (!$resource) {
+        return [];
     }
+
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'EducationalResource',
+        'name' => strip_tags($resource->title ?? ''),
+        'description' => strip_tags(
+            mb_strimwidth($resource->overview ?? '', 0, 160, '...')
+        ),
+        'url' => route('resources.show', $resource->slug ?? $resource->id),
+        'author' => [
+            '@type' => 'Person',
+            'name' => strip_tags($resource->author ?? 'readprojecttopics Team')
+        ],
+        'educationalLevel' => 'University/College',
+        'learningResourceType' => 'Project Materials',
+        'datePublished' => optional($resource->created_at)->toIso8601String(),
+        'dateModified' => optional($resource->updated_at)->toIso8601String()
+    ];
+}
     
     /**
      * Generate URL slugs
