@@ -35,6 +35,7 @@
         "php": "^7.3|^8.0",
         "airondev/laravel-paystack-subscription": "dev-main",
         "airondev/laravel-slack-alerts": "dev-dev",
+        "anhskohbo/no-captcha": "^3.7",
         "aws/aws-sdk-php": "^3.258",
         "binshops/laravel-blog": "^9.3",
         "biscolab/laravel-recaptcha": "^6.1",

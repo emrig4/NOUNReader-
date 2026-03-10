@@ -12,24 +12,16 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 
-
-
 use Laravel\Fortify\Actions\AttemptToAuthenticate;
 use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
-
 use App\Actions\Fortify\PrepareAuthenticatedSession;
-
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Features;
-
-
 
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register()
     {
@@ -38,35 +30,72 @@ class FortifyServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Fortify Actions
+        |--------------------------------------------------------------------------
+        */
+
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
+        /*
+        |--------------------------------------------------------------------------
+        | Login Rate Limiting
+        |--------------------------------------------------------------------------
+        */
+
         RateLimiter::for('login', function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());
         });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Registration Rate Limiting (ANTI SPAM)
+        |--------------------------------------------------------------------------
+        */
+
+        RateLimiter::for('register', function (Request $request) {
+            return Limit::perMinute(3)->by($request->ip());
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Two Factor Rate Limiting
+        |--------------------------------------------------------------------------
+        */
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-
+        /*
+        |--------------------------------------------------------------------------
+        | Authentication Pipeline
+        |--------------------------------------------------------------------------
+        */
 
         Fortify::authenticateThrough(function (Request $request) {
             return array_filter([
-                    config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
-                    Features::enabled(Features::twoFactorAuthentication()) ? RedirectIfTwoFactorAuthenticatable::class : null,
-                    AttemptToAuthenticate::class,
-                    PrepareAuthenticatedSession::class,
+                config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
+                Features::enabled(Features::twoFactorAuthentication())
+                    ? RedirectIfTwoFactorAuthenticatable::class
+                    : null,
+                AttemptToAuthenticate::class,
+                PrepareAuthenticatedSession::class,
             ]);
         });
 
+        /*
+        |--------------------------------------------------------------------------
+        | Views
+        |--------------------------------------------------------------------------
+        */
 
         Fortify::loginView(function () {
             return view('auth.login');
@@ -79,9 +108,5 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
         });
-
-
-
-
     }
 }
