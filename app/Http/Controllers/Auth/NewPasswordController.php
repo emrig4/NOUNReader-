@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
+use App\Mail\WelcomeVerifiedUserWithCreditMail;
+use App\Services\AutoCreditService;
 
 class NewPasswordController extends Controller
 {
@@ -29,7 +32,7 @@ class NewPasswordController extends Controller
             'token' => $token
         ]);
     }
-
+    
     /**
      * Handle an incoming new password request.
      *
@@ -52,28 +55,69 @@ class NewPasswordController extends Controller
             ]);
         }
 
+        // Check if this is a new user verification (email not verified yet)
+        $isNewUserVerification = is_null($user->email_verified_at);
+
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
+            function ($user) use ($request, $isNewUserVerification) {
                 $user->forceFill([
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
                     'has_set_permanent_password' => true, // Ensure this is set
-                ])->save();
+                ]);
+                
+                // If this is a new user verification, mark email as verified
+                if ($isNewUserVerification) {
+                    $user->email_verified_at = now();
+                    $user->status = 'active';
+                }
+                
+                $user->save();
 
                 event(new PasswordReset($user));
             }
         );
 
         if ($status == Password::PASSWORD_RESET) {
-            // Auto-login user after password reset
-            Auth::login($user);
-            
-            return redirect()->route('login')
-                ->with('status', 'Password has been reset successfully! You are now logged in.');
+            if ($isNewUserVerification) {
+                // New user verified their email via password reset link
+                // Send welcome email after verification
+                try {
+                    $autoCreditService = new AutoCreditService();
+                    $creditAmount = $autoCreditService->getAutoCreditAmount();
+                    
+                    $welcomeEmail = new WelcomeVerifiedUserWithCreditMail(
+                        $user,
+                        $creditAmount ?? 190.00,
+                        $user->CreditWallet->balance ?? $creditAmount ?? 190.00,
+                        now()
+                    );
+                    
+                    Mail::to($user->email)->send($welcomeEmail);
+                    
+                    \Log::info('Welcome email sent after verification', ['user_id' => $user->id]);
+                } catch (\Exception $e) {
+                    \Log::error('Failed to send welcome email after verification: ' . $e->getMessage());
+                    // Continue even if email fails
+                }
+                
+                // Auto-login user after password reset/verification
+                Auth::login($user);
+                
+                return redirect()->route('login')
+                    ->with('success', 'Email verified successfully! Your account is now active. You can now log in.');
+            } else {
+                // Regular password reset - user already had verified email
+                // Auto-login user after password reset
+                Auth::login($user);
+                
+                return redirect()->route('login')
+                    ->with('status', 'Password has been reset successfully! You are now logged in.');
+            }
         }
 
         throw ValidationException::withMessages([

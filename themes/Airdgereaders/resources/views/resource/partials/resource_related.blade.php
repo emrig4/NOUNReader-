@@ -1,4 +1,4 @@
-<h2 class="ereaders-section-heading">Related Project Guild</h2>
+<h2 class="ereaders-section-heading">Related Resources</h2>
 <div class="ereaders-books ereaders-book-grid ereaders-book-related">
     <div class="row">
         <!-- FIXED: Limit to exactly 6 related resources -->

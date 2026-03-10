@@ -37,24 +37,36 @@ class PasswordResetLinkController extends Controller
             'email' => 'required|email',
         ]);
 
-        // Check if user exists and has set permanent password
+        // Check if user exists
         $user = \App\Models\User::where('email', $request->email)->first();
         
-        if (!$user || !$user->hasSetPermanentPassword()) {
+        if (!$user) {
             // Don't reveal whether user exists or not for security
             return back()
                 ->withInput($request->only('email'))
-                ->with('status', 'If an account with that email exists and has a permanent password set, we have emailed a password reset link.');
+                ->with('status', 'If an account with that email exists, we have emailed a password reset link.');
         }
 
+        // Allow password reset for:
+        // 1. Users who have set permanent password (normal password reset)
+        // 2. Unverified users (can use this to verify their email)
+        
         // Custom branded password reset email implementation
         try {
             // Create reset token
             $token = app('auth.password.broker')->createToken($user);
             $actionUrl = route('password.reset', ['token' => $token, 'email' => $user->email]);
             
+            // Determine if this is a verification or password reset
+            $isVerification = is_null($user->email_verified_at);
+            
             // Send custom branded email with readprojecttopics template
-            Mail::to($user->email)->send(new PasswordResetMail($user, $actionUrl));
+            Mail::to($user->email)->send(new PasswordResetMail($user, $actionUrl, $isVerification));
+            
+            // Determine message based on verification status
+            if ($isVerification) {
+                return back()->with('status', 'We have emailed your verification link! Please check your email to verify your account.');
+            }
             
             return back()->with('status', 'We have emailed your password reset link!');
             

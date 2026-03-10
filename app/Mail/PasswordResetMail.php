@@ -13,14 +13,16 @@ class PasswordResetMail extends Mailable
 
     protected $user;
     protected $actionUrl;
+    protected $isVerification;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($user, $actionUrl)
+    public function __construct($user, $actionUrl, $isVerification = false)
     {
         $this->user = $user;
         $this->actionUrl = $actionUrl;
+        $this->isVerification = $isVerification;
     }
 
     /**
@@ -30,11 +32,17 @@ class PasswordResetMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Password Reset - readprojecttopics')
+        // Determine subject based on whether this is a verification or password reset
+        $subject = $this->isVerification 
+            ? 'Verify Your Email - readprojecttopics' 
+            : 'Password Reset - readprojecttopics';
+
+        return $this->subject($subject)
                     ->view('emails.password-reset')
                     ->with([
                         'user' => $this->user,
                         'actionUrl' => $this->actionUrl,
+                        'isVerification' => $this->isVerification,
                     ]);
     }
 }

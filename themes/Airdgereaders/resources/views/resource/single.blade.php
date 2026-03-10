@@ -210,16 +210,16 @@ $articleSchema = [
                                                 @auth
                                                     <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read</a>
                                                 @else
-                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read</a>
+                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resource</a>
                                                 @endauth
 
                                                 <!-- Download button - NOW visible to everyone -->
                                                 <!-- For guests: redirect to login with intended URL -->
                                                 @auth
                                                     @if($resource->price > 0 && $resource->currency)
-                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download</a>
+                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resource</a>
                                                     @else
-                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download</a>
+                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resource</a>
                                                     @endif
                                                 @else
                                                     {{-- Guest: redirect to login with intended URL, then to download --}}

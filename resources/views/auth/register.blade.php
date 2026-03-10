@@ -37,6 +37,25 @@
                 <input type="email" name="website" tabindex="-1" autocomplete="off" placeholder="">
             </div>
 
+            <!-- Display Session Errors -->
+            @if(session('error'))
+            <div class="alert alert-danger" role="alert" style="margin-bottom: 15px;">
+                <strong>Error:</strong> {{ session('error') }}
+            </div>
+            @endif
+
+            <!-- Display Validation Errors -->
+            @if($errors->any())
+            <div class="alert alert-danger" role="alert" style="margin-bottom: 15px;">
+                <strong>Please correct the following errors:</strong>
+                <ul style="margin-bottom: 0;">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <div class="loginbox-textbox">
                 <x-jet-validation-errors class="mb-4" />
             </div>
@@ -170,4 +189,17 @@
         <img src="{{ asset('themes/airdgereaders/images/projectandmaterials.logo.png') }}">
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check for error or success messages and show alert
+    @if(session('error'))
+        alert('{{ session('error') }}');
+    @endif
+    
+    @if(session('success'))
+        alert('{{ session('success') }}');
+    @endif
+});
+</script>
 @endsection

@@ -107,8 +107,20 @@
         <div class="logo">
             <img src="https://projectandmaterials.com/themes/airdgereaders/images/logo.png" alt="Readprojecttopics Logo">
         </div>
-        <div class="title">Password Reset</div>
-        <div class="subtitle">Secure Account Recovery</div>
+        <div class="title">
+            @if(isset($isVerification) && $isVerification)
+                Email Verification
+            @else
+                Password Reset
+            @endif
+        </div>
+        <div class="subtitle">
+            @if(isset($isVerification) && $isVerification)
+                Verify Your Account
+            @else
+                Secure Account Recovery
+            @endif
+        </div>
     </div>
 
     <!-- SECOND MAIN LOGO -->
@@ -123,14 +135,25 @@
             Hello!
         </p>
 
-        <p>You are receiving this email because you requested a password reset for your account.</p>
+        @if(isset($isVerification) && $isVerification)
+            <p>Thank you for registering! Please verify your email address by clicking the button below.</p>
+            
+            <a href="{{ $actionUrl }}" class="action-button">Verify Email</a>
+            
+            <div class="note-box">
+                <strong>Important:</strong>
+                <p>This verification link will expire in 60 minutes. After verification, you can set your password and access your account.</p>
+            </div>
+        @else
+            <p>You are receiving this email because you requested a password reset for your account.</p>
 
-        <a href="{{ $actionUrl }}" class="action-button">Reset Password</a>
+            <a href="{{ $actionUrl }}" class="action-button">Reset Password</a>
 
-        <div class="note-box">
-            <strong>Important:</strong>
-            <p>This reset link will expire in 60 minutes.</p>
-        </div>
+            <div class="note-box">
+                <strong>Important:</strong>
+                <p>This reset link will expire in 60 minutes.</p>
+            </div>
+        @endif
 
         <div class="note-box" style="border-left-color:#f59e0b;background:#fffbeb;">
             <strong style="color:#b45309;">If you did not request this:</strong>

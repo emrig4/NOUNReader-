@@ -132,16 +132,16 @@ return [
     |
     */
 
-    // 'features' => [
-       //  Features::registration(),
-        // Features::resetPasswords(),
+  'features' => [
+      Features::registration(),
+       Features::resetPasswords(),
         // Features::emailVerification(), // Commented out to avoid conflicts with verification code system
-        // Features::updateProfileInformation(),
-        // Features::updatePasswords(),
+        Features::updateProfileInformation(),
+        Features::updatePasswords(),
         // Features::twoFactorAuthentication([
          //    'confirm' => true,
          //    'confirmPassword' => true,
         // ]),
-    // ],
+     ],
 
 ];

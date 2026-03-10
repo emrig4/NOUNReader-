@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PlagiarismCheckerController;
 
+    // Email verification notice page
+    Route::get('/verification/notice', [App\Http\Controllers\AuthController::class, 'showVerificationNotice'])
+        ->name('verification.notice');
+
+    // Resend verification link
+    Route::post('/verification/resend', [App\Http\Controllers\AuthController::class, 'resendVerificationLink'])
+        ->name('verification.resend');
+        
 // ========================================================================
 // CRITICAL SEO REDIRECTS - Must be at top to catch requests first
 // Redirect /public/resources/... to /resources/... (301 for SEO canonical)
