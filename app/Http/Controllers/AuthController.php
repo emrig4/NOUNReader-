@@ -18,6 +18,7 @@ use App\Services\AutoCreditService;
 use App\Services\EmailNotificationService;
 use App\Mail\PasswordResetMail;
 use Illuminate\Support\Facades\Mail;
+use App\Services\ReferralService;
 
 class AuthController extends Controller
 {
@@ -51,7 +52,10 @@ class AuthController extends Controller
         Log::info('AuthController: Starting user registration', ['email' => $request->email]);
 
         try {
-            DB::beginTransaction();
+            // Get referral code from URL or session
+$referralCode = $request->ref ?? session('referral_code');
+
+DB::beginTransaction();
 
             // Create user with UNVERIFIED email
             $user = User::create([
@@ -62,6 +66,22 @@ class AuthController extends Controller
                 'has_set_permanent_password' => true,
                 'email_verified_at' => null, // NOT verified - requires email verification
             ]);
+            // ✅ PROCESS REFERRAL
+if ($referralCode) {
+    try {
+        $referralService = new ReferralService();
+        $referralService->processReferral($user, $referralCode);
+
+        Log::info('Referral processed', [
+            'user_id' => $user->id,
+            'referral_code' => $referralCode
+        ]);
+    } catch (\Exception $e) {
+        Log::error('Referral processing failed', [
+            'error' => $e->getMessage()
+        ]);
+    }
+}
 
             Log::info('AuthController: User created with unverified email', ['user_id' => $user->id]);
             Log::info('AuthController: Account and Wallets auto-created', ['user_id' => $user->id]);

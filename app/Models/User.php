@@ -49,6 +49,7 @@ class User extends Authenticatable
         'has_set_permanent_password', // Added for verification code system
         'status', // ✅ ADDED: For retry-friendly registration
         'verification_code', // ✅ ADDED: To store verification code in database
+        'referral_code', // Add this
     ];
 
     /**
@@ -416,4 +417,26 @@ public function getPlagiarismLimits()
         // Return initials avatar if no photo uploaded
         return $this->getInitialsAvatarUrl();
     }
+    
+    /**
+ * Generate referral code for user
+ */
+public function generateReferralCode(): string
+{
+    $code = strtoupper(substr($this->first_name, 0, 3) . substr($this->last_name, 0, 3) . $this->id . rand(100, 999));
+    $this->referral_code = $code;
+    $this->save();
+    return $code;
+}
+
+/**
+ * Get user's referral link
+ */
+public function getReferralLinkAttribute(): string
+{
+    if (!$this->referral_code) {
+        $this->generateReferralCode();
+    }
+    return route('register') . '?ref=' . $this->referral_code;
+}
 }
