@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\AdminBulkMessage;
-use App\Modules\User\Models\User;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
@@ -18,169 +17,76 @@ class AdminMessageController extends Controller
     }
 
     /**
-     * Show the admin message form
+     * Show the simple message form for verified users only
      */
-    public function index()
+    public function showMessageUsersForm()
     {
-        return view('admin.message-center');
+        $verifiedUsersCount = User::whereNotNull('email_verified_at')
+                                 ->whereNotNull('email')
+                                 ->where('email', '!=', '')
+                                 ->count();
+        
+        return view('admin.message-users', compact('verifiedUsersCount'));
     }
 
     /**
-     * Send bulk/admin messages to users
+     * Send message to all verified users using QUEUES (for thousands of users)
      */
-    public function sendMessage(Request $request)
+    public function sendToVerifiedUsers(Request $request)
     {
+        // Validate the request
         $request->validate([
-            'message_type' => 'required|in:reminder,wish,announcement,custom',
-            'recipient' => 'required|in:all,recent,contributors,individual',
-            'subject' => 'required|string|max:100',
-            'message' => 'required|string|max:2000',
-            'individual_email' => 'nullable|email',
-            'personal_touch' => 'nullable|boolean',
+            'title' => 'required|string|max:255',
+            'message' => 'required|string|min:10',
         ]);
 
-        try {
-            // Get target users based on recipient type
-            $users = $this->getTargetUsers($request->recipient, $request->individual_email);
-            
-            if ($users->isEmpty()) {
-                return redirect()->back()
-                    ->with('error', 'No users found with the specified criteria.')
-                    ->withInput();
-            }
+        // Get all verified users only
+        $verifiedUsers = User::whereNotNull('email_verified_at')
+                           ->whereNotNull('email')
+                           ->where('email', '!=', '')
+                           ->get();
 
-            $sentCount = 0;
-            $failedCount = 0;
+        // Check if there are any verified users
+        if ($verifiedUsers->isEmpty()) {
+            return back()->with('error', 'No verified users found to send message to.');
+        }
 
-            // Send messages to each user
-            foreach ($users as $user) {
-                try {
-                    // Prepare message data
-                    $messageData = [
-                        'user' => $user,
-                        'subject' => $request->subject,
-                        'message' => $request->message,
-                        'type' => $request->message_type,
-                        'personalTouch' => $request->has('personal_touch'),
-                        'adminName' => auth()->user()->name ?? 'Admin',
-                    ];
+        $title = $request->input('title');
+        $messageContent = $request->input('message');
+        
+        // Get admin name
+        $adminName = auth()->user()->name ?? 'Admin';
 
-                    // Send email
-                    Mail::to($user->email)->send(new AdminBulkMessage($messageData));
-                    $sentCount++;
+        // Queue emails instead of sending synchronously
+        $queuedCount = 0;
+        foreach ($verifiedUsers as $user) {
+            try {
+                $messageData = [
+                    'user' => $user,
+                    'subject' => $title,
+                    'message' => $messageContent,
+                    'type' => 'custom',
+                    'personalTouch' => true,
+                    'adminName' => $adminName,
+                ];
 
-                    // Log the message
-                    Log::info("Admin message sent to user {$user->id} ({$user->email})", [
-                        'type' => $request->message_type,
-                        'subject' => $request->subject,
-                        'admin_id' => auth()->id(),
-                    ]);
-
-                } catch (\Exception $e) {
-                    $failedCount++;
-                    Log::error("Failed to send admin message to user {$user->id}: " . $e->getMessage());
+                // Dispatch to queue instead of sending directly
+                Mail::to($user->email)->queue(new AdminBulkMessage($messageData));
+                $queuedCount++;
+                
+                // Log progress every 500 emails
+                if ($queuedCount % 500 === 0) {
+                    Log::info("Admin bulk message: Queued {$queuedCount} emails so far...");
                 }
+                
+            } catch (\Exception $e) {
+                Log::error("Failed to queue admin message for user {$user->id}: " . $e->getMessage());
             }
-
-            // Return success response
-            $message = "Message sent successfully! {$sentCount} users received the email.";
-            if ($failedCount > 0) {
-                $message .= " {$failedCount} users failed to receive the email.";
-            }
-
-            return redirect()->back()->with('success', $message);
-
-        } catch (\Exception $e) {
-            Log::error("Admin message sending failed: " . $e->getMessage());
-            return redirect()->back()
-                ->with('error', 'Failed to send messages. Please try again.')
-                ->withInput();
         }
-    }
 
-    /**
-     * Get target users based on recipient criteria
-     */
-    private function getTargetUsers($recipient, $individualEmail = null)
-    {
-        switch ($recipient) {
-            case 'all':
-                return User::where('email', '!=', null)->get();
-                
-            case 'recent':
-                return User::where('email', '!=', null)
-                    ->where('created_at', '>=', now()->subDays(30))
-                    ->get();
-                
-            case 'contributors':
-                // Get users who have submitted resources
-                return User::whereHas('resources', function ($query) {
-                    $query->whereNotNull('id');
-                })->get();
-                
-            case 'individual':
-                if (!$individualEmail) {
-                    return collect();
-                }
-                return User::where('email', $individualEmail)->get();
-                
-            default:
-                return collect();
-        }
-    }
+        Log::info("Admin bulk message: Queued {$queuedCount} emails for delivery");
 
-    /**
-     * Get user statistics for message targeting
-     */
-    public function getUserStats()
-    {
-        $stats = [
-            'total_users' => User::count(),
-            'recent_users' => User::where('created_at', '>=', now()->subDays(30))->count(),
-            'contributors' => User::whereHas('resources')->count(),
-        ];
-
-        return response()->json($stats);
-    }
-
-    /**
-     * Test message sending (for development)
-     */
-    public function testMessage(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'subject' => 'required|string',
-            'message' => 'required|string',
-        ]);
-
-        try {
-            $testUser = (object)[
-                'name' => 'Test User',
-                'email' => $request->email,
-            ];
-
-            $messageData = [
-                'user' => $testUser,
-                'subject' => $request->subject,
-                'message' => $request->message,
-                'type' => 'test',
-                'personalTouch' => true,
-                'adminName' => 'Admin Test',
-            ];
-
-            Mail::to($request->email)->send(new AdminBulkMessage($messageData));
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Test message sent successfully!'
-            ]);
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to send test message: ' . $e->getMessage()
-            ], 500);
-        }
+        // Return immediately - emails will be sent in background
+        return back()->with('success', "Message queued for {$queuedCount} verified users! Emails will be delivered in the background.");
     }
 }
