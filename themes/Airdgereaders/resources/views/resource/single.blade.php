@@ -208,18 +208,18 @@ $articleSchema = [
                                                 <!-- Read button - visible to everyone -->
                                                 <!-- For guests: store intended URL before redirecting to login -->
                                                 @auth
-                                                    <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read</a>
+                                                    <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resources</a>
                                                 @else
-                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resource</a>
+                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resources</a>
                                                 @endauth
 
                                                 <!-- Download button - NOW visible to everyone -->
                                                 <!-- For guests: redirect to login with intended URL -->
                                                 @auth
                                                     @if($resource->price > 0 && $resource->currency)
-                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resource</a>
+                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resources</a>
                                                     @else
-                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resource</a>
+                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resources</a>
                                                     @endif
                                                 @else
                                                     {{-- Guest: redirect to login with intended URL, then to download --}}
@@ -231,12 +231,12 @@ $articleSchema = [
                                                 @endauth
 
                                                 <!-- These buttons always show -->
-                                                <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Cite</a>
+                                                <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Cite Resources</a>
 
                                                 @if(auth()->user() && is_favorite($resource->id))
-                                                    <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Unsave</a>
+                                                    <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Unsave Resources</a>
                                                 @else
-                                                    <a href="{{ route('account.favorites.add', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Save</a>
+                                                    <a href="{{ route('account.favorites.add', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Save Resources</a>
                                                 @endif
 
                                                 @if(auth()->user())
