@@ -18,6 +18,19 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PlagiarismCheckerController;
 
+// ========================================================================
+// ADMIN MANUAL MESSAGE ROUTES
+// ========================================================================
+// Route to show the message users form
+Route::get('/admin/message-users', [App\Http\Controllers\AdminController::class, 'showMessageUsersForm'])
+    ->name('admin.message-users')
+    ->middleware('auth');
+
+// Route to send message to all verified users
+Route::post('/admin/message-users/send', [App\Http\Controllers\AdminController::class, 'sendMessageToUsers'])
+    ->name('admin.message-users.send')
+    ->middleware('auth');
+
     // Email verification notice page
     Route::get('/verification/notice', [App\Http\Controllers\AuthController::class, 'showVerificationNotice'])
         ->name('verification.notice');

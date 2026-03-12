@@ -25,40 +25,15 @@
             text-align: center;
             color: white;
         }
-        .header.reminder {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
-        .header.wish {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
-        .header.announcement {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-        }
-        .header.custom {
-            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
-        }
-        .header.test {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        }
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 0;
-            color: white;
-        }
-        .subtitle {
-            font-size: 16px;
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-        }
-        .content {
-            padding: 40px 30px;
-        }
-        .greeting {
-            font-size: 18px;
-            margin-bottom: 25px;
-            color: #374151;
-        }
+        .header.reminder { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .header.wish { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .header.announcement { background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); }
+        .header.custom { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
+        .header.test { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .title { font-size: 28px; font-weight: bold; margin: 0; color: white; }
+        .subtitle { font-size: 16px; margin: 10px 0 0 0; opacity: 0.9; }
+        .content { padding: 40px 30px; }
+        .greeting { font-size: 18px; margin-bottom: 25px; color: #374151; }
         .message-content {
             background-color: #f8fafc;
             border-radius: 8px;
@@ -66,21 +41,11 @@
             margin: 25px 0;
             border-left: 4px solid;
         }
-        .message-content.reminder {
-            border-left-color: #f59e0b;
-        }
-        .message-content.wish {
-            border-left-color: #10b981;
-        }
-        .message-content.announcement {
-            border-left-color: #3b82f6;
-        }
-        .message-content.custom {
-            border-left-color: #6b7280;
-        }
-        .message-content.test {
-            border-left-color: #8b5cf6;
-        }
+        .message-content.reminder { border-left-color: #f59e0b; }
+        .message-content.wish { border-left-color: #10b981; }
+        .message-content.announcement { border-left-color: #3b82f6; }
+        .message-content.custom { border-left-color: #6b7280; }
+        .message-content.test { border-left-color: #8b5cf6; }
         .personal-note {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border: 1px solid #f59e0b;
@@ -96,10 +61,7 @@
             margin: 30px 0;
             text-align: center;
         }
-        .cta-section h3 {
-            color: #1e40af;
-            margin-bottom: 15px;
-        }
+        .cta-section h3 { color: #1e40af; margin-bottom: 15px; }
         .footer {
             background-color: #1f2937;
             color: white;
@@ -151,8 +113,8 @@
             @endif
 
             <p class="greeting">
-                @if($personalTouch && isset($user->name))
-                    Hello {{ $user->name }},
+                @if($personalTouch && isset($user->first_name))
+                    Hello {{ $user->first_name }},
                 @else
                     Hello,
                 @endif
