@@ -3,15 +3,16 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class AdminBulkMessage extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    // Use simple strings, NOT objects for queue compatibility
+    public $userEmail;
     public $userName;
     public $subject;
     public $message;
@@ -21,27 +22,28 @@ class AdminBulkMessage extends Mailable implements ShouldQueue
 
     public function __construct($messageData)
     {
-        $this->user = $messageData['user'];
-        // Ensure userName is always set
-        $this->userName = $messageData['user']->name ?? $messageData['user']->first_name ?? 'User';
-        $this->subject = $messageData['subject'];
-        $this->message = $messageData['message'];
-        $this->type = $messageData['type'];
-        $this->personalTouch = $messageData['personalTouch'];
-        $this->adminName = $messageData['adminName'];
+        // Store simple strings, NOT objects - this prevents serialization errors
+        $this->userEmail = $messageData['userEmail'] ?? '';
+        $this->userName = $messageData['userName'] ?? 'User';
+        $this->subject = $messageData['subject'] ?? '';
+        $this->message = $messageData['message'] ?? '';
+        $this->type = $messageData['type'] ?? 'custom';
+        $this->personalTouch = $messageData['personalTouch'] ?? true;
+        $this->adminName = $messageData['adminName'] ?? 'Admin';
         
-        // Set queue connection
+        // Specify queue for better processing
         $this->onQueue('emails');
     }
 
     public function build()
     {
+        // Dynamic subject based on type
         $emailSubject = $this->getSubjectByType();
         
         return $this->subject($emailSubject)
                    ->view('emails.admin-bulk-message')
                    ->with([
-                       'user' => $this->user,
+                       'userEmail' => $this->userEmail,
                        'userName' => $this->userName,
                        'subject' => $this->subject,
                        'message' => $this->message,

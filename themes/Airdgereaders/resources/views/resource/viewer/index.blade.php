@@ -106,7 +106,7 @@
                 <h4>{{ $resource->title }}</h4>
 
                 <p>
-                    This project contains
+                    This Resource contains
                     <strong>{{ $resource->pages ?? 'multiple' }} pages</strong>.
                 </p>
                 <p>
