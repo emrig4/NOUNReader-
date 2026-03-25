@@ -34,8 +34,8 @@ class PasswordResetMail extends Mailable
     {
         // Determine subject based on whether this is a verification or password reset
         $subject = $this->isVerification 
-            ? 'Verify Your Email - readprojecttopics' 
-            : 'Password Reset - readprojecttopics';
+            ? 'NOUNReader - Verify Your Email Address' 
+            : 'NOUNReader - Password Reset Request';
 
         return $this->subject($subject)
                     ->view('emails.password-reset')

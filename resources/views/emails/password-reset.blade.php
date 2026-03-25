@@ -108,18 +108,10 @@
             <img src="#" alt="Noun Reader">
         </div>
         <div class="title">
-            @if(isset($isVerification) && $isVerification)
-                Email Verification
-            @else
-                Password Reset
-            @endif
+            Secure Account Access
         </div>
         <div class="subtitle">
-            @if(isset($isVerification) && $isVerification)
-                Verify Your Account
-            @else
-                Secure Account Recovery
-            @endif
+            Action Required
         </div>
     </div>
 
@@ -135,29 +127,18 @@
             Hello!
         </p>
 
-        @if(isset($isVerification) && $isVerification)
-            <p>Thank you for registering! Please verify your email address by clicking the button below.</p>
+        <p>You have requested a secure link to access your account. Please click the button below to proceed.</p>
             
-            <a href="{{ $actionUrl }}" class="action-button">Verify Email</a>
-            
-            <div class="note-box">
-                <strong>Important:</strong>
-                <p>This verification link will expire in 60 minutes. After verification, you can set your password and access your account.</p>
-            </div>
-        @else
-            <p>You are receiving this email because you requested a password reset for your account.</p>
-
-            <a href="{{ $actionUrl }}" class="action-button">Reset Password</a>
-
-            <div class="note-box">
-                <strong>Important:</strong>
-                <p>This reset link will expire in 60 minutes.</p>
-            </div>
-        @endif
+        <a href="{{ $actionUrl }}" class="action-button">Secure My Account</a>
+        
+        <div class="note-box">
+            <strong>Important:</strong>
+            <p>This secure link will expire in 60 minutes. For your security, please complete this action promptly.</p>
+        </div>
 
         <div class="note-box" style="border-left-color:#f59e0b;background:#fffbeb;">
             <strong style="color:#b45309;">If you did not request this:</strong>
-            <p style="color:#92400e;">Please ignore this email. Your account remains secure.</p>
+            <p style="color:#92400e;">Please ignore this email. Your account remains secure and no changes have been made.</p>
         </div>
 
         <p style="margin-top:25px;font-size:14px;color:#374151;">

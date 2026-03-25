@@ -1,18 +1,39 @@
 /node_modules
+/vendor
+
+# Laravel core
+
 /public/hot
 /public/storage
 /storage/*.key
 /storage/logs/*
-/vendor
+
+# Environment files
+
 .env
 .env.backup
+
+# Testing & cache
+
 .phpunit.result.cache
+
+# Docker / Homestead
+
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
+
+# Logs
+
 npm-debug.log
 yarn-error.log
+public/error_log
+
+# IDE
+
 /.idea
 /.vscode
+
+# Auth
+
 auth.json
-public/error_log

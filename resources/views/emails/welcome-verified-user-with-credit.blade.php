@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Projectandmaterials!</title>
+    <title>Welcome to NOUNREADER!</title>
 
     <style>
         body {
@@ -146,15 +146,15 @@
     <!-- HEADER WITH TOP LOGO -->
     <div class="header">
         <div class="logo">
-            <img src="https://projectandmaterials.com/themes/airdgereaders/images/projectandmaterials.logo.png" alt="projectandmaterials Logo">
+            <img src="https://projectandmaterials.com/themes/airdgereaders/images/projectandmaterials.logo.png" alt="NounReader Logo">
         </div>
-        <div class="title">Welcome to Readprojecttopics!</div>
+        <div class="title">Welcome to NounReader!</div>
         <div class="subtitle">Email Verified • Account Activated</div>
     </div>
 
     <!-- MAIN CENTER LOGO -->
     <div class="main-logo">
-        <img src="https://projectandmaterials.com/themes/airdgereaders/images/Projectandmaterials.webp" alt="ReadProjectTopics">
+        <img src="https://projectandmaterials.com/themes/airdgereaders/images/Projectandmaterials.webp" alt="NounReader">
     </div>
 
     <!-- CONTENT -->
@@ -168,7 +168,7 @@
             🎉 Your Email Has Been Successfully Verified!
         </div>
 
-        <p>We’re excited to welcome you to the Readprojecttopics community — your home for high-quality academic resources.</p>
+        <p>We’re excited to welcome you to the NounReader community —Your Noun study companion.</p>
 
         <!-- Credit Notification -->
         <div class="credit-box">
@@ -194,17 +194,16 @@
             <h3 style="text-align:center;color:#1e293b;">🚀 What You Can Do Now</h3>
     <li>
                     Visit page:
-                    <a href="https://projectandmaterials.com/"
+                    <a href="https://nounreader.com/"
                        target="_blank"
                        style="color:#3b82f6; text-decoration:none; font-weight:bold;">
-                        https://projectandmaterials.com
+                        https://nounreader.com
                     </a>
                 </li>
-            <div class="feature-item"><span>📚</span>Access thousands of Project materials</div>
-            <div class="feature-item"><span>💳</span>Use your digital wallet to unlock projects</div>
-            <div class="feature-item"><span>🔍</span>Search with advanced filtering tools</div>
+            <div class="feature-item"><span>📚</span>Access thousands of TMA and E-EXAMS past questions/answers, POP past questions and Course summaries</div>
+             <div class="feature-item"><span>🔍</span>Search with advanced filtering tools</div>
             <div class="feature-item"><span>📱</span>Enjoy a mobile-friendly experience</div>
-            <div class="feature-item"><span>👥</span>Join discussions and leave reviews</div>
+            <div class="feature-item"><span>👥</span>Join our Forum discussions for updates</div>
         </div>
 
     </div>
@@ -215,10 +214,10 @@
     <p>This is an automated welcome message.</p>
 
     <div class="footer-brand">
-        <a href="https://projectandmaterials.com/"
+        <a href="https://nounreader.com"
            target="_blank"
            style="color:#3b82f6; text-decoration:none; font-weight:bold;">
-            Projectandmaterials – Your Academic Resource Platform
+            NounReader - Your Noun study companion
         </a>
     </div>
 </div>

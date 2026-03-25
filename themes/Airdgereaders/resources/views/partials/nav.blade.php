@@ -6,18 +6,18 @@
 
          <li><a href="#">Download</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
             <ul class="sub-menu level-2">
-                <li><a href="https://pamdev.online/resources/topics/100-level-course-summaries">COURSE SUMMARIES</a></li>
-              <li><a href="https://pamdev.online/resources/topics/noun-pop-past-questions">POP EXAMS</a></li>
+                <li><a href="https://pamdev.online/resources/topics/100-level-course-summaries">course summaries</a></li>
+              <li><a href="https://pamdev.online/resources/topics/noun-pop-past-questions">pop Exams</a></li>
               <li><a href="https://pamdev.online/resources/topics/noun-tma-past-questions-answers">TMA</a></li>
-              <li><a href="https://pamdev.online/resources/topics/noun-e-exam-past-questions">E-EXAMS</a></li>
-              <li><a href="http://projectandmaterials.com/">PROJECTS</a></li>
+              <li><a href="https://pamdev.online/resources/topics/noun-e-exam-past-questions">E-exams</a></li>
+              <li><a href="http://projectandmaterials.com/">Projects</a></li>
 
             </ul>
         </li>
         
-     <li><a href="">TUTORIAL</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+     <li><a href="">Tutorial</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
             <ul class="sub-menu level-2">
-                 <li><a href="https://www.youtube.com/@NOUNTUTORIAL">YOUTUBE CHANNEL</a></li>
+                 <li><a href="https://www.youtube.com/@NOUNTUTORIAL">Youtube</a></li>
           
             </ul>
         </li>
