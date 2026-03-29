@@ -52,56 +52,56 @@ Settings
 <!-- STUDY RESOURCES -->
 
 <li role="presentation">
-<a href="#">
+<a href="/resources/topics/noun-pop-past-questions">
 <i class="fas fa-file-alt"></i>
 POP Exams
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="/resources/topics/noun-e-exam-past-questions">
 <i class="fas fa-laptop-code"></i>
 E-Exams
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="/resources/topics/100-level-course-summaries">
 <i class="fas fa-book"></i>
 Summaries
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="/pricings">
 <i class="fas fa-coins"></i>
 Buy Credits
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="https://www.youtube.com/@NOUNTUTORIAL">
 <i class="fab fa-youtube"></i>
 Youtube
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="/resources/topics/noun-tma-past-questions-answers">
 <i class="fas fa-clipboard-check"></i>
 TMA
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="https://projectandmaterials.com/">
 <i class="fas fa-project-diagram"></i>
 Projects
 </a>
 </li>
 
 <li role="presentation">
-<a href="#">
+<a href="https://projectandmaterials.com/">
 <i class="fas fa-graduation-cap"></i>
 Thesis
 </a>

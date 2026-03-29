@@ -1,15 +1,24 @@
 <nav id="menu" class="menu navbar navbar-default">
     <ul class="level-1 navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-            <li><a href="https://pamdev.online/resources/fields/noun-resources">Resources</a></li>
-            
+            <li>
+    <a href="#">About</a>
+    <span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+    <ul class="sub-menu level-2">
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/how-it-works">How it works</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/faq">FAQ</a></li>
+    </ul>
+</li>
 
-         <li><a href="#">Download</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
+         <li><a href="#">Resources</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
             <ul class="sub-menu level-2">
-                <li><a href="https://pamdev.online/resources/topics/100-level-course-summaries">course summaries</a></li>
-              <li><a href="https://pamdev.online/resources/topics/noun-pop-past-questions">pop Exams</a></li>
-              <li><a href="https://pamdev.online/resources/topics/noun-tma-past-questions-answers">TMA</a></li>
-              <li><a href="https://pamdev.online/resources/topics/noun-e-exam-past-questions">E-exams</a></li>
+                <li><a href="/resources/fields/noun-resources">All categories</a></li>
+                <li><a href="/resources/topics/100-level-course-summaries">Course summaries</a></li>
+              <li><a href="/resources/topics/noun-pop-past-questions">POP Exams</a></li>
+              <li><a href="/resources/topics/noun-tma-past-questions-answers">TMA</a></li>
+              <li><a href="/resources/topics/noun-e-exam-past-questions">E-exams</a></li>
               <li><a href="http://projectandmaterials.com/">Projects</a></li>
 
             </ul>
@@ -25,8 +34,8 @@
         <li><a href="#">SERVICES</a><span class="has-subnav"><i class="fa fa-angle-down"></i></span>
             <ul class="sub-menu level-2">
                 <li><a href="https://api.whatsapp.com/send/?phone=2349038349959&text=Hi%21+I+need+to+hire+a+professional+writer+for+my+project.&type=phone_number&app_absent=0">Project writing</a></li>
-                <li><a href="https://projectandmaterials.com/plagiarism-checker">Plagiarism checker</a></li>
-                <li><a href="https://projectandmaterials.com/ai-detector">AI Detector</a></li>
+                <li><a href="/plagiarism-checker">Plagiarism checker</a></li>
+                <li><a href="/ai-detector">AI Detector</a></li>
                 <li><a href="https://www.youtube.com/@project-and-materials">Youtube Tutorials</a></li>
                   <!--//<li><a href="https://projectandmaterials.com/topics-suggestion">Topic suggestion</a></li>\\-->
             </ul>
@@ -50,10 +59,10 @@
                 <ul class="sub-menu level-2">
                     <li><a href="{{ route('account.index') }}">Dashboard</a></li>
                    
-                    <li><a href="https://projectandmaterials.com/account/subscription">Wallet</a></li>
+                    <li><a href="/account/subscription">Wallet</a></li>
                     <li><a href="{{ route('account.followings') }}">Followings</a></li>
                     <li><a href="{{ route('account.notifications') }}">Notifications</a></li>
-                    <li><a href="https://projectandmaterials.com/account/favorites">favorites</a></li>
+                    <li><a href="/account/favorites">favorites</a></li>
                     <li><a href="{{ route('account.settings') }}">Settings</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}" id="logout-form">

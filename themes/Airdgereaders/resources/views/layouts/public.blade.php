@@ -1044,6 +1044,12 @@ function sendWhatsAppMessage(message) {
     .social-popup-dont-show { margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 14px; }
     .social-popup-dont-show label { cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
     @media (max-width: 480px) { .social-popup-container { padding: 30px 20px; } .social-popup-title { font-size: 22px; } }
+    .social-popup-dont-show,
+.social-popup-dont-show label {
+    margin-top: 20px;
+    color: #ffffff !important;
+    font-size: 14px;
+}
 </style>
 
 <div class="social-popup-overlay" id="socialPopup">
@@ -1052,9 +1058,9 @@ function sendWhatsAppMessage(message) {
         <div class="social-popup-title">Join Our Community!</div>
         <div class="social-popup-subtitle">Connect with us on social media for updates</div>
         <div class="social-popup-buttons">
-            <a href="https://chat.whatsapp.com/YOUR-LINK" target="_blank" class="social-popup-btn whatsapp">Join WhatsApp</a>
-            <a href="https://t.me/YOUR-CHANNEL" target="_blank" class="social-popup-btn telegram">Join Telegram</a>
-            <a href="https://facebook.com/YOUR-PAGE" target="_blank" class="social-popup-btn facebook">Facebook Page</a>
+            <a href="https://whatsapp.com/channel/0029Vb7Ya4R0VycN8IbjJS45" target="_blank" class="social-popup-btn whatsapp">Join WhatsApp</a>
+            <a href="https://t.me/nounreader" target="_blank" class="social-popup-btn telegram">Join Telegram</a>
+            <a href="https://web.facebook.com/groups/nationalopenuniversitynounreader" target="_blank" class="social-popup-btn facebook">Facebook Page</a>
         </div>
         <div class="social-popup-dont-show">
             <label><input type="checkbox" id="dontShowAgain" onchange="handleDontShowChange()"> Don't show again (24 hours)</label>

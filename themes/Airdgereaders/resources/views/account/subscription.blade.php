@@ -27,7 +27,7 @@
                                 <p class="text-4xl font-bold mb-4" style="color: white;">{{ $subscriptionBalance }} Credits</p>
                                 
                                 <!-- Prominent Buy More Credits Button -->
-                                <a href="https://projectandmaterials.com/pricings" target="_blank" class="inline-block w-full text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg" style="background: #23A455;" onmouseover="this.style.background='#1e8f49'" onmouseout="this.style.background='#23A455'">
+                                <a href="/pricings" target="_blank" class="inline-block w-full text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg" style="background: #23A455;" onmouseover="this.style.background='#1e8f49'" onmouseout="this.style.background='#23A455'">
                                     <i class="icon ereaders-shopping-bag mr-2"></i>
                                     Buy More Credits
                                 </a>
@@ -170,7 +170,7 @@
                                                 </svg>
                                             </div>
                                             <p class="text-lg text-gray-600 mb-4">No transactions yet. Buy some credits to get started!</p>
-                                            <a href="https://projectandmaterials.com/pricings" target="_blank" class="inline-block text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" style="background: #23A455;" onmouseover="this.style.background='#1e8f49'" onmouseout="this.style.background='#23A455'">
+                                            <a href="/pricings" target="_blank" class="inline-block text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" style="background: #23A455;" onmouseover="this.style.background='#1e8f49'" onmouseout="this.style.background='#23A455'">
                                                 Buy Credits Now
                                             </a>
                                         </div>

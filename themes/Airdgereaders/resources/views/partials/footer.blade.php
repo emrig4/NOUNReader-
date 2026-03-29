@@ -134,6 +134,48 @@
     .search-btn {
         padding: 12px;
     }
+    /* FIX FOOTER ON MOBILE */
+@media (max-width: 768px) {
+
+    .ereaders-footer-widget .row {
+        display: block !important;
+    }
+
+    .ereaders-footer-widget .col-md-4,
+    .ereaders-footer-widget .col-md-8 {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .ereaders-footer-widget .col-md-8 {
+        display: block !important;
+    }
+
+    .ereaders-footer-widget .col-md-8 > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-widget {
+        text-align: left;
+    }
+
+    .footer-widget-title {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .footer-menu li {
+        margin-bottom: 8px;
+    }
+
+    /* Fix Login | Logout */
+    .footer-menu li a {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+}
 }
 </style>
 
@@ -231,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="col-md-12">
                     <div class="ereaders-footer-newslatter flex flex-col items-center">
                         <h2>Subscribe to Our Newsletter</h2>
-                        <p>Sign up to our newsletter to be the first to receive the latest project topics, research materials, and academic tips on ReadProjectTopics.</p>
+                                    <p>Get the latest NOUN course summaries, TMA, POP past questions, and exam preparation tips delivered directly to your email.</p>
                         <form action="#">
                             <input value="Enter Your Email Address" 
                                 onblur="if(this.value == '') { this.value ='Enter Your Email Address'; }" 
@@ -247,55 +289,30 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="row p-2">
                 <div class="col-md-4 pt-5">
                     <div class="footer-widget">
-                        <h4 class="footer-widget-title">Projects</h4>
+                        <h4 class="footer-widget-title">Quick Links</h4>
                         <ul class="footer-menu list-style">
-                            <li><a href="https://projectandmaterials.com/project-topics-materials">Browse Topics</a></li>
-                            <li><a href="https://projectandmaterials.com/resources/fields/project-topics">Departments</a></li>
-                            <li><a href="https://projectandmaterials.com/search-topic">Search Topics</a></li>
-                            <li><a href="https://projectandmaterials.com/resources/submit">Publish projects</a></li>
+                            <li><a href="/how-it-works">How it works</a></li>
+                            <li><a href="/resources/fields/noun-resources">All Categories</a></li>
+                            <li><a href="https://www.youtube.com/@NOUNTUTORIAL">Tutorials</a></li>
+                            <li><a href="https://api.whatsapp.com/send/?phone=2349038349959&text=Hi%21+I+need+to+hire+a+professional+writer+for+my+project.&type=phone_number&app_absent=0">Hire Project Writer</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-8 pt-5 flex justify-between">
                     
-                    <div>
-                        <div class="footer-widget">
-                            <h4 class="footer-widget-title">Company</h4>
-                            <ul class="footer-menu list-style">
-                                <li><a href="https://projectandmaterials.com/about-us">About</a></li>
-                                <li><a href="https://projectandmaterials.com/how-it-works">How It Works</a></li>
-                                <li><a href="https://projectandmaterials.com/faq">FAQ</a></li>
-                                <li><a href="https://projectandmaterials.com/pricings">Pricing</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                  
+
+                 
 
                     <div>
                         <div class="footer-widget">
-                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <h4 class="footer-widget-title">Resources</h4>
                             <ul class="footer-menu list-style">
-                                <li><a href="https://projectandmaterials.com/">Home</a></li>
-                                <li><a href="https://projectandmaterials.com/register">Join</a></li>
-                                <li><a href="https://projectandmaterials.com/login">Login</a> 
-                               |  <form method="POST" action="{{ route('logout') }}" style="margin: 0; padding: 0;">
-                            @csrf
-                            <a href="#" onclick="event.preventDefault(); this.closest('form').submit();" style="display: block; padding: 0; background: none; border: none; cursor: pointer; text-decoration: none;">
-                                Logout
-                            </a></li>
-                        </form></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="footer-widget">
-                            <h4 class="footer-widget-title">Tools</h4>
-                            <ul class="footer-menu list-style">
-                                <li><a href="https://projectandmaterials.com/blog">Blog</a></li>
-                                <li><a href="https://projectandmaterials.com/plagiarism-checker">Plagiarism Checker</a></li>
-                                <li><a href="#">Paraphraser</a></li>
-                                <li><a href="#">Re-writer</a></li>
+                                <li><a href="/resources/topics/noun-pop-past-questions">POP Exams</a></li>
+                                <li><a href="/resources/topics/noun-e-exam-past-questions">E-exams past questions/Ans</a></li>
+                                <li><a href="/resources/topics/noun-tma-past-questions-answers">TMA past questions/Ans</a></li>
+                                <li><a href="/resources/topics/100-level-course-summaries">Course summaries</a></li>
                             </ul>
                         </div>
                     </div>

@@ -231,7 +231,7 @@ $articleSchema = [
                                                 @endauth
 
                                                 <!-- These buttons always show -->
-                                                <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Cite Resources</a>
+                                                <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Cite</a>
 
                                                 @if(auth()->user() && is_favorite($resource->id))
                                                     <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Unsave </a>

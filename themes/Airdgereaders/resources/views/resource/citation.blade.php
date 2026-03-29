@@ -49,7 +49,7 @@
                                     <span>{{ $resource->title }}</span>. 
                                     <span>{{ $resource->publisher_city }}</span>: 
                                     <span>{{ $resource->publisher }}</span>, 
-                                    <span>{{ $resource->publication_year }}</span>. projectandmaterials.com. 
+                                    <span>{{ $resource->publication_year }}</span>.nounreader.com. 
                                     <span>{{ now()->format('D, d, m, Y') }}</span>
                                 </div>
                                 <div class="mb-10">
@@ -64,7 +64,7 @@
                                     <span>{{ $resource->title }}</span>.
                                     <span>{{ $resource->publisher_city }}</span>:
                                     <span>{{ $resource->publisher }}</span>,
-                                    <span>Retreived from {{ 'https://www.projectandmaterials.com' }}</span>
+                                    <span>Retreived from {{ 'nounreader.com' }}</span>
                                 </div>
                                 <div class="mb-10"><button class="btn btn-primary float-right" onclick="copy('mla7')">Copy</button></div>
 
@@ -75,7 +75,7 @@
                                     <span>({{ $resource->publication_year }})</span>
                                     <span>{{ $resource->title }}</span>.
                                     <span>{{ $resource->publisher }}.</span>,
-                                    <span>{{ 'https://www.projectandmaterials.com' }}</span>
+                                    <span>{{ 'nounreader.com' }}</span>
                                 </div>
                                 <div class="mb-10"><button class="btn btn-primary float-right" onclick="copy('mla7')">Copy</button></div>
 
@@ -86,7 +86,7 @@
                                     <span>{{ $resource->title }}</span>.
                                     <span>{{ $resource->publisher }},</span>,
                                     <span>({{ $resource->publication_year }}).</span>
-                                    <span>{{ 'https://www.projectandmaterials.com' }}</span>
+                                    <span>{{ 'nounreader.com' }}</span>
                                 </div>
                                 <div class="mb-10"><button class="btn btn-primary float-right" onclick="copy('mla7')">Copy</button></div>
 

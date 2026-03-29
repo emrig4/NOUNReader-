@@ -1,17 +1,14 @@
-@extends('layouts.public', ['title' => 'Browse Fields'])
+@extends('layouts.public', ['title' => 'About Us'])
 
 @push('meta')
-    <meta name="description" content="ReadProjectTopics is an academic database providing access to thousands of project topics and complete project materials for ND, NCE, HND, BSc, MSc, and PhD students."/>
-    <meta property="title" content="ReadProjectTopics.com – Project Topics and Research Materials">
+    <meta name="description" content="NOUN Reader is an academic resource platform that helps students access course summaries, TMA, POP past questions, and exam preparation materials in a simple and distraction-free environment."/>
+    <meta property="title" content="Nounreader – About Us">
 
-    <meta name="keywords" content="project topics, final year project topics, project materials, research materials, academic documents, project topics for students, Nigerian project topics, complete project materials PDF">
+    <meta name="keywords" content="NOUN resources, TMA answers, POP past questions, NOUN summaries, study materials Nigeria, exam preparation, NOUN Reader">
 
-    <meta property="og:title" content="ReadProjectTopics.com – Project Topics and Academic Research Materials">
-    <meta property="og:description" content="Access over 50,000 project topics and complete research materials across all academic disciplines at ReadProjectTopics.com.">
-    <meta property="og:url" content="https://projectandmaterials.com/">
-@endpush
-
-@push('css')
+    <meta property="og:title" content="Nounreader – Academic Resource Platform for NOUN Students">
+    <meta property="og:description" content="Access organised course summaries, TMA, POP, and exam preparation materials designed to help NOUN students study smarter.">
+    <meta property="og:url" content="https://nounreader.com/">
 @endpush
 
 @section('content')
@@ -24,81 +21,73 @@
             <div class="col-md-8">
                 <div class="ereaders-about-us">
 
-                    <h2><span class="ereaders-color">What Is a Project Topic?</span></h2>
+                    <h2><span class="ereaders-color">About Nounreader</span></h2>
 
                     <p>
-                        A project topic is a specific subject selected by a student for academic research.
-                        It guides the entire project work by defining what the study is about, the problem
-                        to be investigated, and the area of focus.
+                        Nounreader is an independent educational resource platform created to support students of the National Open University of Nigeria (NOUN).
+                        It provides a structured and easy-to-use environment where students can read and download academic materials without stress.
                     </p>
 
                     <p>
-                        A complete project usually includes:
-                        <strong>Chapter One</strong> (Introduction),
-                        <strong>Chapter Two</strong> (Literature Review),
-                        <strong>Chapter Three</strong> (Methodology),
-                        <strong>Chapter Four</strong> (Data Analysis and Results),
-                        and <strong>Chapter Five</strong> (Summary, Conclusion, and Recommendations).
+                        Many students face challenges accessing scattered materials and navigating complex platforms.
+                        Nounreader simplifies this process by offering organised and accessible study resources in one place.
+                    </p>
+
+                    <h2><span class="ereaders-color">What We Offer</span></h2>
+
+                    <p>
+                        The platform provides access to essential academic resources including:
+                        <strong>course summaries</strong>,
+                        <strong>POP past questions</strong>,
+                        <strong>Tutor Marked Assignments (TMA)</strong>,
+                        and <strong>exam preparation materials</strong>.
                     </p>
 
                     <p>
-                        Project topics are required for final-year projects, dissertations, and theses
-                        in universities, polytechnics, and colleges of education.
+                        These resources are designed to help students spend less time searching and more time understanding their courses.
                     </p>
 
-                    <h2><span class="ereaders-color">About PAM</span></h2>
+                    <h2><span class="ereaders-color">Why Use Nounreader?</span></h2>
 
                     <p>
-                        projectandmaterials is an online academic database that provides students with access
-                        to thousands of project topics and complete project materials across all fields of study.
-                        It serves as a central library where students can search, explore, and select suitable
-                        research topics for their academic projects.
+                        Nounreader offers a clean, distraction-free environment that supports focused studying.
+                        The platform is built to improve organisation, enhance understanding, and make exam preparation more effective.
                     </p>
 
                     <p>
-                        The platform is designed to make project work easier by helping students quickly find
-                        relevant and researchable topics without stress. Topics are organized by discipline
-                        and department for easy navigation. Students can search using keywords across
-                        <strong>over 50,000 available project materials</strong>.
+                        With flexible access across devices, students can study anytime and anywhere without interruption.
                     </p>
 
-                    <h2><span class="ereaders-color">Why Use PAM?</span></h2>
+                    <h2><span class="ereaders-color">Our Mission</span></h2>
 
                     <p>
-                        A large database of project topics from all academic disciplines, easy search using
-                        one or two keywords, suitable for ND, NCE, HND, BSc, BEd, MSc, and PhD students,
-                        topics aligned with academic standards, saves time and reduces the stress of topic
-                        selection, and supports students at every stage of project work.
+                        Our mission is to provide a reliable, structured, and distraction-free learning platform that helps students study smarter and achieve better academic results.
                     </p>
 
-                    <h2><span class="ereaders-color">Our Purpose</span></h2>
+                    <h2><span class="ereaders-color">Important Notice</span></h2>
 
                     <p>
-                        The purpose of projectandmaterials is to provide a reliable and easy-to-use academic
-                        database that helps students choose better project topics and successfully complete
-                        their research.
+                        Nounreader is an independent platform and is not affiliated with, endorsed by, or officially connected to the National Open University of Nigeria or any of its departments.
                     </p>
 
-                    <a href="https://projectandmaterials.com/resources/fields" class="ereaders-simple-btn ereaders-bgcolor">
-                        Browse Faculties <i class="fa fa-angle-right"></i>
-                    </a>
+                    <p>
+                        All materials are provided for educational and revision purposes only. Some content may be adapted or summarised to improve understanding.
+                        Students are advised to refer to official NOUN platforms for original academic materials.
+                    </p>
 
                 </div>
             </div>
 
-              <!-- RIGHT SIDE - YOUTUBE VIDEO -->
+            <!-- RIGHT SIDE - YOUTUBE VIDEO -->
             <div class="col-md-4">
                 <figure class="ereaders-about-thumb ereaders-video-container">
-                    {{-- Responsive YouTube Video Embed - Lazy Loaded for Performance --}}
                     <div class="youtube-wrapper">
                         <iframe 
                             width="560" 
                             height="315" 
-                            src="https://www.youtube.com/embed/ydkvutyjjiA?si=ymz0Z2txlkRPDJ-c" 
-                            title="YouTube video player" 
+                            src="https://www.youtube.com/embed/i4NhlezEXLg?si=uSfSfLjfJQ97LtaH" 
+                            title="Nounreader Introduction Video" 
                             frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
                             allowfullscreen
                             loading="lazy">
                         </iframe>

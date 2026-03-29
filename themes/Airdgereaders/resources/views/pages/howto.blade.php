@@ -1,23 +1,69 @@
 @extends('layouts.public', ['title' => 'Browse Fields'])
 
 @push('meta')
-    <meta name="description" content="Access thousands of project topics and materials, research works, academic documents, journals, theses, and books on ReadProjectTopics.com. Publish your research and earn through our premium program."/>
+    <meta name="description" content="Access organised NOUN study resources including course summaries, TMA, POP past questions, and exam preparation materials on Nounreader."/>
     
-    <meta property="title" content="ReadProjectTopics.com – Project Topics, Research Materials, Academic Documents">
+    <meta property="title" content="Nounreader – Study Resources and Academic Materials">
     
-    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, project topics for university students, Nigerian project topics, free project topics, complete project materials PDF">
+    <meta name="keywords" content="NOUN resources, TMA answers, POP past questions, NOUN summaries, study materials Nigeria, exam preparation, Nounreader">
 
-    <meta property="og:title" content="ReadProjectTopics.com – Project Topics and Research Materials">
-    <meta property="og:description" content="Discover project topics, academic materials, theses, journals, and research documents. Publish your works and get recognition on ReadProjectTopics.com.">
-    <meta property="og:url" content="https://projectandmaterials.com/">
+    <meta property="og:title" content="Nounreader – Academic Resource Platform">
+    <meta property="og:description" content="Access organised course summaries, TMA, POP, and exam preparation materials designed to help students study smarter.">
+    <meta property="og:url" content="https://nounreader.com/">
 @endpush
 
 @push('css')
+<style>
+    .ereaders-main-section,
+    .ereaders-main-section p,
+    .ereaders-main-section li,
+    .ereaders-main-section h2,
+    .ereaders-main-section h4 {
+        color: #000 !important;
+    }
+
+    .ereaders-main-section a {
+        color: #28a745 !important;
+    }
+
+    .ereaders-main-section a:hover {
+        color: #1e7e34 !important;
+    }
+
+    /* STEP DESIGN */
+    .step-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .step-list li {
+        background: #f8f9fa;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        border-left: 4px solid #28a745;
+        border-radius: 5px;
+    }
+
+    .step-number {
+        font-weight: bold;
+        color: #28a745;
+        margin-right: 8px;
+    }
+    
+    .ereaders-main-section h4 {
+    color: #000 !important;
+    font-weight: 700 !important;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #28a745;
+    padding-left: 10px;
+}
+</style>
 @endpush
 
 @section('content')
 
-<!--// Main Section \\-->
 <div class="ereaders-main-section ereaders-counterfull">
     <div class="container" style="width: 100%">
 
@@ -25,94 +71,76 @@
 
             <div class="col-md-12">
                 <div class="ereaders-fancy-title">
-                    <h2>Quick Guides</h2>
+                    <h2>Quick Guide</h2>
                     <div class="clearfix"></div>
                     <p>
-                        Access reliable academic resources including final year projects, thesis and  dissertations.
+                        Follow these simple steps to use Nounreader and access your study materials easily.
                     </p>
                 </div>
             </div>
 
-            <!-- LEFT SIDE – CATEGORY -->
+            <!-- LEFT -->
             <aside class="col-md-4">
                 <div class="ereaders-faq-tabs">
                     <h2 class="ereaders-widget-title">CATEGORY</h2>
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation">
-                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Students/Researchers</a>
+                            <a href="#home" role="tab" data-toggle="tab">Students</a>
                         </li>
                         <li role="presentation">
-                            <a href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">Authors/Publishers</a>
+                            <a href="#subscription" role="tab" data-toggle="tab">Credits</a>
                         </li>
                     </ul>
                 </div>
             </aside>
 
-            <!-- RIGHT SIDE – CONTENT -->
+            <!-- RIGHT -->
             <aside class="col-md-8">
                 <div class="tab-content">
 
-                    <!-- STUDENTS / RESEARCHERS -->
+                    <!-- STUDENTS -->
                     <div role="tabpanel" class="tab-pane active" id="home">
 
-                        <h4>STUDENTS / RESEARCHERS</h4>
+                        <h4>HOW TO USE NOUNREADER</h4>
 
-                        <ul>
-                            <li>
-                                <a href="https://projectandmaterials.com/login">Login</a> or 
-                                <a href="https://projectandmaterials.com/register">Register</a> on projectandmaterials
-                            </li>
-
-                            <li>
-                                Read and download unlimited 
-                                <a href="https://projectandmaterials.com/project-topics-materials">research materials</a> such as 
-                                <a href="https://projectandmaterials.com/resources/types/project">projects</a>, 
-                                <a href="https://projectandmaterials.com/resources/types/journal">thesis</a>, 
-                                 <a href="https://projectandmaterials.com/resources/types/thesis">Dissertations</a>, 
-                            </li>
-
-                            <li>
-                                To access more Project materials, buy credit units.  
-                                <a href="https://projectandmaterials.com/pricings">View credit plans.</a>
-                            </li>
+                        <ul class="step-list">
+                            <li><span class="step-number">1.</span> <a href="/login">Login</a> or <a href="/register">Create an account</a></li>
+                            <li><span class="step-number">2.</span> Search for your course (e.g., ACC419)</li>
+                            <li><span class="step-number">3.</span> Select material type (TMA, POP, or Summary)</li>
+                            <li><span class="step-number">4.</span> Click on any result to view details</li>
+                            <li><span class="step-number">5.</span> Use your credits to unlock the material</li>
+                            <li><span class="step-number">6.</span> Read online or download for study</li>
                         </ul>
-<br>
-                        <h4>QUICK SEARCH – HOW TO GET RESULTS</h4>
 
-                        <ul>
-                            <li>Scroll bellow  to the Search Project
-tittle.</li>
-                            <li>
-                                Enter your keyword (e.g., crisis, productivity, corruption, advertising).
-                            </li>
-                          
-                            <li>Click the search button.</li>
-                            <li>Review the search results.</li>
-                            <li>Access and download your preferred material.</li>
+                        <br>
+
+                        <h4>HOW TO SEARCH QUICKLY</h4>
+
+                        <ul class="step-list">
+                            <li><span class="step-number">1.</span> Go to the search section</li>
+                            <li><span class="step-number">2.</span> Enter your course code</li>
+                            <li><span class="step-number">3.</span> Choose material type</li>
+                            <li><span class="step-number">4.</span> Click search</li>
+                            <li><span class="step-number">5.</span> Review results</li>
+                            <li><span class="step-number">6.</span> Unlock with credits</li>
                         </ul>
 
                     </div>
 
-                    <!-- AUTHORS / PUBLISHERS -->
+                    <!-- CREDITS -->
                     <div role="tabpanel" class="tab-pane" id="subscription">
 
-                        <h4>AUTHORS / PUBLISHERS</h4>
+                        <h4>HOW TO BUY AND USE CREDITS</h4>
 
-                        <ul>
-                            <li>
-                                <a href="https://projects.projectandmaterials.com/login">Login</a> or 
-                                <a href="https://projects.projectandmaterials.com/register">Register</a> as an author.
-                            </li>
-
-                            <li>Click the Upload icon.</li>
-                            <li>Select your eBook (PDF or MS Word only).</li>
-                            <li>Upload and enter the required details.</li>
-                            <li>Specify preview pages (optional).</li>
-                            <li>Leave preview blank for full-read access.</li>
-                            <li>Click Publish.</li>
-                            <li>
-                                <a href="https://projectandmaterials.com/faq">View FAQs for more guidance</a>
-                            </li>
+                        <ul class="step-list">
+                            <li><span class="step-number">1.</span> Login to your account</li>
+                            <li><span class="step-number">2.</span> Go to wallet or pricing page</li>
+                            <li><span class="step-number">3.</span> Select a credit plan</li>
+                            <li><span class="step-number">4.</span> Complete payment</li>
+                            <li><span class="step-number">5.</span> Credits will be added instantly</li>
+                            <li><span class="step-number">6.</span> Use credits to unlock materials</li>
+                            <li><span class="step-number">7.</span> Top up anytime when finished</li>
+                            <li><span class="step-number">8.</span> <a href="/faq">View FAQs for help</a></li>
                         </ul>
 
                     </div>
@@ -125,7 +153,4 @@ tittle.</li>
     </div>
 </div>
 
-
-
 @endsection
-

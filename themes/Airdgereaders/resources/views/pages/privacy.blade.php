@@ -1,11 +1,11 @@
-@extends('layouts.public', ['title' => 'Browse Fields'])
+@extends('layouts.public', ['title' => 'Privacy Policy'])
 
 @push('meta')
-    <meta name="description" content="Publish your research works on the largest academia library, gain recognition and also earn through our premium program."/>
-    <meta property="title" content="ReadProjectTopics.com – Project Topics, Research Materials, Final Year Papers">
-    <meta name="keywords" content="project topics and materials, final year project topics, read project materials, read projects, download complete project materials, project and materials, research materials, academic materials, project topics for university students, Nigerian project topics, free project topics, complete project materials PDF">
-    <meta property="og:title" content="ReadProjectTopics.com – Project Topics, Research Materials, Final Year Papers">
-    <meta property="og:description" content="Publish your research works on the largest academia library, gain recognition and also earn through our premium program.">
+    <meta name="description" content="Nounreader Privacy Policy – Learn how we collect, use, and protect your personal information while using our platform."/>
+    <meta property="title" content="Nounreader – Privacy Policy">
+    <meta name="keywords" content="NOUN privacy policy, Nounreader data protection, user data policy, Nigeria student platform privacy">
+    <meta property="og:title" content="Nounreader – Privacy Policy">
+    <meta property="og:description" content="Understand how Nounreader collects, uses, and protects your personal information.">
 @endpush
 
 @push('css')
@@ -13,7 +13,6 @@
 
 @section('content')
 
-<!-- Main Section -->
 <div class="ereaders-main-section ereaders-counterfull">
     <div class="container" style="width: 100%">
 
@@ -30,100 +29,65 @@
 
                     <h4><span class="ereaders-color">Personal Information</span></h4>
                     <p>
-                        At ReadProjectTopics, one of our main priorities is the privacy of our visitors.
-                        This Privacy Policy document explains the types of information collected and recorded
-                        by ReadProjectTopics and how we use it. If you have additional questions or need more
-                        information about our Privacy Policy, please contact us.
+                        At Nounreader, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our platform.
                     </p>
                     <p>
-                        This Privacy Policy applies only to our online activities and is valid for
-                        visitors to our website regarding the information they share and/or collect
-                        on ReadProjectTopics.com. This policy does not apply to information collected offline
-                        or via channels other than this website.
+                        This policy applies only to online activities and covers information shared or collected on Nounreader. It does not apply to offline data collection or third-party platforms.
                     </p>
 
                     <h4><span class="ereaders-color">Consent</span></h4>
                     <p>
-                        By using our website (<a href="https://projectandmaterials.com/">https://projectandmaterials.com/</a>), you hereby consent to our Privacy Policy and agree to its terms.
+                        By using our website (<a href="https://nounreader.com/">https://nounreader.com/</a>), you agree to this Privacy Policy.
                     </p>
 
-                    <h4><span class="ereaders-color">Information we collect</span></h4>
+                    <h4><span class="ereaders-color">Information We Collect</span></h4>
                     <p>
-                        The personal information that you are asked to provide, and the reasons you are asked
-                        to provide it, will be made clear at the point we request it. If you contact us directly,
-                        we may receive additional information such as your name, email, phone number,
-                        the content of your message, and any attachments you may send.
+                        We may collect personal information such as your name, email address, and account details when you register or contact us.
                     </p>
                     <p>
-                        When you register for an account, we may request your contact information such as:
-                        name, company name, address, email address, and phone number.
+                        Additional information may include messages you send, support requests, and usage data to improve your experience.
                     </p>
 
-                    <h4><span class="ereaders-color">How we use your information</span></h4>
-                    <p>We use collected information to:</p>
+                    <h4><span class="ereaders-color">How We Use Your Information</span></h4>
+                    <p>We use your information to:</p>
                     <ul>
-                        <li>Provide, operate, and maintain our website</li>
-                        <li>Improve and personalize user experience</li>
-                        <li>Understand and analyze website usage</li>
-                        <li>Develop new services, features, and functionality</li>
-                        <li>Communicate with users for customer service and updates</li>
-                        <li>Send emails</li>
-                        <li>Detect and prevent fraud</li>
+                        <li>Provide and maintain our platform</li>
+                        <li>Improve user experience and functionality</li>
+                        <li>Process payments and manage credits</li>
+                        <li>Respond to support requests</li>
+                        <li>Send updates and notifications</li>
+                        <li>Prevent fraud and ensure security</li>
                     </ul>
 
                     <h4><span class="ereaders-color">Log Files</span></h4>
                     <p>
-                        ReadProjectTopics follows a standard procedure of using log files. These log
-                        visitors when they visit the website. The information collected includes:
-                        IP addresses, browser type, ISP, date/time stamp, referring pages, and clicks.
-                        None of this is linked to personally identifiable information.
+                        Like most websites, Nounreader uses log files to track visits. This may include IP address, browser type, ISP, date/time, and pages visited. This data is not linked to personal identity.
                     </p>
 
-                    <h4><span class="ereaders-color">Cookies and Web Beacons</span></h4>
+                    <h4><span class="ereaders-color">Cookies</span></h4>
                     <p>
-                        Like most websites, ReadProjectTopics uses cookies to store visitors’ preferences
-                        and the pages they access. This information is used to enhance user experience.
+                        We use cookies to improve your experience by remembering preferences and enhancing performance. You can disable cookies in your browser settings.
                     </p>
 
-                    <h4><span class="ereaders-color">Google DoubleClick DART Cookie</span></h4>
+                    <h4><span class="ereaders-color">Third-Party Services</span></h4>
                     <p>
-                        Google uses DART cookies to serve ads to visitors based on their activities across
-                        websites. Users may opt out by visiting Google’s ad policy:
-                        <a href="https://policies.google.com/technologies/ads">Google Ads Policy</a>.
+                        We may use third-party services such as payment processors and analytics tools. These services may collect data according to their own privacy policies.
                     </p>
 
-                    <h4><span class="ereaders-color">Advertising Partners Privacy Policies</span></h4>
-                    <p>
-                        Third-party ad networks may use technologies like cookies, JavaScript, or web beacons
-                        for advertising on ReadProjectTopics. These automatically receive your IP address.
-                        ReadProjectTopics has no access or control over these cookies.
-                    </p>
-
-                    <h4><span class="ereaders-color">CCPA Privacy Rights</span></h4>
-                    <p>
-                        California users have rights to request disclosure, deletion, or opt-out of sale of data.
-                        To exercise any CCPA rights, please contact us.
-                    </p>
-
-                    <h4><span class="ereaders-color">GDPR Data Protection Rights</span></h4>
-                    <p>You are entitled to the following rights:</p>
+                    <h4><span class="ereaders-color">Your Rights</span></h4>
+                    <p>You have the right to:</p>
                     <ul>
-                        <li>The right to access your stored data</li>
-                        <li>The right to rectification</li>
-                        <li>The right to erasure</li>
-                        <li>The right to restrict processing</li>
-                        <li>The right to object to processing</li>
-                        <li>The right to data portability</li>
+                        <li>Access your personal data</li>
+                        <li>Request correction or deletion</li>
+                        <li>Restrict or object to data processing</li>
                     </ul>
                     <p>
-                        If you make a request, we will respond within one month. Contact us to exercise these rights.
+                        To exercise these rights, please contact us.
                     </p>
 
                     <h4><span class="ereaders-color">Children's Information</span></h4>
                     <p>
-                        ReadProjectTopics does not knowingly collect personal information from children under 13.
-                        If you believe your child has provided such information, please contact us so we can
-                        remove it promptly.
+                        Nounreader does not knowingly collect personal information from children under 13. If such data is found, we will remove it promptly.
                     </p>
 
                 </div>
@@ -136,4 +100,3 @@
 </div>
 
 @endsection
-

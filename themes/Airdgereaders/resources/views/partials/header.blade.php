@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="mobile-action-buttons d-flex flex-column flex-md-row align-items-center justify-content-end mt-3 mt-md-0">
-                            <a href="https://projectandmaterials.com/search-topic"
+                            <a href="/search-topic"
                                class="ereaders-upload-btn ereaders-bgcolor h-8 mobile-btn mb-2 mb-md-0 mr-md-2"
                                style="color:#23A455;">
                                 Search
