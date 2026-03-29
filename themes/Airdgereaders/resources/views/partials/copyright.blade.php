@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p><i class="fa fa-copyright"></i> 2026, All Right Reserved {{ setting('default_currency') }}<a href="https://projectandmaterials.com/">readprojecttopics</a></p>
+                <p><i class="fa fa-copyright"></i> 2026, All Right Reserved {{ setting('') }}<a href="https://nounreader.com/"> NOUNREADER</a></p>
 
 
                 <ul class="footer-social-network">

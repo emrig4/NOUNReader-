@@ -208,25 +208,25 @@ $articleSchema = [
                                                 <!-- Read button - visible to everyone -->
                                                 <!-- For guests: store intended URL before redirecting to login -->
                                                 @auth
-                                                    <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resources</a>
+                                                    <a href="{{ route('resources.read', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">READ ONLINE</a>
                                                 @else
-                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Read Resources</a>
+                                                    <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.read', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">READ ONLINE</a>
                                                 @endauth
 
                                                 <!-- Download button - NOW visible to everyone -->
                                                 <!-- For guests: redirect to login with intended URL -->
                                                 @auth
                                                     @if($resource->price > 0 && $resource->currency)
-                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resources</a>
+                                                        <a data-toggle="modal" data-target="#downloadresourcemodal" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">DOWNLOAD</a>
                                                     @else
-                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download Resources</a>
+                                                        <a href="{{ route('resources.freedownload', $resource->slug) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">DOWNLOAD </a>
                                                     @endif
                                                 @else
                                                     {{-- Guest: redirect to login with intended URL, then to download --}}
                                                     @if($resource->price > 0 && $resource->currency)
-                                                        <a href="{{ route('login') }}?redirect_to={{ urlencode(route('pricings.index')) }}" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">Download</a>
+                                                        <a href="{{ route('login') }}?redirect_to={{ urlencode(route('pricings.index')) }}" class="ereaders-detail-btn cursor-pointer btn-primary" style="display: inline-block; margin-bottom: 8px;">DOWNLOAD</a>
                                                     @else
-                                                        <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.freedownload', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">Download</a>
+                                                        <a href="{{ route('login') }}?redirect_to={{ urlencode(route('resources.freedownload', $resource->slug)) }}" class="ereaders-detail-btn btn-primary" style="display: inline-block; margin-bottom: 8px;">DOWNLOAD</a>
                                                     @endif
                                                 @endauth
 
@@ -234,9 +234,9 @@ $articleSchema = [
                                                 <a href="{{ route('resources.cite', $resource->slug) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Cite Resources</a>
 
                                                 @if(auth()->user() && is_favorite($resource->id))
-                                                    <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Unsave Resources</a>
+                                                    <a href="{{ route('account.favorites.remove', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Unsave </a>
                                                 @else
-                                                    <a href="{{ route('account.favorites.add', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Save Resources</a>
+                                                    <a href="{{ route('account.favorites.add', $resource->id) }}" class="ereaders-detail-btn" style="display: inline-block; margin-bottom: 8px;">Save</a>
                                                 @endif
 
                                                 @if(auth()->user())
@@ -362,10 +362,10 @@ $articleSchema = [
                                     <div class="clearfix"></div>
                                     <div class="mb-5" style="text-align: left;">
                                         <p class="text-muted">This document may be under review or no longer available.</p>
-                        <p>Publishing project materials helps you establish your position as an expert in your field of knowledge. </p>
-                        <p>The solid body of the published projects will help you advance your career as you will be subject to academic appointments and promotions, also helps you establish your position as an expert in your field of knowledge and preserve your work in the permanent records of research database.</p>
-                        <p>Published works can contribute to the general understanding of  research questions. </p>
-                                        <aside class="col-md-6"><div class="ereaders-author-thumb"><img src="{{ asset('themes/airdgereaders/images/rpt.png') }}" alt=""></div></aside>
+                        <p>New materials are added regularly, so please check back later or continue browsing other courses. </p>
+                        <p>Be part of the community — upload and share  materials on NounReader to help others.</p>
+                        <p>    Sharing useful materials helps improve understanding and supports academic success for everyone.</p>
+                                        <aside class="col-md-6"><div class="ereaders-author-thumb"><img src="{{ asset('themes/airdgereaders/images/Nounreader.webp') }}" alt=""></div></aside>
                                         <!-- Action Buttons - Left Aligned -->
                                         <div class="text-left" style="margin-top: 15px;">
                                              <a href="{{ route('resources.index') }}" class="ereaders-detail-btn">Browse Other Documents</a>

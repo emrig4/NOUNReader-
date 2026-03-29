@@ -188,7 +188,7 @@ $websiteSchema = [
         </p>
 
         <p>
-           Built with flexibility in mind, the platform allows students to conveniently access course materials, POP past questions, TMA resources, and exam preparation documents anytime, anywhere. The interface is structured to support efficient studying, helping learners spend less time searching and more time understanding their subjects.
+           Built with flexibility in mind, the platform allows students to conveniently access course summaries, POP past questions, TMA resources, and exam preparation documents anytime, anywhere. The interface is structured to support efficient studying, helping learners spend less time searching and more time understanding their subjects.
         </p>
 
         <p>
@@ -255,17 +255,36 @@ $websiteSchema = [
         <div class="container">
             <div class="row">
 
-                <aside class="col-md-6"><div class="ereaders-author-thumb"><img src="{{theme_asset('extra-images/Nounreader.webp')}}" alt=""></div></aside>
+              <aside class="col-md-6">
+    <div class="home-video-container">
+        <div class="youtube-wrapper">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/i4NhlezEXLg?si=uSfSfLjfJQ97LtaH" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen
+                loading="lazy"
+                aria-label="Project Topics and Materials introduction video">
+            </iframe>
+        </div>
+    </div>
+</aside>
                 <aside class="col-md-6">
                     <div class="ereaders-author-text">
-                        <h2><span>Disclaimer</span></h2>
-                         
-                        <p>NOUN Reader is an independent educational resource platform created to support students of the National Open University of Nigeria. This platform is not affiliated with, endorsed by, or officially connected to the National Open University of Nigeria or any of its departments.</p>  
+                        <h2><span>Nounreader Disclaimer</span></h2>
+                        <p>NOUN Reader is an independent educational resource platform created to support students of the National Open University of Nigeria (NOUN). This platform is not affiliated with, endorsed by, or officially connected to the National Open University of Nigeria or any of its departments.</p>  
                         <p>
-                           All materials provided on this website, including past questions and study resources, are made available strictly for educational and revision purposes. 
+                           All materials provided on this website, including past questions, Tutor Marked Assignments (TMA), and study resources, are compiled and presented solely for educational and revision purposes.
                         </p>
                         <p>
-                            The content is intended to assist students in their academic preparation and personal study.
+                          Some content may be adapted, summarized, or reconstructed to enhance understanding and support effective exam preparation. NOUN Reader does not claim ownership of any official NOUN materials.
+                        </p>
+                        <p>
+                           Users are advised to refer to official NOUN platforms for original course materials and authoritative academic information. This platform is intended strictly as a supplementary learning tool to assist students in their personal study and exam preparation.
                         </p>
                        
                         
@@ -277,43 +296,68 @@ $websiteSchema = [
     </div>
     <!--// Main Section \\-->
     <!--// Main Section \\-->
-    <div class="ereaders-main-section ereaders-testimonialfull">
-        <div class="container">
-            <div class="row">
+<div class="ereaders-main-section ereaders-testimonialfull">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-md-12">
-                    <div class="ereaders-testimonial">
-                        <div class="ereaders-testimonial-wrap">
-                            <div class="ereaders-fancy-title"><h2>What People Say</h2></div>
-                            <div class="ereaders-testimonial-slide">
-                                <div class="ereaders-testimonial-slide-layer">
-                                    <figure><img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="Jessica Mann - University of Abuja testimonial"></figure>
-                                    <div class="ereaders-testimonial-text">
-                                        <h3><a href="{{ url('/') }}">Jessica Mann</a></h3>
-                                        <span>University of Abuja</span>
-                                        <p>"projectandmaterials enable me to access different resources which includes Project, thesis, dissertation, journal and other resources which I was able to compare and gather informations related to my topic." </p>
-                                    </div>
-                                </div>
-                                <div class="ereaders-testimonial-slide-layer">
-                                    <figure><img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="Maria Okiptu - Federal University of Technology, Minna testimonial"></figure>
-                                    <div class="ereaders-testimonial-text">
-                                        <h3><a href="{{ url('/') }}">Maria Okiptu</a></h3>
-                                        <span>Federal University of Technology, Minna</span>
-                                        <p>" With projectandmaterials I was able to write my final year project topic as it makes the process more easier, it gives me access to  projects from various departments.</p>
-                                    </div>
-                                </div>
-                                <div class="ereaders-testimonial-slide-layer">
-                                    <figure><img src="{{ asset('themes/airdgereaders/images/male.png') }}" alt="JOSEPH KUREH - Imo State University testimonial"></figure>
-                                    <div class="ereaders-testimonial-text">
-                                        <h3><a href="{{ url('/') }}">JOSEPH KUREH</a></h3>
-                                        <span>Imo State University</span>
-                                        <p>"Would recommend projectandmaterials to others because  it was a good source to my research which make my work easier.</p>
-                                    </div>
+            <div class="col-md-12">
+                <div class="ereaders-testimonial">
+                    <div class="ereaders-testimonial-wrap">
+                        <div class="ereaders-fancy-title"><h2>What NOUN Students Say</h2></div>
+
+                        <div class="ereaders-testimonial-slide">
+
+                            <!-- TESTIMONY 1 -->
+                            <div class="ereaders-testimonial-slide-layer">
+                                <figure>
+                                    <img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="Chioma Okafor - NOUN testimonial">
+                                </figure>
+                                <div class="ereaders-testimonial-text">
+                                    <h3><a href="{{ url('/') }}">Chioma Okafor</a></h3>
+                                    <span>National Open University of Nigeria</span>
+                                    <p>
+                                        "NOUN Reader made it so easy for me to read and download my course summaries without stress. Everything is well arranged, and I no longer waste time searching for materials."
+                                    </p>
                                 </div>
                             </div>
+
+                            <!-- TESTIMONY 2 -->
+                            <div class="ereaders-testimonial-slide-layer">
+                                <figure>
+                                    <img src="{{ asset('themes/airdgereaders/images/female.png') }}" alt="Aisha Bello - NOUN testimonial">
+                                </figure>
+                                <div class="ereaders-testimonial-text">
+                                    <h3><a href="{{ url('/') }}">Aisha Bello</a></h3>
+                                    <span>National Open University of Nigeria</span>
+                                    <p>
+                                        "I use NOUN Reader to read and download POP past questions and TMA past questions with answers. It’s very straightforward, and it helps me prepare better without confusion."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- TESTIMONY 3 -->
+                            <div class="ereaders-testimonial-slide-layer">
+                                <figure>
+                                    <img src="{{ asset('themes/airdgereaders/images/male.png') }}" alt="Emeka Nwankwo - NOUN testimonial">
+                                </figure>
+                                <div class="ereaders-testimonial-text">
+                                    <h3><a href="{{ url('/') }}">Emeka .C. Nwankwo</a></h3>
+                                    <span>National Open University of Nigeria</span>
+                                    <p>
+                                        "What I like most about NOUN Reader is how easy it is to read online or download everything I need. From course summaries to past questions."
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--// Main Section \\-->
 
             </div>
         </div>
@@ -336,7 +380,7 @@ $websiteSchema = [
                 <div class="col-md-6">
                     <div class="ereaders-app-text">
                         <p>NOUN Reader is a modern academic resource platform built to enhance how students engage with their study materials. Recognising the challenges learners face with fragmented content and distracting interfaces, NOUN Reader delivers a structured, accessible, and distraction-free learning experience. </p>
-                        <p>Students can conveniently read and download curated educational resources, including course materials, POP past questions, TMA references, and examination preparation documents. The platform’s design promotes organisation, efficiency, and focused study sessions.</p>
+                        <p>Students can conveniently read and download curated educational resources, including course summaries, POP past questions, TMA references, and examination preparation documents. The platform’s design promotes organisation, efficiency, and focused study sessions.</p>
                         <p>By eliminating intrusive advertisements, NOUN Reader maintains a calm digital environment that supports deeper concentration and better retention. The mission of NOUN Reader is to provide flexibility, clarity, and reliability — empowering students to prepare smarter and study with confidence.</p>
                         <div class="">
                             <a href="#" class="ereaders-fancy-btn flex" rel="nofollow"><i class="icon ereaders-apple-logo" aria-hidden="true"></i> <span><small>GET IT ON</small><br> AppStore</span></a>
