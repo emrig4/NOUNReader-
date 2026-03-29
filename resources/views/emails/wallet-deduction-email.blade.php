@@ -227,10 +227,10 @@
     <p>This is an automated welcome message.</p>
 
     <div class="footer-brand">
-        <a href="https://projectandmaterials.com/"
+        <a href="https://nounreader.com"
            target="_blank"
            style="color:#3b82f6; text-decoration:none; font-weight:bold;">
-            Projectandmaterials – Your Academic Resource Platform
+                       NounReader - Your Noun study companion
         </a>
     </div>
 </div>

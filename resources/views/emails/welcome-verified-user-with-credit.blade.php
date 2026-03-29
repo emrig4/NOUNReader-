@@ -146,7 +146,7 @@
     <!-- HEADER WITH TOP LOGO -->
     <div class="header">
         <div class="logo">
-            <img src="https://projectandmaterials.com/themes/airdgereaders/images/projectandmaterials.logo.png" alt="NounReader Logo">
+            <img src="{{ asset('themes/airdgereaders/images/nounreader-logo-main.svg') }} alt="NounReader Logo">
         </div>
         <div class="title">Welcome to NounReader!</div>
         <div class="subtitle">Email Verified • Account Activated</div>
@@ -154,7 +154,7 @@
 
     <!-- MAIN CENTER LOGO -->
     <div class="main-logo">
-        <img src="https://projectandmaterials.com/themes/airdgereaders/images/Projectandmaterials.webp" alt="NounReader">
+        <img src="{{ asset('themes/airdgereaders/images/nounreader-logo-main.svg') }} alt="NounReader">
     </div>
 
     <!-- CONTENT -->
